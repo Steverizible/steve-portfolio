@@ -9,7 +9,6 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Motivation from "@/components/Motivation";
-import SelectedWork from "@/components/SelectedWork";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
       <main className="w-full">
         <Hero />
         <FeaturedWork />
-        <SelectedWork />
         <About />
         <Expertise />
         <Motivation />

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
+import Button from "@/components/Button";
 import { featuredWork, projects } from "@/lib/site-data";
 
 export default function FeaturedWork() {
@@ -29,12 +29,9 @@ export default function FeaturedWork() {
         </div>
 
         <div className="mt-14 flex justify-center lg:mt-20">
-          <Link
-            href={featuredWork.moreProjectsCta.href}
-            className="rounded-full bg-foreground px-8 py-3 text-xs font-semibold uppercase tracking-wide text-background transition-opacity hover:opacity-90"
-          >
+          <Button href={featuredWork.moreProjectsCta.href} variant="solid">
             {featuredWork.moreProjectsCta.label}
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

@@ -8,6 +8,8 @@
   --border: rgba(26, 26, 26, 0.1);
   --card: #eeeee9;
   --accent-green: #3d9e47;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-premium: 0.45s;
 }
 
 @theme inline {
@@ -25,4 +27,195 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-instrument-sans), system-ui, sans-serif;
+}
+
+/* Page transition when navigating to project pages */
+body.page-transition-out {
+  opacity: 0;
+  transition: opacity 0.38s var(--ease-premium);
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-in {
+  animation: page-in 0.55s var(--ease-premium) both;
+}
+
+/* Premium button transitions */
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition:
+    background-color var(--duration-premium) var(--ease-premium),
+    color var(--duration-premium) var(--ease-premium),
+    border-color var(--duration-premium) var(--ease-premium),
+    transform var(--duration-premium) var(--ease-premium),
+    box-shadow var(--duration-premium) var(--ease-premium);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+.btn-solid {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: 2px solid var(--foreground);
+}
+
+.btn-solid:hover {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 2px solid var(--foreground);
+}
+
+.btn-outline:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+/* Four-dot menu trigger */
+.menu-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 3px);
+  gap: 3px;
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.menu-trigger:hover .menu-dots {
+  transform: rotate(24deg) scale(1.05);
+}
+
+.menu-trigger.is-active .menu-dots {
+  transform: rotate(45deg) scale(1.08);
+}
+
+.menu-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: var(--foreground);
+  transition: transform 0.5s var(--ease-premium);
+}
+
+/* Logo ticker marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: marquee-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+
+  .animate-page-in {
+    animation: none;
+  }
+
+  body.page-transition-out {
+    transition: none;
+  }
+
+  .btn-premium:hover {
+    transform: none;
+  }
+
+  .menu-trigger:hover .menu-dots,
+  .menu-trigger.is-active .menu-dots {
+    transform: none;
+  }
+}
+
+/* Custom cursor — desktop only */
+body.custom-cursor-enabled,
+body.custom-cursor-enabled a,
+body.custom-cursor-enabled button {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition:
+    width 0.38s var(--ease-premium),
+    height 0.38s var(--ease-premium),
+    border-radius 0.38s var(--ease-premium),
+    opacity 0.25s ease,
+    background-color 0.38s var(--ease-premium);
+  will-change: transform, width, height;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-view {
+  width: 72px;
+  height: 32px;
+  border-radius: 9999px;
+}
+
+.custom-cursor-label {
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.3s var(--ease-premium),
+    transform 0.3s var(--ease-premium);
+}
+
+.custom-cursor.is-view .custom-cursor-label {
+  opacity: 1;
+  transform: scale(1);
 }

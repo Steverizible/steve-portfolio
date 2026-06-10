@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
+import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteMeta } from "@/lib/site-data";
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${instrumentSans.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

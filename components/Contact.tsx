@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/Button";
 import { sectionImages } from "@/lib/images";
 import { contact } from "@/lib/site-data";
 
@@ -28,12 +29,11 @@ export default function Contact() {
             {contact.description}
           </p>
 
-          <Link
-            href={contact.cta.href}
-            className="mt-10 rounded-full bg-foreground px-8 py-3 text-xs font-semibold uppercase tracking-wide text-background transition-opacity hover:opacity-90"
-          >
-            {contact.cta.label}
-          </Link>
+          <div className="mt-10">
+            <Button href={contact.cta.href} variant="solid">
+              {contact.cta.label}
+            </Button>
+          </div>
 
           <ul className="mt-10 flex flex-wrap items-center justify-center gap-6">
             {contact.social.map((social) => (

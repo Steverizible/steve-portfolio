@@ -76,13 +76,14 @@ export const navigation = {
     { label: "Contact", href: "#contact" },
   ] satisfies NavLink[],
   overlayLinks: [
-    { label: "Home", href: "/" },
-    { label: "Work", href: "/work", badge: "2" },
+    { label: "Home", href: "#top" },
+    { label: "Work", href: "#work" },
+    { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ] satisfies NavLink[],
   contactCta: {
     label: "Contact now",
-    href: "#contact",
+    href: "/#contact",
   },
   availabilityLabel: "Available for freelance",
 } as const;
@@ -296,14 +297,18 @@ export const featuredWork = {
   description:
     "My creative spirit thrives in the digital space, where I combine storytelling, design, and strategic innovation to craft impactful brand experiences that connect and inspire.",
   projectIds: [
-    "veldskoen-packaging",
-    "slyde-handboards",
     "multi-business",
+    "slyde-handboards",
+    "veldskoen-packaging",
     "rizible",
+    "portfolio-2008",
+    "rachel-zoe",
+    "veldskoen-print",
+    "the-grom",
   ],
   moreProjectsCta: {
     label: "See more projects",
-    href: "/work",
+    href: "/projects",
   },
 } as const;
 
@@ -350,15 +355,35 @@ export const moreAboutSteve = {
     label: "Read more about me",
     href: "/about",
   },
-  mediaLogos: [
-    "Slyde",
-    "Shark Tank",
-    "ABC",
-    "Forbes",
-    "Disney",
-    "Patagonia",
-    "REI",
-  ],
+} as const;
+
+export type LogoTickerItem = {
+  id: string;
+  label: string;
+  imageSrc?: string;
+};
+
+export const logoTicker = {
+  items: [
+    { id: "gma", label: "Good Morning America" },
+    { id: "curateur", label: "Curateur" },
+    { id: "dicks", label: "Dick's Sporting Goods" },
+    { id: "ual", label: "UAL Central Saint Martins" },
+    { id: "happybond", label: "Happy Bond" },
+    {
+      id: "veldskoen",
+      label: "Veldskoen",
+      imageSrc: "/images/projects/veldskoen-packaging.png",
+    },
+    { id: "slyde", label: "Slyde" },
+    { id: "thula-tula", label: "Thula Tula" },
+    { id: "forbes", label: "Forbes" },
+    { id: "shark-tank", label: "Shark Tank" },
+    { id: "abc", label: "ABC" },
+    { id: "patagonia", label: "Patagonia" },
+    { id: "rei", label: "REI" },
+    { id: "disney", label: "Disney" },
+  ] satisfies LogoTickerItem[],
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -692,9 +717,9 @@ export const contact = {
     },
   ],
   footerNav: [
-    { label: "Work", href: "/work" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#work" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
   ] satisfies NavLink[],
   backToTopLabel: "Go back to top",
 } as const;
