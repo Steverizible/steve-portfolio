@@ -6,7 +6,7 @@ import { contact } from "@/lib/site-data";
 export default function Contact() {
   return (
     <section className="border-b border-border bg-white" id={contact.id}>
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="flex flex-col items-center text-center">
           <div className="relative h-40 w-40 overflow-hidden rounded-full border border-border md:h-48 md:w-48">
             <Image

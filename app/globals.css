@@ -2,18 +2,22 @@
 
 :root {
   --background: #f4f4f2;
+  --hero-background: #f0f0ee;
   --foreground: #1a1a1a;
-  --muted: #6b6b6b;
+  --muted: #8a8a8a;
   --border: rgba(26, 26, 26, 0.1);
   --card: #eeeee9;
+  --accent-green: #3d9e47;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-hero-background: var(--hero-background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-card: var(--card);
+  --color-accent-green: var(--accent-green);
   --font-sans: var(--font-instrument-sans);
 }
 

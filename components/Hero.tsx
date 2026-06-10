@@ -1,35 +1,116 @@
+"use client";
+
 import Link from "next/link";
-import { hero } from "@/lib/site-data";
+import { useEffect, useState } from "react";
+import { NavOverlay } from "@/components/Header";
+import { hero, navigation } from "@/lib/site-data";
+
+function formatLocalTime() {
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+}
+
+function DotGridIcon() {
+  return (
+    <span className="grid grid-cols-2 gap-[3px]" aria-hidden="true">
+      {[0, 1, 2, 3].map((i) => (
+        <span key={i} className="h-[3px] w-[3px] rounded-full bg-foreground" />
+      ))}
+    </span>
+  );
+}
 
 export default function Hero() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    setTime(formatLocalTime());
+    const interval = setInterval(() => setTime(formatLocalTime()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24 lg:py-32">
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-[clamp(3rem,12vw,9rem)] font-bold uppercase leading-[0.9] tracking-tight">
+    <>
+      <section className="relative flex min-h-screen w-full flex-col bg-hero-background">
+        {/* Top row */}
+        <div className="grid w-full grid-cols-3 items-center px-6 pt-6 md:px-10 md:pt-8 lg:px-14">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
+            {navigation.localPrefix}
+            {time || "—"}
+          </p>
+
+          <div className="flex justify-center">
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              className="flex h-8 w-8 items-center justify-center"
+              aria-label="Open menu"
+            >
+              <DotGridIcon />
+            </button>
+          </div>
+
+          <div className="flex justify-end">
+            <Link
+              href={navigation.contactCta.href}
+              className="rounded-full bg-foreground px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-background md:text-xs"
+            >
+              Contact now
+            </Link>
+          </div>
+        </div>
+
+        {/* Center */}
+        <div className="flex flex-1 flex-col items-center justify-center px-6 py-10 md:px-10 lg:px-14">
+          <p className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-muted md:text-xs">
+            <span
+              className="h-2 w-2 shrink-0 rounded-full bg-accent-green"
+              aria-hidden="true"
+            />
+            {navigation.availabilityLabel}
+          </p>
+
+          <h1
+            className="mt-6 text-center text-[clamp(3.5rem,14vw,10.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-foreground"
+          >
             {hero.headline}
           </h1>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.35em] text-muted md:text-base">
+
+          <p
+            className="mt-2 text-center text-[clamp(1.25rem,4.5vw,3.75rem)] font-bold uppercase leading-tight tracking-tight text-muted md:mt-4"
+          >
             {hero.tagline}
           </p>
-          <div className="mt-10 w-full max-w-3xl border-t border-border pt-6">
-            <div className="flex flex-col items-center justify-between gap-4 text-xs font-medium uppercase tracking-wide text-muted sm:flex-row">
-              <p>{hero.locationLabel}</p>
-              <p>
-                {hero.roles[0]}
-                <span className="mx-2 text-border">+</span>
-                {hero.roles[1]}
-              </p>
-            </div>
-          </div>
-          <Link
-            href={hero.cta.href}
-            className="mt-10 hidden rounded-full border-2 border-foreground px-8 py-3 text-xs font-semibold uppercase tracking-wide transition-colors hover:bg-foreground hover:text-background sm:inline-block"
-          >
-            {hero.cta.label}
-          </Link>
         </div>
-      </div>
-    </section>
+
+        {/* Bottom row */}
+        <div className="flex w-full items-end justify-between px-6 pb-6 md:px-10 md:pb-8 lg:px-14">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
+            {hero.locationLabel.replace(",", "")}
+          </p>
+          <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
+            {hero.roles[0]} + {hero.roles[1]}
+          </p>
+        </div>
+      </section>
+
+      <NavOverlay
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        time={time}
+      />
+    </>
   );
 }

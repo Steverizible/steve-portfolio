@@ -6,7 +6,7 @@ import { moreAboutSteve } from "@/lib/site-data";
 export default function About() {
   return (
     <section className="border-b border-border" id="about">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
           {moreAboutSteve.title}
         </h2>

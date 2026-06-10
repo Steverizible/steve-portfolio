@@ -3,12 +3,12 @@ import { faq } from "@/lib/site-data";
 export default function FAQ() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <h2 className="text-center text-3xl font-bold uppercase tracking-tight md:text-4xl">
           {faq.title}
         </h2>
 
-        <div className="mx-auto mt-10 flex flex-wrap justify-center gap-2">
+        <div className="mt-10 flex flex-wrap justify-center gap-2">
           {faq.topics.map((topic) => (
             <span
               key={topic.id}
@@ -19,7 +19,7 @@ export default function FAQ() {
           ))}
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl divide-y divide-border border-y border-border">
+        <div className="mt-12 divide-y divide-border border-y border-border lg:px-24">
           {faq.items.map((item) => (
             <details key={item.id} className="group">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-medium md:py-6">

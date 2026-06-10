@@ -4,7 +4,7 @@ import { contact, siteMeta } from "@/lib/site-data";
 export default function Footer() {
   return (
     <footer className="bg-background">
-      <div className="mx-auto max-w-7xl px-6 pt-10 md:px-10 md:pt-16">
+      <div className="w-full px-6 pt-10 md:px-10 md:pt-16 lg:px-14">
         <div className="overflow-hidden">
           <p
             className="text-[clamp(3.5rem,18vw,12rem)] font-bold uppercase leading-[0.85] tracking-tight text-foreground"

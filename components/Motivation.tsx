@@ -5,7 +5,7 @@ import { motivation } from "@/lib/site-data";
 export default function Motivation() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <h2 className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
           {motivation.title}
         </h2>

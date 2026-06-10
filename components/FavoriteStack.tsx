@@ -5,7 +5,7 @@ import { favoriteStack } from "@/lib/site-data";
 export default function FavoriteStack() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
           <h2 className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
             {favoriteStack.title}
