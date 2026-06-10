@@ -13,6 +13,7 @@ export const projectImages: Record<string, string> = {
 export const sectionImages = {
   about: "/images/about/steve.avif",
   motivation: "/images/motivation/motivation.avif",
+  motivationSignature: "/images/motivation/signature.png",
   experience: "/images/experience/experience.avif",
 } as const;
 

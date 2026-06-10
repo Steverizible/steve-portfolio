@@ -497,12 +497,35 @@ export const expertise = {
 // 7. Motivation
 // ---------------------------------------------------------------------------
 
+export type MotivationTextPart = {
+  text: string;
+  bold?: boolean;
+};
+
 export const motivation = {
   title: "Motivation",
   paragraphs: [
-    "As a Founder, Creative Director, and Brand Strategist, I'm passionate about transforming ideas into powerful brand experiences. With over 15 years of leadership, I've built and scaled brands like Veldskoen USA, Thula Tula, and Slyde Handboards — merging design, storytelling, and business strategy to drive engagement and growth.",
-    "I thrive on crafting visual narratives that connect, guiding teams to execute innovative solutions that elevate brand identity and customer experience. Fueled by creativity and strategy, my mission is to shape brands that inspire, resonate, and lead in their industries.",
-  ],
+    [
+      { text: "As a " },
+      { text: "Founder, Creative Director, and Brand Strategist", bold: true },
+      {
+        text: ", I'm passionate about transforming ideas into powerful brand experiences. With over ",
+      },
+      { text: "15 years of leadership", bold: true },
+      { text: ", I've built and scaled brands like " },
+      { text: "Veldskoen USA, Thula Tula, and Slyde Handboards", bold: true },
+      { text: ", merging " },
+      { text: "design, storytelling, and business strategy", bold: true },
+      { text: " to drive engagement and growth." },
+    ],
+    [
+      { text: "I thrive on crafting " },
+      { text: "visual narratives that connect", bold: true },
+      {
+        text: ", guiding teams to execute innovative solutions that elevate brand identity and customer experience. Fueled by creativity and strategy, my mission is to shape brands that inspire, resonate, and lead in their industries.",
+      },
+    ],
+  ] satisfies MotivationTextPart[][],
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -524,19 +547,23 @@ export const experience = {
       id: "slyde-handboards",
       company: "Slyde Handboards",
       role: "Founder + Creative Director",
-      period: "2010–2024",
+      period: "2010 – 2024",
+      description:
+        "At Slyde Handboards, I built a million-dollar brand from the ground up, securing $500K in funding from Mark Cuban and Ashton Kutcher. I led branding, product development, and multi-channel marketing, using Facebook ads, email, and storytelling to drive growth. Through strategic partnerships and UX/UI optimization, I boosted conversions, expanded market reach, and earned features in Forbes and The New York Times.",
     },
     {
       id: "veldskoen",
       company: "Veldskoen",
       role: "Founder + Creative Director",
-      period: "2018–2024",
+      period: "2018 – 2024",
+      description:
+        "At Veldskoen USA, I transformed a startup into a $250K/month brand within a year through strategic storytelling, digital marketing, and eCommerce optimization. Managing a $30K/month ad budget, I leveraged Facebook and Google Ads, influencer partnerships, and data-driven campaigns to maximize ROI. I also enhanced the brand's identity, customer experience, and sustainability efforts, positioning Veldskoen as a globally recognized lifestyle brand.",
     },
     {
       id: "happybond",
       company: "Happybond",
       role: "Paid Media Consultancy",
-      period: "2023–2024",
+      period: "2023 – 2024",
       description:
         "Led explosive growth at Happybond, scaling monthly revenue from $5K to $50K in just a few months through paid media, organic marketing, and high-converting email campaigns.",
     },
@@ -544,7 +571,7 @@ export const experience = {
       id: "ilan-dei",
       company: "Ilan Dei",
       role: "Junior Designer",
-      period: "2008–2010",
+      period: "2008 – 2010",
       description:
         "Started my career as a Junior Designer at Ilan Dei, honing skills in product design, branding, and creative storytelling.",
     },

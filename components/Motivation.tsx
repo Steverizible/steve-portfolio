@@ -1,34 +1,50 @@
 import Image from "next/image";
 import RevealHeading from "@/components/RevealHeading";
 import { sectionImages } from "@/lib/images";
-import { motivation } from "@/lib/site-data";
+import { motivation, type MotivationTextPart } from "@/lib/site-data";
+
+function MotivationParagraph({ parts }: { parts: readonly MotivationTextPart[] }) {
+  return (
+    <p className="text-base leading-relaxed md:text-lg">
+      {parts.map((part, index) =>
+        part.bold ? (
+          <span key={index} className="font-bold text-foreground">
+            {part.text}
+          </span>
+        ) : (
+          <span key={index}>{part.text}</span>
+        )
+      )}
+    </p>
+  );
+}
 
 export default function Motivation() {
   return (
-    <section className="border-b border-border">
+    <section className="border-b border-border bg-background">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
-          {motivation.title}
-        </RevealHeading>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
+          <RevealHeading
+            className="text-4xl font-bold uppercase tracking-tight md:text-5xl lg:text-6xl"
+          >
+            {motivation.title}
+          </RevealHeading>
 
-        <div className="mt-10 overflow-hidden rounded-xl border border-border">
-          <div className="relative aspect-[21/9] w-full min-h-[200px] bg-card">
-            <Image
-              src={sectionImages.motivation}
-              alt="Motivation"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
+          <div className="space-y-6">
+            {motivation.paragraphs.map((paragraph, index) => (
+              <MotivationParagraph key={index} parts={paragraph} />
+            ))}
+
+            <div className="pt-4">
+              <Image
+                src={sectionImages.motivationSignature}
+                alt="Steve Watts signature"
+                width={160}
+                height={48}
+                className="h-10 w-auto invert md:h-12"
+              />
+            </div>
           </div>
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2 md:gap-10">
-          {motivation.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 40)} className="text-base leading-relaxed text-muted md:text-lg">
-              {paragraph}
-            </p>
-          ))}
         </div>
       </div>
     </section>
