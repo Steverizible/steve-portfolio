@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Motivation from "@/components/Motivation";
+import MotivationBreakout from "@/components/MotivationBreakout";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <Expertise />
         <Motivation />
+        <MotivationBreakout />
         <Experience />
         <FavoriteStack />
         <Awards />

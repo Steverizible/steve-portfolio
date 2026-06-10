@@ -14,6 +14,7 @@ export const sectionImages = {
   about: "/images/about/steve.avif",
   motivation: "/images/motivation/motivation.avif",
   motivationSignature: "/images/motivation/signature.png",
+  motivationBreakout: "/images/motivation/breakout.png",
   experience: "/images/experience/experience.avif",
 } as const;
 
