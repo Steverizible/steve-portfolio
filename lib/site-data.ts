@@ -391,49 +391,104 @@ export const logoTicker = {
 // ---------------------------------------------------------------------------
 
 export type ExpertiseItem = {
+  id: string;
   number: number;
   title: string;
-  description: string;
+  preview: string;
+  modalTitle: string;
+  modalSubtitle: string;
+  modalBody: string;
+  modalImage: string;
+  ctaLabel: string;
+  ctaHref: string;
 };
 
 export const expertise = {
   title: "Expertise",
   items: [
     {
+      id: "creative-leadership",
       number: 1,
       title: "Creative Leadership",
-      description:
+      preview:
         "Leading design teams to develop innovative campaigns and distinctive brand identities — from concept through execution.",
+      modalTitle: "Creative Leadership:",
+      modalSubtitle: "Vision, Innovation, & Impact",
+      modalBody:
+        "I turn ideas into multi-million-dollar brands, leading high-performing teams to drive innovation, storytelling, and growth. As the force behind Slyde Handboards and Veldskoen USA, I've scaled startups, secured $500K from Mark Cuban & Ashton Kutcher, and built brands featured in Forbes and The New York Times. With expertise in branding, digital marketing, and e-commerce, I fuse creativity with data-driven strategy to deliver real results. Recognized for award-winning leadership, I don't just create—I inspire, execute, and grow.",
+      modalImage: "/images/expertise/creative-leadership.avif",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
     {
+      id: "digital-marketing",
       number: 2,
       title: "Digital Marketing",
-      description:
+      preview:
         "Crafting high-performing Facebook ad campaigns that drive engagement, boost brand visibility, and deliver measurable growth.",
+      modalTitle: "Digital Marketing",
+      modalSubtitle: "Data-Driven Revenue Growth",
+      modalBody:
+        "I specialize in high-impact digital marketing that transforms brands and drives revenue. Managing $30K+ monthly ad budgets, I've optimized Facebook, Google, and email campaigns to maximize ROI. My expertise in Shopify, UX/UI, and conversion optimization has fueled e-commerce success, scaling Veldskoen USA to $250K/month in a year. By blending strategic storytelling with performance marketing, I create campaigns that not only engage but convert—turning audiences into loyal customers and brands into industry leaders.",
+      modalImage: "/images/expertise/digital-marketing.webp",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
     {
+      id: "storytelling-branding",
       number: 3,
-      title: "Storytelling & Brand Narrative",
-      description:
+      title: "Storytelling & Branding",
+      preview:
         "Crafting compelling narratives that resonate with audiences and strengthen brand loyalty.",
+      modalTitle: "Storytelling & Branding:",
+      modalSubtitle: "Crafting Iconic Narratives",
+      modalBody:
+        "I build brands that captivate and convert. By blending authentic storytelling with strategic branding, I create compelling narratives that forge deep customer connections. From securing national media features to driving multi-million-dollar brand growth, my approach turns vision into lasting impact.",
+      modalImage: "/images/expertise/storytelling-branding.webp",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
     {
+      id: "ecomm-growth",
       number: 4,
-      title: "E-commerce Growth",
-      description:
+      title: "Ecomm Growth",
+      preview:
         "Proven ability to scale brands from inception to million-dollar success stories through strategic planning and execution.",
+      modalTitle: "Ecomm Growth",
+      modalSubtitle: "Conversion-Focused Digital Growth",
+      modalBody:
+        "I drive e-commerce success through data-backed strategies, UX optimization, and high-converting digital campaigns. By refining customer journeys and leveraging A/B testing, I've boosted conversions and expanded market reach. My expertise in Shopify, CRO, and multi-channel marketing turns online stores into revenue powerhouses.",
+      modalImage: "/images/expertise/ecomm-growth.webp",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
     {
+      id: "email-marketing",
       number: 5,
       title: "Email Marketing",
-      description:
+      preview:
         "Creating engaging email marketing strategies and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
+      modalTitle: "Email Marketing",
+      modalSubtitle: "Data-Driven Revenue Growth",
+      modalBody:
+        "I create high-performing, on-brand email campaigns that drive 40-50% of overall brand revenue. With 40-60% open rates and 5%+ click-through rates, I leverage robust segmentation and extensive A/B testing to optimize engagement, retention, and conversions—turning email into a powerhouse for sustained growth.",
+      modalImage: "/images/expertise/email-marketing.avif",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
     {
+      id: "seo",
       number: 6,
-      title: "SEO",
-      description:
+      title: "SEO: It's a Passion",
+      preview:
         "Optimizing content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
+      modalTitle: "SEO: Optimized for",
+      modalSubtitle: "Data-Driven Revenue Growth",
+      modalBody:
+        "I drive organic traffic through strategic SEO, including keyword research, content optimization, and technical improvements. My data-driven approach boosts search rankings, increases visibility, and enhances user engagement for sustained brand growth.",
+      modalImage: "/images/expertise/seo.avif",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:hello@stevewatts.com",
     },
   ] satisfies ExpertiseItem[],
 } as const;

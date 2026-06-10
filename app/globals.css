@@ -219,3 +219,32 @@ body.custom-cursor-enabled button {
   opacity: 1;
   transform: scale(1);
 }
+
+/* Expertise modal entrance */
+@keyframes expertise-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes expertise-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.expertise-modal-overlay {
+  animation: expertise-overlay-in 0.35s var(--ease-premium) both;
+}
+
+.expertise-modal-panel {
+  animation: expertise-panel-in 0.45s var(--ease-premium) both;
+}

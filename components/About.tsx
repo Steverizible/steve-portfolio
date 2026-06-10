@@ -1,92 +1,68 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import Button from "@/components/Button";
 import LogoTicker from "@/components/LogoTicker";
 import { sectionImages } from "@/lib/images";
 import { moreAboutSteve } from "@/lib/site-data";
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight * 0.15;
-      const end = viewportHeight * 0.75;
-      const progress = (start - rect.top) / (end - start);
-      setScrollProgress(Math.min(1, Math.max(0, progress)));
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  const textOpacity = Math.max(0, 1 - scrollProgress * 1.4);
-  const textTranslate = scrollProgress * 48;
-
   return (
-    <section ref={sectionRef} className="relative border-b border-border" id="about">
-      <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-          {moreAboutSteve.title}
-        </h2>
+    <section className="relative border-b border-border bg-background" id="about">
+      {/* Scroll stage: huge heading passes behind sticky pill */}
+      <div className="relative w-full overflow-hidden">
+        <div className="relative min-h-[95vh] md:min-h-[115vh] lg:min-h-[125vh]">
+          {/* Heading layer — behind the pill (z-10) */}
+          <div className="relative z-10 flex justify-center px-6 pt-16 pb-[38vh] md:px-10 md:pt-24 md:pb-[42vh] lg:px-14">
+            <h2
+              className="text-center font-bold uppercase leading-[0.88] tracking-tight text-foreground"
+              aria-label={moreAboutSteve.title}
+            >
+              <span className="block text-[clamp(3.25rem,17vw,11.5rem)]">More</span>
+              <span className="block text-[clamp(3.25rem,17vw,11.5rem)]">About</span>
+              <span className="block text-[clamp(3.25rem,17vw,11.5rem)]">Steve</span>
+            </h2>
+          </div>
 
-        <div className="relative mt-10 min-h-[70vh] md:min-h-[85vh]">
-          {/* Sticky pill image — stays prominent while text scrolls */}
-          <div className="pointer-events-none sticky top-[12vh] z-30 flex justify-center md:top-[16vh]">
+          {/* Pill layer — foreground mask (z-30) */}
+          <div
+            className="pointer-events-none sticky top-[26vh] z-30 -mt-[34vh] flex justify-center pb-[28vh] md:top-[30vh] md:-mt-[38vh] md:pb-[32vh] lg:top-[32vh]"
+          >
             <div
-              className="relative h-[280px] w-[140px] overflow-hidden rounded-[999px] border border-border bg-card shadow-sm md:h-[360px] md:w-[180px]"
+              className="relative h-[240px] w-[120px] overflow-hidden rounded-[999px] border border-border bg-card shadow-sm md:h-[320px] md:w-[160px] lg:h-[380px] lg:w-[190px]"
             >
               <Image
                 src={sectionImages.about}
                 alt="Steve Watts"
                 fill
                 className="object-cover"
-                sizes="180px"
+                sizes="(max-width: 768px) 120px, 190px"
                 priority
               />
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Text passes behind the pill via lower z-index + fade */}
-          <div
-            className="relative z-10 -mt-[180px] pt-[220px] md:-mt-[220px] md:pt-[280px] transition-[opacity,transform] duration-300 ease-out"
-            style={{
-              opacity: textOpacity,
-              transform: `translateY(${textTranslate}px)`,
-            }}
-          >
-            <p className="mx-auto max-w-3xl text-center text-lg font-bold uppercase leading-snug tracking-tight md:text-2xl lg:text-3xl">
-              {moreAboutSteve.headline}
-            </p>
+      {/* Body copy — stable, unaffected by scroll-behind effect */}
+      <div className="relative z-40 w-full bg-background px-6 pb-16 md:px-10 md:pb-20 lg:px-14 lg:pb-24">
+        <p className="mx-auto max-w-3xl text-center text-lg font-bold uppercase leading-snug tracking-tight md:text-2xl lg:text-3xl">
+          {moreAboutSteve.headline}
+        </p>
 
-            <div className="mx-auto mt-8 max-w-2xl space-y-4 text-center text-base leading-relaxed text-muted">
-              {moreAboutSteve.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-              ))}
-            </div>
+        <div className="mx-auto mt-8 max-w-2xl space-y-4 text-center text-base leading-relaxed text-muted md:text-lg">
+          {moreAboutSteve.body.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+          ))}
+        </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button href={moreAboutSteve.resumeCta.href} variant="outline">
-                {moreAboutSteve.resumeCta.label}
-              </Button>
-              <Button href={moreAboutSteve.readMoreCta.href} variant="solid">
-                {moreAboutSteve.readMoreCta.label}
-              </Button>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Button href={moreAboutSteve.resumeCta.href} variant="outline">
+            {moreAboutSteve.resumeCta.label}
+          </Button>
+          <Button href={moreAboutSteve.readMoreCta.href} variant="solid">
+            {moreAboutSteve.readMoreCta.label}
+          </Button>
         </div>
       </div>
 
