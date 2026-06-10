@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RevealHeading from "@/components/RevealHeading";
 import { sectionImages } from "@/lib/images";
 import { motivation } from "@/lib/site-data";
 
@@ -6,9 +7,9 @@ export default function Motivation() {
   return (
     <section className="border-b border-border">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <h2 className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
+        <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
           {motivation.title}
-        </h2>
+        </RevealHeading>
 
         <div className="mt-10 overflow-hidden rounded-xl border border-border">
           <div className="relative aspect-[21/9] w-full min-h-[200px] bg-card">

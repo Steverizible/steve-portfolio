@@ -1,5 +1,6 @@
 import { projects, selectedWork } from "@/lib/site-data";
 import ProjectCard from "@/components/ProjectCard";
+import RevealHeading from "@/components/RevealHeading";
 
 export default function SelectedWork() {
   const items = selectedWork.projectIds
@@ -11,9 +12,9 @@ export default function SelectedWork() {
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="text-center">
           <p className="text-sm font-medium text-muted">{selectedWork.periodLabel}</p>
-          <h2 className="mt-4 text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
+          <RevealHeading className="mt-4 text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
             {selectedWork.title}
-          </h2>
+          </RevealHeading>
           <p className="mt-6 text-base leading-relaxed text-muted lg:px-32">
             {selectedWork.description}
           </p>

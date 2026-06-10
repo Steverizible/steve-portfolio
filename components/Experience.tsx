@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RevealHeading from "@/components/RevealHeading";
 import { sectionImages } from "@/lib/images";
 import { experience } from "@/lib/site-data";
 
@@ -7,9 +8,9 @@ export default function Experience() {
     <section className="border-b border-border bg-white">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
-          <h2 className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
+          <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
             {experience.title}
-          </h2>
+          </RevealHeading>
 
           <ul className="divide-y divide-border border-t border-border">
             {experience.items.map((item) => (

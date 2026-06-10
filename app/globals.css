@@ -248,3 +248,25 @@ body.custom-cursor-enabled button {
 .expertise-modal-panel {
   animation: expertise-panel-in 0.45s var(--ease-premium) both;
 }
+
+/* Section headline reveal */
+.reveal-heading {
+  opacity: 0;
+  transform: translate3d(0, -28px, 0);
+  transition:
+    opacity 0.65s var(--ease-premium),
+    transform 0.65s var(--ease-premium);
+}
+
+.reveal-heading.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-heading {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

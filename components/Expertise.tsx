@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ExpertiseModal from "@/components/ExpertiseModal";
+import RevealHeading from "@/components/RevealHeading";
 import { expertise, type ExpertiseItem } from "@/lib/site-data";
 
 function PlusButton({ active }: { active?: boolean }) {
@@ -24,9 +25,9 @@ export default function Expertise() {
   return (
     <section className="border-b border-border bg-white" id="expertise">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <h2 className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
+        <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
           {expertise.title}
-        </h2>
+        </RevealHeading>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {expertise.items.map((item) => (

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
+import RevealHeading from "@/components/RevealHeading";
 import { sectionImages } from "@/lib/images";
 import { contact } from "@/lib/site-data";
 
@@ -22,9 +23,9 @@ export default function Contact() {
           <p className="mt-8 text-sm font-semibold uppercase tracking-[0.25em] text-muted">
             {contact.subheadline}
           </p>
-          <h2 className="mt-2 text-3xl font-bold uppercase tracking-tight md:text-5xl">
+          <RevealHeading className="mt-2 text-3xl font-bold uppercase tracking-tight md:text-5xl">
             {contact.headline}
-          </h2>
+          </RevealHeading>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
             {contact.description}
           </p>

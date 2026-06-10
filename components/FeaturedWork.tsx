@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/Button";
+import RevealHeading from "@/components/RevealHeading";
 import { featuredWork, projects } from "@/lib/site-data";
 
 export default function FeaturedWork() {
@@ -13,10 +14,12 @@ export default function FeaturedWork() {
     <section className="w-full border-b border-border bg-background" id="work">
       <div className="w-full px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-32">
-          <h2 className="text-5xl font-bold uppercase leading-[0.95] tracking-tight md:text-6xl lg:text-7xl xl:text-8xl">
+          <RevealHeading
+            className="text-5xl font-bold uppercase leading-[0.95] tracking-tight md:text-6xl lg:text-7xl xl:text-8xl"
+          >
             <span className="block">{titleLine1}</span>
             <span className="block">{titleLine2}</span>
-          </h2>
+          </RevealHeading>
           <p className="text-base leading-relaxed text-muted md:text-lg lg:pt-2">
             {featuredWork.description}
           </p>

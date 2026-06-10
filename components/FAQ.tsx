@@ -1,12 +1,13 @@
+import RevealHeading from "@/components/RevealHeading";
 import { faq } from "@/lib/site-data";
 
 export default function FAQ() {
   return (
     <section className="border-b border-border">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <h2 className="text-center text-3xl font-bold uppercase tracking-tight md:text-4xl">
+        <RevealHeading className="text-center text-3xl font-bold uppercase tracking-tight md:text-4xl">
           {faq.title}
-        </h2>
+        </RevealHeading>
 
         <div className="mt-10 flex flex-wrap justify-center gap-2">
           {faq.topics.map((topic) => (
