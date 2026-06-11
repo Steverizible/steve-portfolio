@@ -703,78 +703,49 @@ export const awardsMedia = {
 export type FaqTopic = {
   id: string;
   label: string;
-};
-
-export type FaqItem = {
-  id: string;
-  question: string;
   answer: string;
-  topicId?: string;
 };
 
 export const faq = {
   title: "Frequently Asked Questions",
   topics: [
-    { id: "brand-narrative", label: "Crafting a Strong Brand Narrative" },
+    {
+      id: "brand-narrative",
+      label: "Crafting a Strong Brand Narrative",
+      answer:
+        "I start with the business goal and audience insight, then build a strategic foundation before any visual exploration. Minimalist design, clear typography, and narrative consistency guide every touchpoint — from packaging to paid social to the checkout flow.",
+    },
     {
       id: "digital-marketing",
       label: "Data-Driven Digital Marketing Strategies",
+      answer:
+        "Brand strategy, creative direction, visual identity, packaging, product design, e-commerce UX, email marketing, paid media creative, and content strategy. I work end-to-end or plug into existing teams where you need senior creative leadership backed by performance data.",
     },
-    { id: "ecommerce", label: "E-Commerce Optimization" },
-    { id: "success-examples", label: "Real-World Success Examples" },
+    {
+      id: "ecommerce",
+      label: "E-Commerce Optimization",
+      answer:
+        "Discover → define → design → deliver. Discovery covers goals, competitors, and customer research. Definition locks strategy and creative direction. Design iterates across key assets and channels. Delivery includes handoff, launch support, and optimization based on real performance data.",
+    },
+    {
+      id: "success-examples",
+      label: "Real-World Success Examples",
+      answer:
+        "Explore Featured Work and individual project pages for case studies across Slyde Handboards, Veldskoen, Rizible, and multi-brand email programs. I'm happy to walk through relevant examples on a call.",
+    },
     {
       id: "influencer-marketing",
       label: "Leveraging Influencer and Community Marketing",
+      answer:
+        "I build authentic partnerships with influencers and community advocates who align with brand values — from seeding products with creators to scaling ambassador programs that drive awareness, trust, and measurable conversion across social and email.",
     },
     {
       id: "purpose-driven",
       label: "Emotional & Purpose-Driven Marketing",
+      answer:
+        "Great brands connect through emotion and purpose. I craft campaigns and narratives that tap into what audiences care about — sustainability, craftsmanship, adventure, or community — so messaging feels authentic, memorable, and aligned with long-term brand loyalty.",
     },
   ] satisfies FaqTopic[],
-  items: [
-    {
-      id: "industries",
-      question: "What industries do you specialize in?",
-      answer:
-        "Consumer products, lifestyle brands, e-commerce, and outdoor recreation — with deep experience in footwear, handboards, pet wellness, and direct-to-consumer retail. I gravitate toward founder-led brands with a story worth telling.",
-      topicId: "brand-narrative",
-    },
-    {
-      id: "services",
-      question: "What services do you offer as a designer?",
-      answer:
-        "Brand strategy, creative direction, visual identity, packaging, product design, e-commerce UX, email marketing, paid media creative, and content strategy. I work end-to-end or plug into existing teams where you need senior creative leadership.",
-      topicId: "digital-marketing",
-    },
-    {
-      id: "previous-work",
-      question: "Can you provide examples of your previous work?",
-      answer:
-        "Yes — explore Selected Works and individual project pages for case studies across Slyde Handboards, Veldskoen, Rizible, and multi-brand email programs. I'm happy to walk through relevant examples on a call.",
-      topicId: "success-examples",
-    },
-    {
-      id: "branding-approach",
-      question: "How do you approach branding projects?",
-      answer:
-        "I start with the business goal and audience insight, then build a strategic foundation before any visual exploration. Minimalist design, clear typography, and narrative consistency guide every touchpoint — from packaging to paid social to the checkout flow.",
-      topicId: "brand-narrative",
-    },
-    {
-      id: "design-process",
-      question: "Can you walk me through your design process?",
-      answer:
-        "Discover → define → design → deliver. Discovery covers goals, competitors, and customer research. Definition locks strategy and creative direction. Design iterates across key assets and channels. Delivery includes handoff, launch support, and optimization based on real performance data.",
-      topicId: "ecommerce",
-    },
-    {
-      id: "tools",
-      question: "What software and tools do you use for your designs?",
-      answer:
-        "Adobe Creative Suite, Figma, Shopify, Klaviyo, CapCut, Airtable, ClickUp, and Microsoft Office. I choose tools that keep collaboration fast and output polished — whether we're building a brand system or scaling a campaign.",
-      topicId: "digital-marketing",
-    },
-  ] satisfies FaqItem[],
 } as const;
 
 // ---------------------------------------------------------------------------
