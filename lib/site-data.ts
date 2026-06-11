@@ -34,6 +34,7 @@ export type CaseStudySection = {
   id: string;
   heading: string;
   body: string;
+  imageSrc?: string;
 };
 
 export type Project = {
@@ -58,6 +59,10 @@ export type Project = {
     client: string;
     year: string;
     category: string;
+    heroImages?: {
+      left: string;
+      right: string;
+    };
     sections: CaseStudySection[];
     relatedProjectIds: string[];
   };
@@ -150,7 +155,7 @@ export const projects: Project[] = [
     label: "Packaging",
     name: "Veldskoen Shoes",
     category: "Packaging",
-    year: "2022",
+    year: "2020",
     href: "/work/veldskoen-packaging",
     referenceImage: "aHfIoxhXP6eh2D6dUXvdrRiLIU.avif",
     featured: true,
@@ -159,14 +164,19 @@ export const projects: Project[] = [
       intro:
         "At Veldskoen, every detail matters—including the box your shoes arrive in. We embarked on a journey to craft a packaging experience that reflects our values of quality, sustainability, and adventure. The result is a shoe box that tells the story of Veldskoen before you even lace up.",
       client: "Veldskoen Shoes",
-      year: "2021",
+      year: "2020",
       category: "Packaging",
+      heroImages: {
+        left: "/images/projects/veldskoen-packaging.png",
+        right: "/images/projects/veldskoen-packaging/hero-graphic.png",
+      },
       sections: [
         {
           id: "challenge",
           heading: "The Challenge",
           body:
             "Our mission was to create a box that embodies what Veldskoen stands for: authenticity, eco-consciousness, and adventure. We explored how to balance functionality, sustainability, and aesthetics while meeting customer expectations for an impactful unboxing experience.",
+          imageSrc: "/images/projects/veldskoen-packaging/challenge-moodboard.png",
         },
         {
           id: "process",
@@ -179,12 +189,14 @@ export const projects: Project[] = [
           heading: "The Development",
           body:
             "We explored countless materials, created detailed sketches, and tested numerous prototypes. We refined each fold and finish to achieve the right combination of durability and sustainability. By carefully sourcing recyclable materials, we crafted a box that protects the product and minimizes its footprint on the planet.",
+          imageSrc: "/images/projects/veldskoen-packaging/development.png",
         },
         {
           id: "outcome",
           heading: "The Outcome",
           body:
             "The final shoe box and insert tell a story of quality, sustainability, and adventure—the essence of the Veldskoen brand. From the tactile materials to the thoughtful unboxing experience, this packaging reflects the journey every step of the way.",
+          imageSrc: "/images/projects/veldskoen-packaging/outcome-dieline.png",
         },
       ],
       relatedProjectIds: ["slyde-handboards", "rachel-zoe"],
@@ -365,10 +377,12 @@ export type LogoTickerItem = {
 
 export const logoTicker = {
   items: [
+    { id: "veldskoen", label: "Veldskoen" },
+    { id: "slyde", label: "Slyde" },
     {
-      id: "happybond",
-      label: "Happybond",
-      imageSrc: "/images/ticker/happybond.png",
+      id: "thula-tula",
+      label: "Thula Tula",
+      imageSrc: "/images/ticker/thula-tula.png",
     },
     {
       id: "ilan-dei-studio",
@@ -380,20 +394,12 @@ export const logoTicker = {
       label: "Good Morning America",
       imageSrc: "/images/ticker/gma.png",
     },
-    {
-      id: "new-york-times",
-      label: "The New York Times",
-      imageSrc: "/images/ticker/new-york-times.png",
-    },
+    { id: "curateur", label: "Curateur" },
+    { id: "dicks", label: "Dick's Sporting Goods" },
     {
       id: "ual-central-saint-martins",
       label: "UAL Central Saint Martins",
       imageSrc: "/images/ticker/ual-central-saint-martins.png",
-    },
-    {
-      id: "thula-tula",
-      label: "Thula Tula",
-      imageSrc: "/images/ticker/thula-tula.png",
     },
   ] satisfies LogoTickerItem[],
 } as const;

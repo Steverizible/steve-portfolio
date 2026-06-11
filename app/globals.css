@@ -139,8 +139,14 @@ body.page-transition-out {
   will-change: transform;
 }
 
+.more-works-track {
+  animation: marquee-scroll 35s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track {
+  .ticker-track,
+  .more-works-track {
     animation: none;
   }
 
@@ -274,17 +280,11 @@ body.custom-cursor-enabled button {
 /* Sticky section headings — stick within parent section only */
 .sticky-section-heading {
   position: sticky;
-  top: 16px;
+  top: 0;
   z-index: 20;
   align-self: start;
   width: 100%;
   padding-bottom: 0.25rem;
-}
-
-@media (min-width: 768px) {
-  .sticky-section-heading {
-    top: 24px;
-  }
 }
 
 /* FAQ accordion — gentle open/close */
