@@ -597,14 +597,14 @@ export const favoriteStack = {
       name: "Adobe Suite",
       category: "Creative design and visual storytelling",
       description:
-        "I leverage Adobe Creative Suite — Photoshop, Illustrator, and Premiere Pro — for digital design, video editing, and compelling visual content. Whether it's graphics, vector work, or motion, it's the backbone of my creative output.",
+        "I leverage Adobe Creative Suite (Photoshop, Illustrator, and Premiere Pro) extensively in my work, particularly for digital design, video editing, and creating compelling visual content. Whether it's using Photoshop for graphics, Illustrator for vector designs, or Premiere Pro for video projects",
     },
     {
       id: "klaviyo",
       name: "Klaviyo",
-      category: "Customer data platform / SMS / mobile push",
+      category: "Customer data platform / SMS marketing / mobile push",
       description:
-        "Building segmented flows, lifecycle campaigns, and retention programs that turn customer data into revenue.",
+        "With 15 years of experience in email marketing, I've honed my skills in creating data-driven campaigns that engage, convert, and retain customers. From developing strategies to crafting compelling content and optimizing deliverability, I've worked across various industries to design emails that drive results.",
     },
     {
       id: "capcut",

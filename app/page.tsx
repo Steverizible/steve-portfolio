@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
+import ExperienceBreakout from "@/components/ExperienceBreakout";
 import Expertise from "@/components/Expertise";
 import FeaturedWork from "@/components/FeaturedWork";
 import FavoriteStack from "@/components/FavoriteStack";
@@ -23,6 +24,7 @@ export default function Home() {
         <Motivation />
         <MotivationBreakout />
         <Experience />
+        <ExperienceBreakout />
         <FavoriteStack />
         <Awards />
         <FAQ />

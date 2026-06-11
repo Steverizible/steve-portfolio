@@ -5,46 +5,48 @@ import { favoriteStack } from "@/lib/site-data";
 
 export default function FavoriteStack() {
   return (
-    <section className="border-b border-border">
+    <section className="border-b border-border bg-background">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <div className="grid gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
-          <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
+          <RevealHeading
+            className="text-4xl font-bold uppercase tracking-tight md:text-5xl lg:text-6xl"
+          >
             {favoriteStack.title}
           </RevealHeading>
 
-          <ul className="space-y-4">
+          <ul className="space-y-4 md:space-y-5">
             {favoriteStack.items.map((item) => {
               const iconSrc = stackImages[item.id];
+
               return (
                 <li
                   key={item.id}
-                  className="flex gap-5 rounded-xl border border-border bg-card p-5 md:gap-6 md:p-6"
+                  className="flex items-stretch gap-3 rounded-2xl bg-card p-3 md:gap-4 md:p-4"
                 >
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border bg-white md:h-14 md:w-14">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl md:h-[4.5rem] md:w-[4.5rem]">
                     {iconSrc ? (
                       <Image
                         src={iconSrc}
                         alt=""
                         fill
-                        className="object-contain p-2"
-                        sizes="56px"
+                        className="object-cover"
+                        sizes="72px"
                       />
                     ) : (
-                      <div className="flex h-full items-center justify-center text-xs text-muted">
+                      <div className="flex h-full items-center justify-center bg-foreground text-xs font-bold text-background">
                         {item.name.slice(0, 2)}
                       </div>
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                      <h3 className="text-base font-bold uppercase tracking-tight">
-                        {item.name}
-                      </h3>
-                      <p className="text-xs font-medium uppercase text-muted">
-                        {item.category}
-                      </p>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
+
+                  <div className="min-w-0 flex-1 rounded-xl bg-white p-5 md:p-6">
+                    <h3 className="text-sm font-bold uppercase tracking-tight md:text-base">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-tight md:text-sm">
+                      {item.category}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-foreground md:text-base">
                       {item.description}
                     </p>
                   </div>
