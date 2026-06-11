@@ -100,11 +100,15 @@ export default function About() {
   const headingDrift = easeOutCubic(phase(p, 0.3, 0.88));
   // Step B — pill rises into center (starts after heading settles)
   const pillRise = easeOutCubic(phase(p, 0.22, 0.88));
+  // Step C — heading fades as it passes behind rising pill
+  const headingBehindFade = easeOutCubic(phase(p, 0.36, 0.84));
 
   const headingY = reduceMotion
     ? 0
     : (1 - headingEnter) * -64 - headingDrift * 88;
-  const headingOpacity = reduceMotion ? 1 : headingEnter;
+  const headingOpacity = reduceMotion
+    ? 1
+    : headingEnter * (1 - headingBehindFade * 0.94);
 
   const pillStartOffset = viewportHeight * 0.46;
   const pillY = reduceMotion ? 0 : pillStartOffset * (1 - pillRise);
@@ -136,7 +140,7 @@ export default function About() {
       {/* Scroll track — stays above body copy until animation exits viewport */}
       <div ref={stageRef} className={`relative z-10 w-full ${SCROLL_TRACK}`}>
         <div className="sticky top-0 isolate h-svh w-full overflow-hidden bg-background">
-          {/* Heading — behind pill (z-1), physical cover not opacity fade */}
+          {/* Heading — behind pill (z-1), fades as image overlaps */}
           <div
             className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center px-6 will-change-transform lg:px-14"
             style={{

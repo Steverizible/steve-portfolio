@@ -10,13 +10,15 @@ export default function Contact() {
     <section className="border-b border-border bg-white" id={contact.id}>
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="flex flex-col items-center text-center">
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border border-border md:h-48 md:w-48">
+          <div
+            className="relative h-[min(38vh,300px)] w-[min(34vw,150px)] overflow-hidden rounded-[110px] border border-border bg-card md:h-[min(42vh,340px)] md:w-[min(28vw,170px)] md:rounded-[130px]"
+          >
             <Image
               src={sectionImages.about}
               alt="Steve Watts"
               fill
-              className="object-cover"
-              sizes="192px"
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 150px, 170px"
             />
           </div>
 
