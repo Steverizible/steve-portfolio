@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RevealHeading from "@/components/RevealHeading";
+import StickySectionHeading from "@/components/StickySectionHeading";
 import { awardImages } from "@/lib/images";
 import { awardsMedia } from "@/lib/site-data";
 
@@ -7,10 +7,10 @@ export default function Awards() {
   return (
     <section className="border-b border-border bg-white">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <div className="grid gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
-          <RevealHeading className="text-4xl font-bold uppercase tracking-tight md:text-5xl">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
+          <StickySectionHeading bgClassName="bg-white">
             {awardsMedia.title}
-          </RevealHeading>
+          </StickySectionHeading>
 
           <ul className="divide-y divide-border border-t border-border">
             {awardsMedia.items.map((item) => {

@@ -1,4 +1,4 @@
-import RevealHeading from "@/components/RevealHeading";
+import StickySectionHeading from "@/components/StickySectionHeading";
 import { experience } from "@/lib/site-data";
 
 export default function Experience() {
@@ -6,11 +6,9 @@ export default function Experience() {
     <section className="border-b border-border bg-white">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
-          <RevealHeading
-            className="text-4xl font-bold uppercase tracking-tight md:text-5xl lg:text-6xl"
-          >
+          <StickySectionHeading bgClassName="bg-white">
             {experience.title}
-          </RevealHeading>
+          </StickySectionHeading>
 
           <ul>
             {experience.items.map((item) => (
