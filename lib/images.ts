@@ -17,6 +17,7 @@ export const sectionImages = {
   motivationBreakout: "/images/motivation/breakout.png",
   experience: "/images/experience/experience.avif",
   experienceBreakout: "/images/experience/breakout.png",
+  afterAwardsMedia: "/images/after-awards-media.jpg",
 } as const;
 
 export const stackImages: Record<string, string> = {

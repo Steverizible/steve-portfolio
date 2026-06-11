@@ -21,7 +21,7 @@ export default function FAQ() {
         <ul className="mt-12 space-y-3 md:mt-16 md:space-y-4">
           {faq.topics.map((topic) => (
             <li key={topic.id}>
-              <details className="group rounded-xl border border-border bg-card">
+              <details className="faq-item group rounded-xl border border-border bg-card">
                 <summary
                   className="flex cursor-pointer list-none items-center justify-between gap-6 px-5 py-5 text-left md:px-6 md:py-6 [&::-webkit-details-marker]:hidden"
                 >
@@ -29,15 +29,19 @@ export default function FAQ() {
                     {topic.label}
                   </span>
                   <span
-                    className="shrink-0 text-lg font-light leading-none text-muted transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-open:rotate-45"
+                    className="shrink-0 text-lg font-light leading-none text-muted transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-open:rotate-45"
                     aria-hidden="true"
                   >
                     +
                   </span>
                 </summary>
-                <p className="px-5 pb-5 text-sm leading-relaxed text-muted md:px-6 md:pb-6 md:text-base">
-                  {topic.answer}
-                </p>
+                <div className="faq-item-content">
+                  <div className="faq-item-content-inner">
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted md:px-6 md:pb-6 md:text-base">
+                      {topic.answer}
+                    </p>
+                  </div>
+                </div>
               </details>
             </li>
           ))}

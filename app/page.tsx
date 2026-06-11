@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Motivation from "@/components/Motivation";
 import MotivationBreakout from "@/components/MotivationBreakout";
+import PostAwardsImage from "@/components/PostAwardsImage";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
         <ExperienceBreakout />
         <FavoriteStack />
         <Awards />
+        <PostAwardsImage />
         <FAQ />
         <Contact />
       </main>
