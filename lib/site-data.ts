@@ -365,24 +365,36 @@ export type LogoTickerItem = {
 
 export const logoTicker = {
   items: [
-    { id: "gma", label: "Good Morning America" },
-    { id: "curateur", label: "Curateur" },
-    { id: "dicks", label: "Dick's Sporting Goods" },
-    { id: "ual", label: "UAL Central Saint Martins" },
-    { id: "happybond", label: "Happy Bond" },
     {
-      id: "veldskoen",
-      label: "Veldskoen",
-      imageSrc: "/images/projects/veldskoen-packaging.png",
+      id: "happybond",
+      label: "Happybond",
+      imageSrc: "/images/ticker/happybond.png",
     },
-    { id: "slyde", label: "Slyde" },
-    { id: "thula-tula", label: "Thula Tula" },
-    { id: "forbes", label: "Forbes" },
-    { id: "shark-tank", label: "Shark Tank" },
-    { id: "abc", label: "ABC" },
-    { id: "patagonia", label: "Patagonia" },
-    { id: "rei", label: "REI" },
-    { id: "disney", label: "Disney" },
+    {
+      id: "ilan-dei-studio",
+      label: "Ilan Dei Studio",
+      imageSrc: "/images/ticker/ilan-dei-studio.png",
+    },
+    {
+      id: "gma",
+      label: "Good Morning America",
+      imageSrc: "/images/ticker/gma.png",
+    },
+    {
+      id: "new-york-times",
+      label: "The New York Times",
+      imageSrc: "/images/ticker/new-york-times.png",
+    },
+    {
+      id: "ual-central-saint-martins",
+      label: "UAL Central Saint Martins",
+      imageSrc: "/images/ticker/ual-central-saint-martins.png",
+    },
+    {
+      id: "thula-tula",
+      label: "Thula Tula",
+      imageSrc: "/images/ticker/thula-tula.png",
+    },
   ] satisfies LogoTickerItem[],
 } as const;
 

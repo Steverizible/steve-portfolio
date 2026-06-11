@@ -9,6 +9,7 @@ import FavoriteStack from "@/components/FavoriteStack";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import LogoTicker from "@/components/LogoTicker";
 import Motivation from "@/components/Motivation";
 import MotivationBreakout from "@/components/MotivationBreakout";
 import PostAwardsImage from "@/components/PostAwardsImage";
@@ -21,6 +22,7 @@ export default function Home() {
         <Hero />
         <FeaturedWork />
         <About />
+        <LogoTicker />
         <Expertise />
         <Motivation />
         <MotivationBreakout />

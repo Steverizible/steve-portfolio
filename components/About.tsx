@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type RefObject } from "react";
 import Button from "@/components/Button";
-import LogoTicker from "@/components/LogoTicker";
 import { sectionImages } from "@/lib/images";
 import { clamp, easeOutCubic, phase } from "@/lib/motion";
 import { moreAboutSteve } from "@/lib/site-data";
@@ -128,7 +127,6 @@ export default function About() {
         </div>
 
         <BodyContent bodyRef={bodyRef} bodyVisible={true} />
-        <LogoTicker />
       </section>
     );
   }
@@ -169,7 +167,6 @@ export default function About() {
       </div>
 
       <BodyContent bodyRef={bodyRef} bodyVisible={bodyVisible} />
-      <LogoTicker />
     </section>
   );
 }
