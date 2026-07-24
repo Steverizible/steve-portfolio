@@ -71,15 +71,16 @@ export const navigation = {
   /** Top bar — local indicator uses live time in UI; label prefix only here. */
   localPrefix: "LOCAL /",
   headerLinks: [
-    { label: "Work", href: "/work" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#work" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
   ] satisfies NavLink[],
   overlayLinks: [
-    { label: "Home", href: "#top" },
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/#top" },
+    { label: "Work", href: "/#work" },
+    { label: "Projects", href: "/projects" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
   ] satisfies NavLink[],
   contactCta: {
     label: "Contact now",
@@ -348,12 +349,12 @@ export const moreAboutSteve = {
     "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
   ],
   resumeCta: {
-    label: "Download resume",
-    href: "/resume.pdf",
+    label: "Connect on LinkedIn",
+    href: siteMeta.linkedInUrl,
   },
   readMoreCta: {
-    label: "Read more about me",
-    href: "/about",
+    label: "See expertise",
+    href: "/#expertise",
   },
 } as const;
 
@@ -683,7 +684,8 @@ export const awardsMedia = {
       year: "",
       description:
         "Featured in prominent publications including the New York Times, Forbes, and Business Journal, along with a memorable appearance on Shark Tank — gaining nationwide recognition and bolstering brand visibility.",
-      linkLabel: "Full article",
+      href: siteMeta.linkedInUrl,
+      linkLabel: "Press & profile",
     },
     {
       id: "orange-county-award",

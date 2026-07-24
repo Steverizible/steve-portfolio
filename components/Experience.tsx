@@ -1,9 +1,10 @@
+import RevealOnScroll from "@/components/RevealOnScroll";
 import StickySectionHeading from "@/components/StickySectionHeading";
 import { experience } from "@/lib/site-data";
 
 export default function Experience() {
   return (
-    <section className="border-b border-border bg-white">
+    <section className="border-b border-border bg-white" id="experience">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
           <StickySectionHeading bgClassName="bg-white">
@@ -11,8 +12,13 @@ export default function Experience() {
           </StickySectionHeading>
 
           <ul>
-            {experience.items.map((item) => (
-              <li key={item.id} className="border-t border-border py-8">
+            {experience.items.map((item, index) => (
+              <RevealOnScroll
+                key={item.id}
+                as="li"
+                delayMs={index * 60}
+                className="border-t border-border py-8"
+              >
                 <p className="text-base font-bold uppercase tracking-tight md:text-lg">
                   {item.company}
                 </p>
@@ -31,7 +37,7 @@ export default function Experience() {
                     {item.description}
                   </p>
                 )}
-              </li>
+              </RevealOnScroll>
             ))}
           </ul>
         </div>

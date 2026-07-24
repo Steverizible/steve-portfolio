@@ -1,7 +1,27 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import type { MouseEvent } from "react";
+import { handleNavHref, setPendingHash } from "@/lib/scroll";
 import { contact, siteMeta } from "@/lib/site-data";
 
 export default function Footer() {
+  const router = useRouter();
+
+  const onNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (handleNavHref(href)) {
+      event.preventDefault();
+      return;
+    }
+
+    if (href.startsWith("/#")) {
+      event.preventDefault();
+      setPendingHash(href.slice(1));
+      router.push("/");
+    }
+  };
+
   return (
     <footer className="bg-background">
       <div className="w-full px-6 pt-10 md:px-10 md:pt-16 lg:px-14">
@@ -22,6 +42,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(event) => onNavClick(event, link.href)}
                 className="transition-opacity hover:opacity-60"
               >
                 {link.label}
@@ -29,7 +50,11 @@ export default function Footer() {
             ))}
           </nav>
 
-          <Link href="#top" className="transition-opacity hover:opacity-60">
+          <Link
+            href="#top"
+            onClick={(event) => onNavClick(event, "#top")}
+            className="transition-opacity hover:opacity-60"
+          >
             {contact.backToTopLabel}
           </Link>
         </div>

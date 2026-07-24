@@ -20,7 +20,7 @@ export default async function WorkProjectPage({
 
   return (
     <main className="w-full min-h-screen bg-background">
-      <ProjectPageContent project={project} />
+      <ProjectPageContent key={project.id} project={project} />
     </main>
   );
 }

@@ -10,6 +10,9 @@
   --accent-green: #3d9e47;
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-premium: 0.45s;
+  --duration-exit: 180ms;
+  --duration-enter: 320ms;
+  --scroll-offset: 1rem;
 }
 
 @theme inline {
@@ -23,16 +26,112 @@
   --font-sans: var(--font-instrument-sans);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-instrument-sans), system-ui, sans-serif;
 }
 
-/* Page transition when navigating to project pages */
+/* Anchor targets clear the viewport edge during smooth scroll */
+#top,
+#work,
+#about,
+#expertise,
+#contact,
+#motivation,
+#experience,
+#faq {
+  scroll-margin-top: var(--scroll-offset);
+}
+
+/* Page transition when navigating to project pages (fallback) */
 body.page-transition-out {
   opacity: 0;
   transition: opacity 0.38s var(--ease-premium);
+}
+
+/* View Transition — route crossfade */
+::view-transition-old(.page-fade) {
+  animation: var(--duration-exit) var(--ease-premium) both vt-fade-out;
+}
+
+::view-transition-new(.page-fade) {
+  animation: var(--duration-enter) var(--ease-premium) both vt-fade-in;
+}
+
+::view-transition-group(.project-morph) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease-premium);
+}
+
+::view-transition-old(.nav-forward),
+::view-transition-new(.nav-forward),
+::view-transition-old(.nav-back),
+::view-transition-new(.nav-back) {
+  animation-timing-function: var(--ease-premium);
+}
+
+::view-transition-old(.nav-forward) {
+  --slide-offset: -40px;
+  animation:
+    var(--duration-exit) ease-in both vt-fade-out,
+    400ms ease-in-out both vt-slide;
+}
+
+::view-transition-new(.nav-forward) {
+  --slide-offset: 40px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both vt-fade-in,
+    420ms ease-in-out both vt-slide;
+}
+
+::view-transition-old(.nav-back) {
+  --slide-offset: 40px;
+  animation:
+    var(--duration-exit) ease-in both vt-fade-out,
+    400ms ease-in-out both vt-slide;
+}
+
+::view-transition-new(.nav-back) {
+  --slide-offset: -40px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both vt-fade-in,
+    420ms ease-in-out both vt-slide;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vt-slide {
+  from {
+    transform: translateX(var(--slide-offset, 40px));
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes page-in {
@@ -48,6 +147,34 @@ body.page-transition-out {
 
 .animate-page-in {
   animation: page-in 0.55s var(--ease-premium) both;
+}
+
+/* Hero entrance */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-fade-in {
+  animation: hero-fade-up 0.7s var(--ease-premium) both;
+}
+
+.hero-fade-in-delay-1 {
+  animation-delay: 80ms;
+}
+
+.hero-fade-in-delay-2 {
+  animation-delay: 160ms;
+}
+
+.hero-fade-in-delay-3 {
+  animation-delay: 240ms;
 }
 
 /* Premium button transitions */
@@ -137,29 +264,6 @@ body.page-transition-out {
 .ticker-track {
   animation: marquee-scroll 45s linear infinite;
   will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-  }
-
-  .animate-page-in {
-    animation: none;
-  }
-
-  body.page-transition-out {
-    transition: none;
-  }
-
-  .btn-premium:hover {
-    transform: none;
-  }
-
-  .menu-trigger:hover .menu-dots,
-  .menu-trigger.is-active .menu-dots {
-    transform: none;
-  }
 }
 
 /* Custom cursor — desktop only */
@@ -263,12 +367,19 @@ body.custom-cursor-enabled button {
   transform: translate3d(0, 0, 0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal-heading {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+/* Generic content reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.65s var(--ease-premium),
+    transform 0.65s var(--ease-premium);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Sticky section headings — stick within parent section only */
@@ -284,5 +395,110 @@ body.custom-cursor-enabled button {
 @media (min-width: 768px) {
   .sticky-section-heading {
     top: 24px;
+  }
+}
+
+/* FAQ accordion */
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-premium);
+}
+
+.faq-item[open] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.35s var(--ease-premium),
+    transform 0.35s var(--ease-premium);
+}
+
+.faq-item[open] .faq-answer-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 60ms;
+}
+
+.faq-topic {
+  transition:
+    background-color var(--duration-premium) var(--ease-premium),
+    color var(--duration-premium) var(--ease-premium),
+    border-color var(--duration-premium) var(--ease-premium),
+    transform var(--duration-premium) var(--ease-premium);
+}
+
+.faq-topic:hover {
+  transform: translateY(-1px);
+}
+
+.faq-topic.is-active {
+  background-color: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+
+  .animate-page-in,
+  .hero-fade-in,
+  .expertise-modal-overlay,
+  .expertise-modal-panel {
+    animation: none;
+  }
+
+  body.page-transition-out {
+    transition: none;
+  }
+
+  .btn-premium:hover {
+    transform: none;
+  }
+
+  .menu-trigger:hover .menu-dots,
+  .menu-trigger.is-active .menu-dots {
+    transform: none;
+  }
+
+  .reveal-heading,
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .faq-answer,
+  .faq-answer-inner,
+  .faq-topic {
+    transition: none;
+  }
+
+  .faq-answer-inner {
+    opacity: 1;
+    transform: none;
+  }
+
+  ::view-transition-old(.page-fade),
+  ::view-transition-new(.page-fade),
+  ::view-transition-old(.nav-forward),
+  ::view-transition-new(.nav-forward),
+  ::view-transition-old(.nav-back),
+  ::view-transition-new(.nav-back) {
+    animation: none !important;
   }
 }
