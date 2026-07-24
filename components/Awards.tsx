@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import StickySectionHeading from "@/components/StickySectionHeading";
 import { awardImages } from "@/lib/images";
 import { awardsMedia } from "@/lib/site-data";
@@ -13,10 +15,10 @@ export default function Awards() {
           </StickySectionHeading>
 
           <ul className="divide-y divide-border border-t border-border">
-            {awardsMedia.items.map((item) => {
+            {awardsMedia.items.map((item, index) => {
               const imageSrc = awardImages[item.id];
               return (
-                <li key={item.id} className="flex gap-6 py-8 first:pt-8">
+                <RevealOnScroll key={item.id} as="li" delayMs={index * 70} className="flex gap-6 py-8 first:pt-8">
                   {imageSrc && (
                     <div className="relative h-24 w-32 shrink-0 overflow-hidden rounded-lg border border-border bg-card md:h-28 md:w-40">
                       <Image
@@ -45,16 +47,18 @@ export default function Awards() {
                     <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
                       {item.description}
                     </p>
-                    {item.linkLabel && (
-                      <button
-                        type="button"
-                        className="mt-4 text-xs font-semibold uppercase tracking-wide underline underline-offset-4"
+                    {item.linkLabel && item.href && (
+                      <Link
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block text-xs font-semibold uppercase tracking-wide underline underline-offset-4 transition-opacity hover:opacity-60"
                       >
                         {item.linkLabel}
-                      </button>
+                      </Link>
                     )}
                   </div>
-                </li>
+                </RevealOnScroll>
               );
             })}
           </ul>

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
+import { ViewTransition } from "react";
 import Button from "@/components/Button";
+import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
 import { projects } from "@/lib/site-data";
@@ -20,28 +21,16 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
       ?.map((id) => projects.find((p) => p.id === id))
       .filter((p): p is Project => Boolean(p)) ?? [];
 
-  useEffect(() => {
-    document.body.classList.remove("page-transition-out");
-  }, []);
-
   return (
     <div className="animate-page-in w-full">
-      <header className="w-full border-b border-border px-6 py-6 md:px-10 lg:px-14">
-        <div className="flex items-center justify-between gap-4">
-          <Link
-            href="/#work"
-            className="text-xs font-semibold uppercase tracking-wide transition-opacity hover:opacity-60"
-          >
-            Back to work
-          </Link>
-          <p className="text-xs font-medium uppercase tracking-wide text-muted">
-            {project.category} · {project.year}
-          </p>
-        </div>
-      </header>
+      <PageChrome backHref="/#work" backLabel="Back to work" />
 
       <div className="w-full px-6 py-12 md:px-10 md:py-16 lg:px-14">
-        <h1 className="text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted">
+          {project.category} · {project.year}
+        </p>
+
+        <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
           {project.caseStudy?.title ?? project.label}
         </h1>
 
@@ -53,20 +42,23 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
 
         {imageSrc && (
           <div className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-card">
-            <Image
-              src={imageSrc}
-              alt={project.name}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
+            <ViewTransition name={`project-image-${project.id}`} share="project-morph">
+              <Image
+                src={imageSrc}
+                alt={project.name}
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+            </ViewTransition>
           </div>
         )}
 
-        {project.caseStudy?.sections.map((section) => (
-          <div
+        {project.caseStudy?.sections.map((section, index) => (
+          <RevealOnScroll
             key={section.id}
+            delayMs={index * 60}
             className="mt-16 grid gap-6 border-t border-border pt-12 lg:grid-cols-[200px_1fr] lg:gap-16"
           >
             <h2 className="text-xl font-bold uppercase tracking-tight md:text-2xl">
@@ -75,7 +67,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             <p className="text-base leading-relaxed text-muted md:text-lg">
               {section.body}
             </p>
-          </div>
+          </RevealOnScroll>
         ))}
 
         {!project.caseStudy && (
@@ -97,9 +89,12 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
           </div>
         )}
 
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16 flex flex-wrap justify-center gap-4">
           <Button href="/projects" variant="outline">
             View all projects
+          </Button>
+          <Button href="/#work" variant="solid">
+            Back to work
           </Button>
         </div>
       </div>

@@ -21,7 +21,7 @@ function MotivationParagraph({ parts }: { parts: readonly MotivationTextPart[] }
 
 export default function Motivation() {
   return (
-    <section className="border-b border-border bg-background">
+    <section className="border-b border-border bg-background" id="motivation">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
           <RevealHeading

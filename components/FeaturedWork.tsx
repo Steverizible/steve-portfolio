@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/Button";
 import RevealHeading from "@/components/RevealHeading";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import { featuredWork, projects } from "@/lib/site-data";
 
 export default function FeaturedWork() {
@@ -20,22 +21,24 @@ export default function FeaturedWork() {
             <span className="block">{titleLine1}</span>
             <span className="block">{titleLine2}</span>
           </RevealHeading>
-          <p className="text-base leading-relaxed text-muted md:text-lg lg:pt-2">
+          <RevealOnScroll className="text-base leading-relaxed text-muted md:text-lg lg:pt-2">
             {featuredWork.description}
-          </p>
+          </RevealOnScroll>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-20">
-          {items.map((project) => (
-            <ProjectCard key={project.id} project={project} variant="featured" />
+          {items.map((project, index) => (
+            <RevealOnScroll key={project.id} delayMs={(index % 2) * 80}>
+              <ProjectCard project={project} variant="featured" />
+            </RevealOnScroll>
           ))}
         </div>
 
-        <div className="mt-14 flex justify-center lg:mt-20">
+        <RevealOnScroll className="mt-14 flex justify-center lg:mt-20">
           <Button href={featuredWork.moreProjectsCta.href} variant="solid">
             {featuredWork.moreProjectsCta.label}
           </Button>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

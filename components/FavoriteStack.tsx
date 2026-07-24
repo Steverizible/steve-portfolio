@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import StickySectionHeading from "@/components/StickySectionHeading";
 import { stackImages } from "@/lib/images";
 import { favoriteStack } from "@/lib/site-data";
@@ -13,13 +14,15 @@ export default function FavoriteStack() {
           </StickySectionHeading>
 
           <ul className="space-y-4 md:space-y-5">
-            {favoriteStack.items.map((item) => {
+            {favoriteStack.items.map((item, index) => {
               const iconSrc = stackImages[item.id];
 
               return (
-                <li
+                <RevealOnScroll
                   key={item.id}
-                  className="flex items-stretch gap-3 rounded-2xl bg-card p-3 md:gap-4 md:p-4"
+                  as="li"
+                  delayMs={index * 50}
+                  className="flex items-stretch gap-3 rounded-2xl bg-card p-3 transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 md:gap-4 md:p-4"
                 >
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl md:h-[4.5rem] md:w-[4.5rem]">
                     {iconSrc ? (
@@ -48,7 +51,7 @@ export default function FavoriteStack() {
                       {item.description}
                     </p>
                   </div>
-                </li>
+                </RevealOnScroll>
               );
             })}
           </ul>

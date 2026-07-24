@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState, type MouseEvent } from "react";
+import Link from "next/link";
+import { ViewTransition } from "react";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
 
@@ -11,45 +11,29 @@ type ProjectCardProps = {
   variant?: "featured" | "selected";
 };
 
-const NAV_DELAY_MS = 380;
-
 export default function ProjectCard({ project, variant = "selected" }: ProjectCardProps) {
-  const router = useRouter();
-  const [isLeaving, setIsLeaving] = useState(false);
   const imageSrc = project.imageSrc ?? projectImages[project.id];
   const imageHeight =
     variant === "featured" ? "h-[280px] md:h-[360px]" : "h-[240px] md:h-[300px]";
 
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    if (isLeaving) return;
-
-    setIsLeaving(true);
-    document.body.classList.add("page-transition-out");
-
-    window.setTimeout(() => {
-      router.push(project.href);
-    }, NAV_DELAY_MS);
-  };
-
   return (
-    <a
+    <Link
       href={project.href}
-      onClick={handleClick}
       data-cursor-view
-      className={`group block overflow-hidden rounded-xl border border-border bg-card transition-[opacity,transform,box-shadow] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-md ${
-        isLeaving ? "scale-[0.98] opacity-0" : "opacity-100"
-      }`}
+      transitionTypes={["nav-forward"]}
+      className="group block overflow-hidden rounded-xl border border-border bg-card transition-[transform,box-shadow,opacity] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-md"
     >
       <div className={`relative ${imageHeight} w-full overflow-hidden bg-[#ddd]`}>
         {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={`${project.label} — ${project.name}`}
-            fill
-            className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <ViewTransition name={`project-image-${project.id}`} share="project-morph">
+            <Image
+              src={imageSrc}
+              alt={`${project.label} — ${project.name}`}
+              fill
+              className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </ViewTransition>
         ) : (
           <div className="flex h-full items-center justify-center text-sm text-muted">
             {project.label}
@@ -67,6 +51,6 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
           {project.year}
         </span>
       </div>
-    </a>
+    </Link>
   );
 }

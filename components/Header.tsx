@@ -1,43 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import Button from "@/components/Button";
 import { useMenu } from "@/lib/menu-context";
+import { handleNavHref, setPendingHash } from "@/lib/scroll";
+import { useLocalTime } from "@/lib/use-local-time";
 import { navigation, siteMeta } from "@/lib/site-data";
-
-function formatLocalTime() {
-  return new Intl.DateTimeFormat("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).format(new Date());
-}
-
-function scrollToSection(href: string) {
-  if (href === "#top") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-
-  if (href.startsWith("#")) {
-    const element = document.getElementById(href.slice(1));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-}
 
 export function NavOverlay() {
   const { isOpen, closeMenu } = useMenu();
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    setTime(formatLocalTime());
-    const interval = setInterval(() => setTime(formatLocalTime()), 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const time = useLocalTime();
+  const router = useRouter();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -49,24 +24,19 @@ export function NavOverlay() {
   const handleNavClick = (href: string) => {
     closeMenu();
 
-    if (href.startsWith("/#")) {
-      const sectionId = href.slice(2);
-      if (window.location.pathname !== "/") {
-        window.location.href = href;
+    window.setTimeout(() => {
+      if (handleNavHref(href)) return;
+
+      if (href.startsWith("/#")) {
+        setPendingHash(href.slice(1));
+        router.push("/");
         return;
       }
-      window.setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      }, 320);
-      return;
-    }
 
-    window.setTimeout(() => scrollToSection(href), 320);
+      if (href.startsWith("/")) {
+        router.push(href);
+      }
+    }, 320);
   };
 
   return (
@@ -81,7 +51,7 @@ export function NavOverlay() {
       <div className="flex w-full items-center justify-between px-6 py-4 md:px-10 lg:px-14">
         <p className="text-xs font-medium uppercase tracking-wide text-muted">
           {navigation.localPrefix}
-          <span className="text-foreground">{time}</span>
+          <span className="text-foreground">{time || "—"}</span>
         </p>
         <button
           type="button"
@@ -100,12 +70,15 @@ export function NavOverlay() {
         className="flex flex-1 flex-col items-center justify-center gap-3 md:gap-4"
         aria-label="Main navigation"
       >
-        {navigation.overlayLinks.map((link) => (
+        {navigation.overlayLinks.map((link, index) => (
           <button
             key={link.href}
             type="button"
             onClick={() => handleNavClick(link.href)}
-            className="text-4xl font-bold uppercase tracking-tight transition-opacity hover:opacity-50 md:text-6xl lg:text-7xl"
+            className={`nav-overlay-link text-4xl font-bold uppercase tracking-tight transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-50 md:text-6xl lg:text-7xl ${
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: isOpen ? `${120 + index * 60}ms` : "0ms" }}
           >
             {link.label}
           </button>
@@ -114,7 +87,15 @@ export function NavOverlay() {
 
       <div className="flex w-full items-center justify-between border-t border-border px-6 py-4 text-xs text-muted md:px-10 lg:px-14">
         <span>{siteMeta.rightsReserved}</span>
-        <Link href="#top" onClick={closeMenu} className="uppercase transition-opacity hover:opacity-60">
+        <Link
+          href="#top"
+          onClick={(event) => {
+            event.preventDefault();
+            closeMenu();
+            window.setTimeout(() => handleNavHref("#top"), 320);
+          }}
+          className="uppercase transition-opacity hover:opacity-60"
+        >
           {siteMeta.name}
         </Link>
       </div>

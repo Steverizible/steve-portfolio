@@ -1,10 +1,13 @@
 import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/Button";
+import PageChrome from "@/components/PageChrome";
 import { projects } from "@/lib/site-data";
 
 export default function ProjectsPage() {
   return (
     <main className="w-full min-h-screen bg-background animate-page-in">
+      <PageChrome backHref="/#work" backLabel="Back to featured" />
+
       <div className="w-full border-b border-border px-6 py-12 md:px-10 md:py-16 lg:px-14">
         <p className="text-sm font-medium text-muted">(2007 – 2024)</p>
         <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
