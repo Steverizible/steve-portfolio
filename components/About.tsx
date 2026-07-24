@@ -97,15 +97,19 @@ export default function About() {
 
   // Step A — heading enters from above (0 → ~32%)
   const headingEnter = easeOutCubic(phase(p, 0, 0.32));
-  // Step B/C — heading drifts upward while pill rises over it
-  const headingDrift = easeOutCubic(phase(p, 0.3, 0.88));
+  // Step B/C — heading drifts downward while pill rises over it
+  const headingDrift = easeOutCubic(phase(p, 0.28, 0.88));
   // Step B — pill rises into center (starts after heading settles)
   const pillRise = easeOutCubic(phase(p, 0.22, 0.88));
+  // Soft edge fade only after the pill mostly covers the type
+  const headingBehindFade = easeOutCubic(phase(p, 0.58, 0.94));
 
   const headingY = reduceMotion
     ? 0
-    : (1 - headingEnter) * -64 - headingDrift * 88;
-  const headingOpacity = reduceMotion ? 1 : headingEnter;
+    : (1 - headingEnter) * -64 + headingDrift * (viewportHeight * 0.22);
+  const headingOpacity = reduceMotion
+    ? 1
+    : headingEnter * (1 - headingBehindFade * 0.55);
 
   const pillStartOffset = viewportHeight * 0.46;
   const pillY = reduceMotion ? 0 : pillStartOffset * (1 - pillRise);
@@ -138,7 +142,7 @@ export default function About() {
       {/* Scroll track — stays above body copy until animation exits viewport */}
       <div ref={stageRef} className={`relative z-10 w-full ${SCROLL_TRACK}`}>
         <div className="sticky top-0 isolate h-svh w-full overflow-hidden bg-background">
-          {/* Heading — behind pill (z-1), physical cover not opacity fade */}
+          {/* Heading — behind pill (z-1); drifts down and soft-fades as the image covers it */}
           <div
             className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center px-6 will-change-transform lg:px-14"
             style={{
