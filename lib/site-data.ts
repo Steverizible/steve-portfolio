@@ -343,10 +343,11 @@ export const selectedWork = {
 export const moreAboutSteve = {
   title: "More About Steve",
   headline:
-    "I'm a Creative Director and Brand Strategist — passionate about minimalist design, storytelling, and crafting visuals that connect brands to people.",
+    "I'm a Creative Director and Brand Strategist — blending design, storytelling, and AI-fluent workflows to craft visuals that connect brands to people.",
   body: [
     "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",
     "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
+    "I use AI as creative leverage — accelerating research, concepts, and production — while taste, strategy, and brand judgment stay firmly human.",
   ],
   resumeCta: {
     label: "Connect on LinkedIn",
