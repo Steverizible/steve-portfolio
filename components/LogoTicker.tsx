@@ -11,16 +11,16 @@ export default function LogoTicker() {
           {items.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className="flex shrink-0 items-center justify-center rounded-xl border border-border bg-card px-6 py-4 min-w-[140px] md:min-w-[180px] md:px-8 md:py-5"
+              className="flex h-16 w-[150px] shrink-0 items-center justify-center rounded-xl border border-border bg-card px-5 py-4 md:h-[72px] md:w-[180px] md:px-7"
             >
               {item.imageSrc ? (
-                <div className="relative h-8 w-24 md:h-10 md:w-28">
+                <div className="relative h-8 w-full md:h-10">
                   <Image
                     src={item.imageSrc}
                     alt={item.label}
                     fill
-                    className="object-contain object-center opacity-60 grayscale"
-                    sizes="112px"
+                    className="object-contain object-center opacity-70 grayscale"
+                    sizes="160px"
                   />
                 </div>
               ) : (

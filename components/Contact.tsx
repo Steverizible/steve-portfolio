@@ -24,14 +24,16 @@ export default function Contact() {
             {contact.subheadline}
           </p>
           <RevealHeading className="mt-2 text-3xl font-bold uppercase tracking-tight md:text-5xl">
-            {contact.headline}
+            <span className="block">{contact.headlineLines[0]}</span>
+            <span className="block">{contact.headlineLines[1]}</span>
           </RevealHeading>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-            {contact.description}
-          </p>
+          <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-muted">
+            <p>{contact.description}</p>
+            <p>{contact.descriptionSecondary}</p>
+          </div>
 
           <div className="mt-10">
-            <Button href={contact.cta.href} variant="solid">
+            <Button href={contact.cta.href} variant="solid" className="uppercase">
               {contact.cta.label}
             </Button>
           </div>
@@ -46,7 +48,7 @@ export default function Contact() {
                   className="text-sm font-semibold uppercase tracking-wide transition-opacity hover:opacity-60"
                 >
                   {social.label}
-                  <span className="mt-1 block text-xs font-normal text-muted normal-case">
+                  <span className="mt-1 block text-xs font-normal normal-case text-muted">
                     {social.handle}
                   </span>
                 </Link>
