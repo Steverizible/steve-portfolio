@@ -21,8 +21,12 @@ export default function Hero() {
         </div>
 
         <div className="flex justify-end">
-          <Button href={navigation.contactCta.href} variant="solid" className="!px-5 !py-2.5 !text-[11px] md:!text-xs">
-            Contact now
+          <Button
+            href={navigation.contactCta.href}
+            variant="solid"
+            className="!px-5 !py-2.5 !text-[11px] uppercase md:!text-xs"
+          >
+            {navigation.contactCta.label}
           </Button>
         </div>
       </div>

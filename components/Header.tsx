@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Button from "@/components/Button";
+import ProjectCard from "@/components/ProjectCard";
 import { useMenu } from "@/lib/menu-context";
 import { handleNavHref, setPendingHash } from "@/lib/scroll";
 import { useLocalTime } from "@/lib/use-local-time";
-import { navigation, siteMeta } from "@/lib/site-data";
+import { featuredWork, navigation, projects, siteMeta } from "@/lib/site-data";
 
 export function NavOverlay() {
   const { isOpen, closeMenu } = useMenu();
@@ -39,6 +40,10 @@ export function NavOverlay() {
     }, 320);
   };
 
+  const overlayProjects = featuredWork.projectIds
+    .map((id) => projects.find((project) => project.id === id))
+    .filter((project): project is NonNullable<typeof project> => Boolean(project));
+
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col bg-background transition-[transform,opacity] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -61,40 +66,69 @@ export function NavOverlay() {
         >
           <span className="text-lg leading-none">×</span>
         </button>
-        <Button href={navigation.contactCta.href} variant="solid" className="!px-5 !py-2.5">
+        <Button
+          href={navigation.contactCta.href}
+          variant="solid"
+          className="!px-5 !py-2.5 uppercase"
+          onClick={closeMenu}
+        >
           Contact
         </Button>
       </div>
 
-      <nav
-        className="flex flex-1 flex-col items-center justify-center gap-3 md:gap-4"
-        aria-label="Main navigation"
-      >
-        {navigation.overlayLinks.map((link, index) => (
-          <button
-            key={link.href}
-            type="button"
-            onClick={() => handleNavClick(link.href)}
-            className={`nav-overlay-link text-4xl font-bold uppercase tracking-tight transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-50 md:text-6xl lg:text-7xl ${
-              isOpen ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-            style={{ transitionDelay: isOpen ? `${120 + index * 60}ms` : "0ms" }}
-          >
-            {link.label}
-          </button>
-        ))}
-      </nav>
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+        <nav
+          className="flex flex-col items-center justify-center gap-2 px-6 py-10 md:gap-3 md:py-14"
+          aria-label="Main navigation"
+        >
+          {navigation.overlayLinks.map((link, index) => (
+            <button
+              key={link.href}
+              type="button"
+              onClick={() => handleNavClick(link.href)}
+              className={`nav-overlay-link relative text-5xl font-bold uppercase tracking-tight transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-50 md:text-7xl lg:text-8xl ${
+                isOpen ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
+              style={{ transitionDelay: isOpen ? `${120 + index * 60}ms` : "0ms" }}
+            >
+              {link.label}
+              {link.badge ? (
+                <sup className="ml-1 align-super text-[0.35em] font-semibold normal-case tracking-normal">
+                  ({link.badge})
+                </sup>
+              ) : null}
+            </button>
+          ))}
+        </nav>
 
-      <div className="flex w-full items-center justify-between border-t border-border px-6 py-4 text-xs text-muted md:px-10 lg:px-14">
+        <div className="mx-auto w-full max-w-5xl px-6 pb-10 md:px-10 lg:px-14">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {overlayProjects.map((project) => (
+              <div
+                key={project.id}
+                onClick={closeMenu}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") closeMenu();
+                }}
+                role="presentation"
+              >
+                <ProjectCard project={project} variant="featured" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex w-full items-center justify-between border-t border-border px-6 py-4 text-xs uppercase tracking-wide text-muted md:px-10 lg:px-14">
         <span>{siteMeta.rightsReserved}</span>
         <Link
-          href="#top"
+          href="/#top"
           onClick={(event) => {
             event.preventDefault();
             closeMenu();
             window.setTimeout(() => handleNavHref("#top"), 320);
           }}
-          className="uppercase transition-opacity hover:opacity-60"
+          className="transition-opacity hover:opacity-60"
         >
           {siteMeta.name}
         </Link>

@@ -24,10 +24,10 @@ export default function Expertise() {
   const closeModal = () => setActiveItem(null);
 
   return (
-    <section className="border-b border-border bg-white" id="expertise">
+    <section className="border-b border-border bg-background" id="expertise">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <StickySectionHeading
-          bgClassName="bg-white"
+          bgClassName="bg-background"
           className="text-3xl font-bold uppercase tracking-tight md:text-5xl"
         >
           {expertise.title}

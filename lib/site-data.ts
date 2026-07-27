@@ -1,7 +1,6 @@
 /**
  * Structured site content for Steve Watts portfolio.
- * Copy and hierarchy from reference/framer-home.html; project grid and case studies
- * cross-checked with reference screenshots (homepage, navigation, selected works, project pages).
+ * Copy and hierarchy from https://stevewattsportfolio.framer.website/
  */
 
 // ---------------------------------------------------------------------------
@@ -10,12 +9,15 @@
 
 export const siteMeta = {
   name: "Steve Watts",
-  title: "Steve Watts | Portfolio",
+  title: "Steven watts | Portfolio",
   description:
     "Founder, Creative Director, and Brand Strategist with over 15 years of experience leading creative teams and building compelling brand identities across diverse industries.",
   location: "San Clemente, CA",
   locationShort: "San Clemente, CA",
+  email: "stevenstewart90@gmail.com",
   linkedInUrl: "https://www.linkedin.com/in/stevenstewartwatts/",
+  resumeUrl:
+    "https://drive.google.com/file/d/1wIqAsnoWu_yGf_r_Mn7QzB_54PUtBZXf/view?usp=drive_link",
   copyright: "©2024 Steve Watts",
   rightsReserved: "©2024 All Rights Reserved",
 } as const;
@@ -36,6 +38,20 @@ export type CaseStudySection = {
   body: string;
 };
 
+export type CaseStudy = {
+  title: string;
+  intro: string;
+  client: string;
+  year: string;
+  category: string;
+  sections: CaseStudySection[];
+  relatedProjectIds: string[];
+  externalLink?: {
+    label: string;
+    href: string;
+  };
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -52,15 +68,16 @@ export type Project = {
   /** Reference asset filename in reference/ for migration. */
   referenceImage?: string;
   featured: boolean;
-  caseStudy?: {
-    title: string;
-    intro: string;
-    client: string;
-    year: string;
-    category: string;
-    sections: CaseStudySection[];
-    relatedProjectIds: string[];
-  };
+  caseStudy?: CaseStudy;
+};
+
+export type ContactFormField = {
+  id: string;
+  name: string;
+  label: string;
+  type: "text" | "email" | "textarea";
+  placeholder: string;
+  required?: boolean;
 };
 
 // ---------------------------------------------------------------------------
@@ -69,22 +86,20 @@ export type Project = {
 
 export const navigation = {
   /** Top bar — local indicator uses live time in UI; label prefix only here. */
-  localPrefix: "LOCAL /",
+  localPrefix: "LOCAL/",
   headerLinks: [
     { label: "Work", href: "/#work" },
     { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   overlayLinks: [
-    { label: "Home", href: "/#top" },
+    { label: "Home", href: "/#top", badge: "2" },
     { label: "Work", href: "/#work" },
-    { label: "Projects", href: "/projects" },
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   contactCta: {
     label: "Contact now",
-    href: "/#contact",
+    href: "/contact",
   },
   availabilityLabel: "Available for freelance",
 } as const;
@@ -100,49 +115,90 @@ export const projects: Project[] = [
     label: "Email",
     name: "Multi Business",
     category: "Email",
-    year: "2010–2025",
+    year: "2010-2025",
     href: "/work/multi-business",
     referenceImage: "BuMzxENCqkpoJutTtqHUDqkZsw.avif",
     featured: true,
+    caseStudy: {
+      title: "Impactful Campaign Messaging",
+      intro:
+        "In this project, I transformed email marketing into an immersive brand experience that feels like unwrapping a unique treasure. Leveraging 12 years of expertise with Klaviyo, I crafted campaigns that engage and delight recipients.",
+      client: "Multi",
+      year: "2010-2024",
+      category: "Email",
+      sections: [
+        {
+          id: "challenge",
+          heading: "The Challenge",
+          body:
+            "The objective was to drive 40–50% of overall revenue by reaching broad audiences and finely segmented niches. The challenge lay in developing a strategy that combined personalization with mass appeal to break through the noise.",
+        },
+        {
+          id: "design",
+          heading: "Design",
+          body:
+            "I created visually striking email templates that seamlessly blend bold imagery with clear, persuasive calls to action. Every design element was thoughtfully chosen to guide the reader through a story-like experience, elevating the brand’s narrative.",
+        },
+        {
+          id: "development",
+          heading: "Development",
+          body:
+            "By integrating data-driven insights and rigorous A/B testing, I fine-tuned each email to achieve consistently high open rates (over 50%) and robust clickthroughs (3–5%). The development process balanced creative sketches with technical precision to ensure flawless performance across devices and dark screens.",
+        },
+        {
+          id: "outcome",
+          heading: "Outcome",
+          body:
+            "Our campaigns and flows across our 3 companies consistently delivered impressive results—significantly boosting revenue and deepening customer engagement. We maintained a consistent open rate of over 50% and an average click-through rate of 10-20%, showcasing exceptional engagement levels and the effectiveness of our strategies.",
+        },
+      ],
+      relatedProjectIds: ["rachel-zoe", "veldskoen-packaging"],
+    },
   },
   {
     id: "slyde-handboards",
     slug: "slyde-handboards",
-    label: "Slyde Handboards",
-    name: "Business",
-    category: "Product / Graphic",
-    year: "2010–2023",
+    label: "Product/Graphic",
+    name: "Slyde Handboards",
+    category: "Product/Graphic",
+    year: "2010",
     href: "/work/slyde-handboards",
     referenceImage: "JEi4oggbYQA9XdRsMFutoxKDmwI.avif",
     featured: true,
     caseStudy: {
       title: "Slyde Handboards",
       intro:
-        "From garage startup to Shark Tank stage — building a handboard brand through product design, storytelling, and relentless creative direction.",
+        "Slyde Handboards is a brand that transformed the handboarding experience, revolutionizing the way we connect with the ocean. Born out of a passion for bodysurfing and a drive to innovate, Slyde quickly became a global leader in the sport, combining sleek design and cutting-edge technology.",
       client: "Slyde Handboards",
-      year: "2019",
+      year: "2010-2023",
       category: "Product Design",
       sections: [
         {
-          id: "challenge",
-          heading: "The Challenge",
+          id: "research",
+          heading: "Research",
           body:
-            "Establish Slyde as the definitive handboard brand — balancing performance product development with a lifestyle narrative that resonates on land and in the water.",
+            "The challenge was to develop a handboard that was not only durable and lightweight but also visually striking, akin to the high-performance gear seen in snowboarding and skateboarding. We needed a product that could stand out in both design and performance.",
         },
         {
-          id: "process",
-          heading: "Design Process",
+          id: "design",
+          heading: "Design",
           body:
-            "Iterative prototyping, athlete feedback, and brand storytelling shaped every product line — from The Grom for beginners to premium boards for core riders.",
+            "Using countless sketches, foam models, and 3D modeling, we refined the shape and functionality of each board to ensure an optimal riding experience for specific wave styles. The digital designs and foam printing allowed us to experiment with different shapes, curves, and materials to find the perfect balance between performance and aesthetics.",
         },
         {
-          id: "outcome",
-          heading: "The Outcome",
+          id: "development",
+          heading: "Development",
           body:
-            "A nationally recognized brand with investor backing, Shark Tank visibility, and a product ecosystem that continues to define the category.",
+            "Partnering with a factory in Taiwan, we developed the Slyde Handboard from the ground up, creating six high-quality stainless steel molds for each shape to ensure precision and consistency in production. Every aspect of production, from the core materials to the final finish, was carefully engineered to create a handboard that would outperform anything else in the market.",
+        },
+        {
+          id: "concept",
+          heading: "Concept",
+          body:
+            "Slyde quickly gained traction, selling over 10,000 boards worldwide and significantly contributing to the growth of bodysurfing. The brand helped redefine and create what was essentially a new spot, making wave riding more accessible and fun for ocean lovers around the world.",
         },
       ],
-      relatedProjectIds: ["the-grom", "veldskoen-packaging"],
+      relatedProjectIds: ["portfolio-2008", "veldskoen-packaging"],
     },
   },
   {
@@ -160,7 +216,7 @@ export const projects: Project[] = [
       intro:
         "At Veldskoen, every detail matters—including the box your shoes arrive in. We embarked on a journey to craft a packaging experience that reflects our values of quality, sustainability, and adventure. The result is a shoe box that tells the story of Veldskoen before you even lace up.",
       client: "Veldskoen Shoes",
-      year: "2021",
+      year: "2020",
       category: "Packaging",
       sections: [
         {
@@ -173,7 +229,7 @@ export const projects: Project[] = [
           id: "process",
           heading: "Design Process",
           body:
-            "The design process was driven by the principles of minimal waste and maximum storytelling. Earthy textures, clean lines, and bold branding elements reflected Veldskoen's connection to nature and craftsmanship. Customer experience remained front and center, ensuring every box conveyed the spirit of exploration and authenticity.",
+            "The design process was driven by the principles of minimal waste and maximum storytelling. Earthy textures, clean lines, and bold branding elements reflected Veldskoen’s connection to nature and craftsmanship. Customer experience remained front and center, ensuring every box conveyed the spirit of exploration and authenticity.",
         },
         {
           id: "development",
@@ -185,7 +241,7 @@ export const projects: Project[] = [
           id: "outcome",
           heading: "The Outcome",
           body:
-            "The final shoe box and insert tell a story of quality, sustainability, and adventure—the essence of the Veldskoen brand. From the tactile materials to the thoughtful unboxing experience, this packaging reflects the journey every step of the way.",
+            "☝️ The final shoe box and insert tell a story of quality, sustainability, and adventure—the essence of the Veldskoen brand. From the tactile materials to the thoughtful unboxing experience, this packaging reflects the journey every step of the way.",
         },
       ],
       relatedProjectIds: ["slyde-handboards", "rachel-zoe"],
@@ -200,6 +256,41 @@ export const projects: Project[] = [
     year: "2024",
     href: "/work/rizible",
     featured: true,
+    caseStudy: {
+      title: "Rizible Branding",
+      intro:
+        "The Rizible brand design captures the heart of business clarity, where innovation and efficiency meet in a fun, approachable way. This project aimed to craft a visual identity that embodies Rizible’s mission: simplifying chaos so teams can thrive and get things done.",
+      client: "Rizible",
+      year: "2024",
+      category: "Branding",
+      sections: [
+        {
+          id: "challenge",
+          heading: "The challenge",
+          body:
+            "How do you create a visual identity that screams simplicity, inspires confidence, and conveys momentum? The challenge was building a brand that speaks directly to innovators and problem-solvers, showing Rizible as approachable and unapologetically bold.",
+        },
+        {
+          id: "design",
+          heading: "Design",
+          body:
+            "The design process focused on translating clarity into visuals. Clean, geometric shapes with soft edges were selected to mirror Rizible’s balance between functionality and approachability. Bold typography and purposeful negative space helped eliminate visual clutter while reinforcing confidence.",
+        },
+        {
+          id: "development",
+          heading: "Development",
+          body:
+            "From sketching initial concepts to refining every curve and corner, each element of the logo was meticulously crafted to reflect Rizible’s dynamic yet streamlined nature. Typography was carefully selected for its readability and strength, embodying purpose without complexity.",
+        },
+        {
+          id: "outcome",
+          heading: "Outcome",
+          body:
+            "The final logo and visual identity perfectly capture Rizible’s essence: bold, clear, and collaborative. Rounded edges convey friendliness, while the heavy geometric forms radiate strength and purpose. It's a mark that symbolizes getting things done with clarity, confidence, and a little fun along the way.",
+        },
+      ],
+      relatedProjectIds: ["rachel-zoe", "slyde-handboards"],
+    },
   },
   {
     id: "portfolio-2008",
@@ -209,39 +300,92 @@ export const projects: Project[] = [
     category: "Product Design",
     year: "2008",
     href: "/work/portfolio",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      title: "Product Design",
+      intro:
+        "Little Dude is a playful yet powerful response to the rapid acceleration of modern life. Inspired by extreme sports and the need for deeper human connection, he serves as a tactile reminder to slow down, embrace adventure, and reconnect with what truly matters.",
+      client: "Ual",
+      year: "2008",
+      category: "Portfolio",
+      sections: [
+        {
+          id: "research",
+          heading: "Research",
+          body:
+            "In a world where technology has automated much of daily life, many feel disconnected and restless. Extreme sports provide an outlet, yet the deeper psychological benefits are often overlooked. The challenge was to create a tangible object that keeps the thrill and anticipation of adventure alive in everyday moments.",
+        },
+        {
+          id: "design",
+          heading: "Design",
+          body:
+            "Little Dude is minimalist yet expressive—his form invites interpretation, reflection, and interaction. Crafted with sustainability in mind, he’s designed to be both a personal totem and a storytelling piece, evolving with the user's experiences.",
+        },
+        {
+          id: "development",
+          heading: "Development",
+          body:
+            "From early sketches to collecting and studying toys, the process was hands-on and iterative. Materials were carefully selected to balance durability with a tactile, comforting feel. User feedback shaped key elements, from the countdown mechanism to the vials that store physical memories of past adventures.",
+        },
+        {
+          id: "concept",
+          heading: "Concept",
+          body:
+            "More than just an object, Little Dude is a ritual. He marks the countdown to your next adventure, holds physical tokens of past experiences, and serves as a visual record of your journey. In a fast-paced world, he offers a pause—a moment to reflect, anticipate, and stay connected to the thrill of living.",
+        },
+        {
+          id: "how-to-use",
+          heading: "How to Use Little Dude",
+          body:
+            "1. Activate: Pull the pin from his head to start the countdown to your next extreme experience. (The pin doubles as a keyring.)\n2. Record: After your adventure, fill the vial with a token (e.g., sand or snow) and store it in the black box.\n3. Customize & Reset: Mark Little Dude with your “adventure scars” and shake his hand to set a new countdown.",
+        },
+      ],
+      relatedProjectIds: ["multi-business", "rizible"],
+    },
   },
   {
     id: "rachel-zoe",
     slug: "rachel-zoe",
-    label: "Rachel Zoe Collab",
-    name: "Collab",
+    label: "Collab",
+    name: "Rachel Zoe",
     category: "Collab",
-    year: "2024",
+    year: "2022",
     href: "/work/rachel-zoe",
-    featured: false,
+    featured: true,
     caseStudy: {
       title: "Rachel Zoe Collab",
       intro:
-        "A creative collaboration blending lifestyle luxury with Slyde's coastal energy — packaging, campaign visuals, and a cohesive brand moment.",
+        "We partnered with Rachel Zoe's Curateur to design a luxury African-inspired blanket through our brand Thula Tula. The project aimed to create a high-quality, affordable product that would be the lead item in Curateur's monthly subscription box.",
       client: "Rachel Zoe",
-      year: "2021",
-      category: "Creative",
+      year: "2020",
+      category: "Collab",
       sections: [
         {
           id: "challenge",
           heading: "The Challenge",
           body:
-            "Merge two distinct brand worlds into a single, aspirational collaboration that feels authentic to both audiences.",
+            "The challenge was to deliver a premium blanket at an accessible price point while maintaining the high standards expected by Rachel Zoe's clientele. Additionally, the blankets needed to be produced and shipped to meet tight deadlines during the COVID-19 pandemic.",
+        },
+        {
+          id: "design",
+          heading: "Design",
+          body:
+            "We created a refined, zebra-style design, combining elegance with African-inspired patterns. The design quickly became a fan favorite, highly requested by Curateur's customers for its unique and stylish appeal.",
+        },
+        {
+          id: "development",
+          heading: "Development",
+          body:
+            "Collaborating closely with our South African mill, we ensured the blankets met the required quality and aesthetic standards. Despite production challenges, we successfully created a product that fit seamlessly into Curateur's monthly collection.",
         },
         {
           id: "outcome",
-          heading: "The Outcome",
+          heading: "Outcome",
           body:
-            "A polished campaign and product presentation that elevated Slyde's positioning in the lifestyle space.",
+            "The result was a major success—over 30,000 blankets sold, along with a generous donation of 10,000 blankets to the people of Lesotho, one of the world's poorest countries. The campaign not only boosted sales but also made a significant social impact.",
         },
       ],
-      relatedProjectIds: ["slyde-handboards", "veldskoen-packaging"],
+      relatedProjectIds: ["veldskoen-packaging", "portfolio-2008"],
     },
   },
   {
@@ -252,17 +396,91 @@ export const projects: Project[] = [
     category: "Print",
     year: "2022",
     href: "/work/veldskoen-print",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      title: "Heritage Meets Style",
+      intro:
+        "I designed a magazine-style lookbook for Veldskoen Shoes to captivate potential retailers at an industry show in Chicago. This project aimed to immerse the audience in the Veldskoen brand experience, blending style with a uniquely African story.",
+      client: "Veldskoen",
+      year: "2022",
+      category: "Print",
+      sections: [
+        {
+          id: "tight-turnaround",
+          heading: "Tight Turnaround",
+          body:
+            "The challenge was to showcase Veldskoen's shoes in a lifestyle format that authentically told the brand’s African story—all within a tight deadline. The lookbook needed to be equally stunning in both digital and print formats, ensuring a seamless and impactful presentation.",
+        },
+        {
+          id: "bold-minimalism",
+          heading: "Bold Minimalism",
+          body:
+            "The design maintained the core brand colors and feel while allowing each shoe style to take center stage. By letting the product speak for itself, the lookbook achieved a clean yet compelling visual narrative.",
+        },
+        {
+          id: "curated-visuals",
+          heading: "Curated Visuals",
+          body:
+            "To bring the vision to life, I sourced and organized media while coordinating a targeted photoshoot to fill any content gaps. This strategic approach ensured the lookbook was cohesive and visually compelling.",
+        },
+        {
+          id: "engaging-storytelling",
+          heading: "Engaging Storytelling",
+          body:
+            "The final product was a visually rich, magazine-style lookbook that beautifully told the Veldskoen story. It showcased the shoes through stunning photography and provided a clear, engaging vision of how they can be styled with various outfits.",
+        },
+      ],
+      relatedProjectIds: ["portfolio-2008", "veldskoen-packaging"],
+      externalLink: {
+        label: "See Full Size",
+        href: "https://online.fliphtml5.com/qpemg/vtaq/#p=10",
+      },
+    },
   },
   {
     id: "the-grom",
     slug: "the-grom",
-    label: "The Grom",
-    name: "Product Dev",
-    category: "Product Dev",
+    label: "Product dev",
+    name: "Slyde handboards",
+    category: "Product dev",
     year: "2018",
     href: "/work/the-grom",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      title: "The grom",
+      intro:
+        "The Grom Kids Handboard is a soft foam handboard designed specifically for young wave riders, providing a fun and safe way to experience bodysurfing. Developed to expand our product line and appeal to a younger demographic, it offers an exciting alternative for kids and parents looking to enjoy the ocean in a playful, approachable way.",
+      client: "Slyde Handboards",
+      year: "2018",
+      category: "Product",
+      sections: [
+        {
+          id: "research",
+          heading: "Research",
+          body:
+            "The challenge was to create a fun and safer option for kids to ride waves while ensuring durability and ease of use. To achieve this, we needed to find a manufacturer specializing in softboard technology. We partnered with Playmaker, whose expertise in mold development and manufacturing processes enabled us to bring this innovative product to life. Watch below 👇",
+        },
+        {
+          id: "design",
+          heading: "Design",
+          body:
+            "The design process focused on creating a playful and approachable shape with vibrant, exciting color variations that appeal to kids and parents alike. We crafted a fun name, “The Grom,” and designed eye-catching packaging to stand out on retail shelves. Every detail, from the shape to the colors, was chosen to inspire fun and adventure in the ocean.",
+        },
+        {
+          id: "development",
+          heading: "Development",
+          body:
+            "The development phase involved countless sketches, foam models, and a highly technical 3D model that was turned into a mold. By collaborating closely with our factory partners, we perfected the manufacturing process, enabling production of up to 200 boards per day. This efficient production capacity ensured we could meet growing demand without compromising on quality.",
+        },
+        {
+          id: "concept",
+          heading: "Concept",
+          body:
+            "The Grom Kids Handboard became our best-selling product, drawing the attention of major retailers like Dick’s Sporting Goods. Its success not only expanded our product line but also solidified our brand's presence in the youth market, proving that innovative design and strategic manufacturing can create a hit in the competitive surf industry.",
+        },
+      ],
+      relatedProjectIds: ["portfolio-2008", "veldskoen-print"],
+    },
   },
 ];
 
@@ -282,10 +500,10 @@ export const hero = {
   headline: "Steve Watts",
   tagline: "Vision. Brand. Impact.",
   locationLabel: "Based in San Clemente, CA",
-  roles: ["Digital Designer", "Storyteller"],
+  roles: ["Digital Designer", "Story Teller"],
   cta: {
     label: "Contact now",
-    href: "#contact",
+    href: "/contact",
   },
 } as const;
 
@@ -298,9 +516,9 @@ export const featuredWork = {
   description:
     "My creative spirit thrives in the digital space, where I combine storytelling, design, and strategic innovation to craft impactful brand experiences that connect and inspire.",
   projectIds: [
-    "multi-business",
-    "slyde-handboards",
     "veldskoen-packaging",
+    "slyde-handboards",
+    "multi-business",
     "rizible",
     "portfolio-2008",
     "rachel-zoe",
@@ -308,7 +526,7 @@ export const featuredWork = {
     "the-grom",
   ],
   moreProjectsCta: {
-    label: "See more projects",
+    label: "see more projects",
     href: "/projects",
   },
 } as const;
@@ -322,7 +540,7 @@ export const selectedWork = {
   periodLabel: "(2007 – 2024)",
   description:
     "A curated archive of brand, product, packaging, and digital work across founder-led ventures and client collaborations.",
-  /** Grid order matches reference/selected works page screenshot. */
+  /** Grid order matches Framer selected works page. */
   projectIds: [
     "multi-business",
     "slyde-handboards",
@@ -343,19 +561,13 @@ export const selectedWork = {
 export const moreAboutSteve = {
   title: "More About Steve",
   headline:
-    "I'm a Creative Director and Brand Strategist — blending design, storytelling, and AI-fluent workflows to craft visuals that connect brands to people.",
+    "I'm a Creative Director and Brand Strategist. Passionate about minimalist design, storytelling, and crafting visuals that connect brands to people",
   body: [
-    "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",
-    "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
-    "I use AI as creative leverage — accelerating research, concepts, and production — while taste, strategy, and brand judgment stay firmly human.",
+    "I harness cutting-edge design tools and creative strategies to bring visionary concepts to life. With a passion for innovation and storytelling, I excel at finding unexpected solutions that captivate audiences. My dedication to design and branding is driven by the belief that powerful storytelling can transform brands and elevate the customer experience.",
   ],
   resumeCta: {
-    label: "Connect on LinkedIn",
-    href: siteMeta.linkedInUrl,
-  },
-  readMoreCta: {
-    label: "See expertise",
-    href: "/#expertise",
+    label: "Download resume",
+    href: siteMeta.resumeUrl,
   },
 } as const;
 
@@ -367,24 +579,15 @@ export type LogoTickerItem = {
 
 export const logoTicker = {
   items: [
-    { id: "gma", label: "Good Morning America" },
-    { id: "curateur", label: "Curateur" },
-    { id: "dicks", label: "Dick's Sporting Goods" },
-    { id: "ual", label: "UAL Central Saint Martins" },
-    { id: "happybond", label: "Happy Bond" },
-    {
-      id: "veldskoen",
-      label: "Veldskoen",
-      imageSrc: "/images/projects/veldskoen-packaging.png",
-    },
-    { id: "slyde", label: "Slyde" },
-    { id: "thula-tula", label: "Thula Tula" },
-    { id: "forbes", label: "Forbes" },
-    { id: "shark-tank", label: "Shark Tank" },
-    { id: "abc", label: "ABC" },
-    { id: "patagonia", label: "Patagonia" },
-    { id: "rei", label: "REI" },
-    { id: "disney", label: "Disney" },
+    { id: "logo-1", label: "Partner", imageSrc: "/images/logos/logo-1.png" },
+    { id: "logo-2", label: "Partner", imageSrc: "/images/logos/logo-2.png" },
+    { id: "logo-3", label: "Partner", imageSrc: "/images/logos/logo-3.png" },
+    { id: "logo-4", label: "Partner", imageSrc: "/images/logos/logo-4.png" },
+    { id: "logo-5", label: "Partner", imageSrc: "/images/logos/logo-5.png" },
+    { id: "logo-6", label: "Partner", imageSrc: "/images/logos/logo-6.png" },
+    { id: "logo-7", label: "Partner", imageSrc: "/images/logos/logo-7.png" },
+    { id: "logo-8", label: "Partner", imageSrc: "/images/logos/logo-8.png" },
+    { id: "logo-9", label: "Partner", imageSrc: "/images/logos/logo-9.webp" },
   ] satisfies LogoTickerItem[],
 } as const;
 
@@ -413,28 +616,28 @@ export const expertise = {
       number: 1,
       title: "Creative Leadership",
       preview:
-        "Leading design teams to develop innovative campaigns and distinctive brand identities — from concept through execution.",
+        "Craft intuitive navigation that makes features accessible. Choose layouts and graphics that fit your personality.",
       modalTitle: "Creative Leadership:",
       modalSubtitle: "Vision, Innovation, & Impact",
       modalBody:
         "I turn ideas into multi-million-dollar brands, leading high-performing teams to drive innovation, storytelling, and growth. As the force behind Slyde Handboards and Veldskoen USA, I've scaled startups, secured $500K from Mark Cuban & Ashton Kutcher, and built brands featured in Forbes and The New York Times. With expertise in branding, digital marketing, and e-commerce, I fuse creativity with data-driven strategy to deliver real results. Recognized for award-winning leadership, I don't just create—I inspire, execute, and grow.",
       modalImage: "/images/expertise/creative-leadership.avif",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
       id: "digital-marketing",
       number: 2,
       title: "Digital Marketing",
       preview:
-        "Crafting high-performing Facebook ad campaigns that drive engagement, boost brand visibility, and deliver measurable growth.",
+        "Digital marketing specialist with a flair for crafting high-performing Facebook ad campaigns—driving engagement, boosting brand visibility, and delivering measurable growth.",
       modalTitle: "Digital Marketing",
       modalSubtitle: "Data-Driven Revenue Growth",
       modalBody:
         "I specialize in high-impact digital marketing that transforms brands and drives revenue. Managing $30K+ monthly ad budgets, I've optimized Facebook, Google, and email campaigns to maximize ROI. My expertise in Shopify, UX/UI, and conversion optimization has fueled e-commerce success, scaling Veldskoen USA to $250K/month in a year. By blending strategic storytelling with performance marketing, I create campaigns that not only engage but convert—turning audiences into loyal customers and brands into industry leaders.",
       modalImage: "/images/expertise/digital-marketing.webp",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
       id: "storytelling-branding",
@@ -448,7 +651,7 @@ export const expertise = {
         "I build brands that captivate and convert. By blending authentic storytelling with strategic branding, I create compelling narratives that forge deep customer connections. From securing national media features to driving multi-million-dollar brand growth, my approach turns vision into lasting impact.",
       modalImage: "/images/expertise/storytelling-branding.webp",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
       id: "ecomm-growth",
@@ -462,35 +665,35 @@ export const expertise = {
         "I drive e-commerce success through data-backed strategies, UX optimization, and high-converting digital campaigns. By refining customer journeys and leveraging A/B testing, I've boosted conversions and expanded market reach. My expertise in Shopify, CRO, and multi-channel marketing turns online stores into revenue powerhouses.",
       modalImage: "/images/expertise/ecomm-growth.webp",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
       id: "email-marketing",
       number: 5,
       title: "Email Marketing",
       preview:
-        "Creating engaging email marketing strategies and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
+        "Creating engaging email marketing strategies, and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
       modalTitle: "Email Marketing",
       modalSubtitle: "Data-Driven Revenue Growth",
       modalBody:
         "I create high-performing, on-brand email campaigns that drive 40-50% of overall brand revenue. With 40-60% open rates and 5%+ click-through rates, I leverage robust segmentation and extensive A/B testing to optimize engagement, retention, and conversions—turning email into a powerhouse for sustained growth.",
       modalImage: "/images/expertise/email-marketing.avif",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
       id: "seo",
       number: 6,
       title: "SEO: It's a Passion",
       preview:
-        "Optimizing content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
+        "I optimize content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
       modalTitle: "SEO: Optimized for",
       modalSubtitle: "Data-Driven Revenue Growth",
       modalBody:
         "I drive organic traffic through strategic SEO, including keyword research, content optimization, and technical improvements. My data-driven approach boosts search rankings, increases visibility, and enhances user engagement for sustained brand growth.",
       modalImage: "/images/expertise/seo.avif",
       ctaLabel: "E-mail",
-      ctaHref: "mailto:hello@stevewatts.com",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
     },
   ] satisfies ExpertiseItem[],
 } as const;
@@ -567,15 +770,15 @@ export const experience = {
       role: "Paid Media Consultancy",
       period: "2023 – 2024",
       description:
-        "Led explosive growth at Happybond, scaling monthly revenue from $5K to $50K in just a few months through paid media, organic marketing, and high-converting email campaigns.",
+        "I led the explosive growth of HappyBond, skyrocketing monthly revenue from $5K to $50K in just a few months. Through a powerful blend of paid media, organic marketing, and high-converting email campaigns.",
     },
     {
       id: "ilan-dei",
-      company: "Ilan Dei",
+      company: "Ilan dei",
       role: "Junior Designer",
       period: "2008 – 2010",
       description:
-        "Started my career as a Junior Designer at Ilan Dei, honing skills in product design, branding, and creative storytelling.",
+        "I started my career as a Junior Designer at Illan Dei, honing my skills in product design, branding, and creative storytelling.",
     },
   ] satisfies ExperienceItem[],
 } as const;
@@ -597,58 +800,58 @@ export const favoriteStack = {
     {
       id: "adobe-suite",
       name: "Adobe Suite",
-      category: "Creative design and visual storytelling",
+      category: "Creative Design and Visual Storytelling",
       description:
         "I leverage Adobe Creative Suite (Photoshop, Illustrator, and Premiere Pro) extensively in my work, particularly for digital design, video editing, and creating compelling visual content. Whether it's using Photoshop for graphics, Illustrator for vector designs, or Premiere Pro for video projects",
     },
     {
       id: "klaviyo",
       name: "Klaviyo",
-      category: "Customer data platform / SMS marketing / mobile push",
+      category: "Customer data platform / SMS marketing / Mobile push",
       description:
         "With 15 years of experience in email marketing, I've honed my skills in creating data-driven campaigns that engage, convert, and retain customers. From developing strategies to crafting compelling content and optimizing deliverability, I've worked across various industries to design emails that drive results.",
     },
     {
       id: "capcut",
       name: "CapCut",
-      category: "Video editing",
+      category: "VIDEO EDITING",
       description:
-        "With extensive experience using CapCut, I craft high-quality paid media and organic videos that engage audiences and drive results — advanced editing, seamless transitions, and creative storytelling.",
+        "With extensive experience using CapCut, I specialize in crafting high-quality paid media and organic videos that engage audiences and drive results. My expertise includes advanced editing techniques, seamless transitions, and creative storytelling to elevate brand content.",
     },
     {
       id: "figma",
       name: "Figma",
-      category: "Collaborative design tool",
+      category: "collaborative Design Tool",
       description:
-        "I use Figma to design user paths and optimize experiences through intuitive, collaborative workflows. Leveraging Figma Jam, I foster creative brainstorming and seamless team collaboration.",
-    },
-    {
-      id: "airtable",
-      name: "Airtable",
-      category: "Streamlining paid media campaigns",
-      description:
-        "Experienced in using Airtable for planning and managing Facebook campaigns and social media projects — dynamic workflows, content schedules, and streamlined collaboration.",
+        "I have extensive experience using Figma to design user paths and optimize user experiences through intuitive, collaborative workflows. Leveraging Figma Jam, I foster creative brainstorming and seamless team collaboration to bring innovative design solutions to life.",
     },
     {
       id: "shopify",
       name: "Shopify",
       category: "Web design and build",
       description:
-        "Designing and building e-commerce experiences that balance brand storytelling with conversion-focused UX.",
+        "With over 15 years of experience in Shopify, I specialize in creating minimalist, elegant designs that prioritize refined typography and intuitive user experiences. Passionate about conversion rate optimization, I leverage A/B testing and strategic landing page development to drive engagement and maximize results.",
     },
     {
       id: "clickup",
       name: "ClickUp",
-      category: "Project management",
+      category: "Project managment",
       description:
-        "With extensive project management experience in ClickUp, I keep teams aligned, on schedule, and focused on deliverables from kickoff through launch.",
+        "With extensive project management experience using primarily ClickUp, I excel at keeping teams aligned, on schedule, and focused on deliverables. My approach ensures efficient task management, streamlined workflows, and successful project execution from start to finish.",
     },
     {
       id: "microsoft-office",
       name: "Microsoft Office Suite",
-      category: "15+ years of expertise",
+      category: "15+ Years of Expertise",
       description:
-        "Daily use of Word, Excel, and PowerPoint for strategy docs, reporting, and client presentations.",
+        "With 15 years of experience in both Microsoft Office and Google Suite environments, I specialize in using Excel and Google Sheets for advanced data analysis, reporting, and automation, as well as crafting professional documents in Word and Google Docs. My expertise ensures efficient workflow management, seamless collaboration, and high-quality deliverables.",
+    },
+    {
+      id: "airtable",
+      name: "Airtable",
+      category: "Streamlining paid Media Campaigns",
+      description:
+        "Experienced in using Airtable for planning and managing Facebook campaigns and social media projects. I create dynamic workflows, track content schedules, and streamline collaboration to ensure timely and impactful campaign execution.",
     },
   ] satisfies StackItem[],
 } as const;
@@ -676,17 +879,17 @@ export const awardsMedia = {
       subtitle: "Mark Cuban + Ashton Kutcher",
       year: "2017",
       description:
-        "Successfully pitched and obtained funding from investors including Mark Cuban and Ashton Kutcher, driving growth and market presence for Slyde Handboards and Veldskoen USA. Named one of Mark Cuban's top five favorite investments by Inc. Magazine.",
+        "Successfully pitched and obtained funding from investors like Mark Cuban and Ashton Kutcher, driving the growth and market presence of Slyde Handboards and Veldskoen USA and Named Mark Cubans Top 5 favorite Investments by Inc Magazine.",
     },
     {
       id: "press-features",
       title: "Featured in New York Times",
-      subtitle: "Press Portfolio",
-      year: "",
+      subtitle: "ARNO Red Themed Portfolio",
+      year: "2017",
       description:
-        "Featured in prominent publications including the New York Times, Forbes, and Business Journal, along with a memorable appearance on Shark Tank — gaining nationwide recognition and bolstering brand visibility.",
-      href: siteMeta.linkedInUrl,
-      linkLabel: "Press & profile",
+        "Featured in prominent publications such as the New York Times, Forbes, and Business Journal, along with a memorable appearance on Shark Tank, gaining nationwide recognition and bolstering brand visibility.",
+      href: "https://www.nytimes.com/2016/04/28/business/smallbusiness/selling-surfers-on-a-new-way-to-ride-the-waves.html",
+      linkLabel: "full article",
     },
     {
       id: "orange-county-award",
@@ -721,7 +924,7 @@ export const faq = {
     { id: "brand-narrative", label: "Crafting a Strong Brand Narrative" },
     {
       id: "digital-marketing",
-      label: "Data-Driven Digital Marketing Strategies",
+      label: "Data-Driven Digital My Marketing Strategies",
     },
     { id: "ecommerce", label: "E-Commerce Optimization" },
     { id: "success-examples", label: "Real-World Success Examples" },
@@ -781,30 +984,86 @@ export const faq = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// 12. Contact
+// 12. Contact (homepage section)
 // ---------------------------------------------------------------------------
 
 export const contact = {
   id: "contact",
   headline: "Let's Work Together",
-  subheadline: "Contact",
+  headlineLines: ["Let's Work", "Together"],
+  subheadline: "contact",
   description:
-    "I'm always looking for new and exciting projects. If you have an idea or just want to say hi, feel free to reach out — I'd love to hear from you.",
+    "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",
+  descriptionSecondary:
+    "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
   cta: {
-    label: "Get in touch",
-    href: "mailto:hello@stevewatts.com",
+    label: "contact",
+    href: "/contact",
   },
   social: [
     {
-      label: "LinkedIn",
+      label: "linkdin",
       href: siteMeta.linkedInUrl,
-      handle: "Steve Watts",
+      handle: "steve watts",
     },
   ],
-  footerNav: [
-    { label: "Work", href: "/#work" },
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
-  ] satisfies NavLink[],
-  backToTopLabel: "Go back to top",
+  footerNav: [] as NavLink[],
+  backToTopLabel: "Go Back To Top",
+} as const;
+
+// ---------------------------------------------------------------------------
+// 13. Contact page (/contact)
+// ---------------------------------------------------------------------------
+
+export const contactPage = {
+  headline: "Say Hello!",
+  description:
+    "My creative spirit comes alive in the digital realm. With nimble fingers flying across the keyboard.",
+  formIntro: "Fill THIS form out",
+  formFields: [
+    {
+      id: "name",
+      name: "name",
+      label: "Name",
+      type: "text",
+      placeholder: "Name",
+      required: true,
+    },
+    {
+      id: "email",
+      name: "email",
+      label: "E-Mail",
+      type: "email",
+      placeholder: "E-Mail",
+      required: true,
+    },
+    {
+      id: "message",
+      name: "message",
+      label: "Message",
+      type: "textarea",
+      placeholder: "Message",
+      required: true,
+    },
+  ] satisfies ContactFormField[],
+  submitLabel: "SEND EMAIL",
+  socialHeading: "SOCIAL",
+  social: {
+    label: "Linkdin",
+    href: siteMeta.linkedInUrl,
+  },
+  location: {
+    label: "CURRENT LOCATION",
+    value: "san Clemente, California (CA), 92672, United States",
+  },
+  phone: {
+    label: "Phone",
+    value: "USA, +1 310 433 0363",
+  },
+  email: {
+    label: "EMAIL",
+    value: siteMeta.email,
+    href: `mailto:${siteMeta.email}`,
+  },
+  backToTopLabel: "Go Back To Top",
 } as const;

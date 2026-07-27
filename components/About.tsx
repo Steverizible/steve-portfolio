@@ -218,9 +218,6 @@ function BodyContent({
         <Button href={moreAboutSteve.resumeCta.href} variant="outline">
           {moreAboutSteve.resumeCta.label}
         </Button>
-        <Button href={moreAboutSteve.readMoreCta.href} variant="solid">
-          {moreAboutSteve.readMoreCta.label}
-        </Button>
       </div>
     </div>
   );

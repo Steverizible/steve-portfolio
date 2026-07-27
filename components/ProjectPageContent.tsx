@@ -16,28 +16,42 @@ type ProjectPageContentProps = {
 
 export default function ProjectPageContent({ project }: ProjectPageContentProps) {
   const imageSrc = project.imageSrc ?? projectImages[project.id];
+  const caseStudy = project.caseStudy;
   const relatedProjects =
-    project.caseStudy?.relatedProjectIds
-      ?.map((id) => projects.find((p) => p.id === id))
-      .filter((p): p is Project => Boolean(p)) ?? [];
+    caseStudy?.relatedProjectIds
+      ?.map((id) => projects.find((item) => item.id === id))
+      .filter((item): item is Project => Boolean(item)) ?? [];
 
   return (
     <div className="animate-page-in w-full">
-      <PageChrome backHref="/#work" backLabel="Back to work" />
+      <PageChrome backHref="/projects" backLabel="Back to works" />
 
       <div className="w-full px-6 py-12 md:px-10 md:py-16 lg:px-14">
-        <p className="text-xs font-medium uppercase tracking-wide text-muted">
-          {project.category} · {project.year}
-        </p>
-
-        <h1 className="mt-4 text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
-          {project.caseStudy?.title ?? project.label}
+        <h1 className="text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
+          {caseStudy?.title ?? project.label}
         </h1>
 
-        {project.caseStudy?.intro && (
+        {caseStudy?.intro && (
           <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted md:text-lg">
-            {project.caseStudy.intro}
+            {caseStudy.intro}
           </p>
+        )}
+
+        {caseStudy && (
+          <dl className="mt-10 grid gap-4 border-y border-border py-6 text-sm uppercase tracking-wide sm:grid-cols-3">
+            <div>
+              <dt className="text-muted">Client</dt>
+              <dd className="mt-1 font-semibold">{caseStudy.client}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Year</dt>
+              <dd className="mt-1 font-semibold">{caseStudy.year}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Category</dt>
+              <dd className="mt-1 font-semibold">{caseStudy.category}</dd>
+            </div>
+          </dl>
         )}
 
         {imageSrc && (
@@ -55,7 +69,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
           </div>
         )}
 
-        {project.caseStudy?.sections.map((section, index) => (
+        {caseStudy?.sections.map((section, index) => (
           <RevealOnScroll
             key={section.id}
             delayMs={index * 60}
@@ -64,13 +78,21 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             <h2 className="text-xl font-bold uppercase tracking-tight md:text-2xl">
               {section.heading}
             </h2>
-            <p className="text-base leading-relaxed text-muted md:text-lg">
+            <p className="whitespace-pre-line text-base leading-relaxed text-muted md:text-lg">
               {section.body}
             </p>
           </RevealOnScroll>
         ))}
 
-        {!project.caseStudy && (
+        {caseStudy?.externalLink && (
+          <div className="mt-12">
+            <Button href={caseStudy.externalLink.href} variant="outline">
+              {caseStudy.externalLink.label}
+            </Button>
+          </div>
+        )}
+
+        {!caseStudy && (
           <p className="mt-8 text-base leading-relaxed text-muted">
             Full case study coming soon. This project is part of the Steve Watts portfolio archive.
           </p>
@@ -78,9 +100,16 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
 
         {relatedProjects.length > 0 && (
           <div className="mt-20 border-t border-border pt-16">
-            <h2 className="text-2xl font-bold uppercase tracking-tight md:text-3xl">
-              More Works
-            </h2>
+            <div className="overflow-hidden">
+              <div className="ticker-track flex w-max gap-8 text-sm font-semibold uppercase tracking-[0.2em] text-muted">
+                <span className="shrink-0 whitespace-nowrap">
+                  More Works More Works More Works
+                </span>
+                <span className="shrink-0 whitespace-nowrap" aria-hidden="true">
+                  More Works More Works More Works
+                </span>
+              </div>
+            </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {relatedProjects.map((related) => (
                 <ProjectCard key={related.id} project={related} variant="featured" />

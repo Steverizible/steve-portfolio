@@ -34,3 +34,15 @@ export const awardImages: Record<string, string> = {
   "investor-relations": "/images/awards/investor-relations.avif",
   "press-features": "/images/awards/press-features.avif",
 };
+
+export const logoImages: Record<string, string> = {
+  "logo-1": "/images/logos/logo-1.png",
+  "logo-2": "/images/logos/logo-2.png",
+  "logo-3": "/images/logos/logo-3.png",
+  "logo-4": "/images/logos/logo-4.png",
+  "logo-5": "/images/logos/logo-5.png",
+  "logo-6": "/images/logos/logo-6.png",
+  "logo-7": "/images/logos/logo-7.png",
+  "logo-8": "/images/logos/logo-8.png",
+  "logo-9": "/images/logos/logo-9.webp",
+};

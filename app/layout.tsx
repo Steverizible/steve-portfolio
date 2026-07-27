@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Inter_Tight } from "next/font/google";
 import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteMeta } from "@/lib/site-data";
@@ -10,9 +10,33 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://stevewattsportfolio.framer.website"
+  ),
   title: siteMeta.title,
   description: siteMeta.description,
+  icons: {
+    icon: "/favicon.png",
+  },
+  openGraph: {
+    title: siteMeta.title,
+    description: siteMeta.description,
+    images: [
+      {
+        url: "/images/og/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: siteMeta.name,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -21,8 +45,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
+    <html
+      lang="en"
+      className={`${instrumentSans.variable} ${interTight.variable} h-full scroll-smooth`}
+    >
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

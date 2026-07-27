@@ -37,19 +37,6 @@ export default function Footer() {
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border py-6 text-xs font-medium uppercase tracking-wide text-muted sm:flex-row">
           <p>{siteMeta.copyright}</p>
 
-          <nav className="flex flex-wrap items-center justify-center gap-6" aria-label="Footer">
-            {contact.footerNav.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={(event) => onNavClick(event, link.href)}
-                className="transition-opacity hover:opacity-60"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
           <Link
             href="#top"
             onClick={(event) => onNavClick(event, "#top")}

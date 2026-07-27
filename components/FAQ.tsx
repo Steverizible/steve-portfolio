@@ -6,8 +6,10 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import { faq } from "@/lib/site-data";
 
 export default function FAQ() {
-  const [activeTopic, setActiveTopic] = useState<string | null>(null);
-  const [openId, setOpenId] = useState<string | null>(faq.items[0]?.id ?? null);
+  const [activeTopic, setActiveTopic] = useState<string | null>(faq.topics[0]?.id ?? null);
+  const [openId, setOpenId] = useState<string | null>(
+    faq.items.find((item) => item.topicId === faq.topics[0]?.id)?.id ?? faq.items[0]?.id ?? null
+  );
 
   const visibleItems = activeTopic
     ? faq.items.filter((item) => item.topicId === activeTopic)
@@ -21,19 +23,11 @@ export default function FAQ() {
     <section className="border-b border-border" id="faq">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <RevealHeading className="text-center text-3xl font-bold uppercase tracking-tight md:text-4xl">
-          {faq.title}
+          <span className="block">Frequently</span>
+          <span className="block">Asked Questions</span>
         </RevealHeading>
 
         <RevealOnScroll className="mt-10 flex flex-wrap justify-center gap-2">
-          <button
-            type="button"
-            onClick={() => setActiveTopic(null)}
-            className={`faq-topic rounded-full border border-border px-3 py-1 text-xs font-medium ${
-              activeTopic === null ? "is-active" : "text-muted"
-            }`}
-          >
-            All
-          </button>
           {faq.topics.map((topic) => (
             <button
               key={topic.id}
