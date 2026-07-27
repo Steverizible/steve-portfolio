@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Button from "@/components/Button";
+import MenuTrigger from "@/components/MenuTrigger";
 import { useLocalTime } from "@/lib/use-local-time";
 import { hero, navigation } from "@/lib/site-data";
 
@@ -13,14 +14,14 @@ export default function Hero() {
       className="relative flex min-h-svh w-full flex-col"
       style={{ backgroundColor: "#f0f0f0" }}
     >
-      <div className="grid w-full grid-cols-3 items-center px-6 pt-4 md:px-10 md:pt-5 lg:px-14">
+      <div className="grid w-full grid-cols-3 items-center px-6 pt-6 md:px-10 md:pt-8 lg:px-14">
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
           {navigation.localPrefix}
           <span className="text-[color:var(--time)]">{time || "—"}</span>
         </p>
 
-        <div className="flex justify-center" aria-hidden="true">
-          <div className="h-10 w-10" />
+        <div className="flex justify-center">
+          <MenuTrigger />
         </div>
 
         <div className="flex justify-end">
