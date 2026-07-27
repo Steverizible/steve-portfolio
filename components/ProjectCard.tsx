@@ -47,7 +47,7 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
                 src={imageSrc}
                 alt={`${label} — ${name}`}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </ViewTransition>
