@@ -249,7 +249,7 @@ body.page-transition-out {
   color: var(--background);
 }
 
-/* Four-dot menu trigger — square at rest, rotates into a cross when open */
+/* Four-dot menu trigger — sits in the header, scrolls away; hover spins into a cross */
 .menu-dots {
   display: grid;
   grid-template-columns: repeat(2, 4px);
@@ -259,14 +259,10 @@ body.page-transition-out {
     gap 0.55s var(--ease-premium);
 }
 
-.menu-trigger:hover:not(.is-active) .menu-dots {
-  transform: rotate(20deg) scale(1.05);
-}
-
-.menu-trigger.is-active .menu-dots {
-  /* 45° turns the square of dots into a cross / plus */
+.menu-trigger:hover .menu-dots {
+  /* 180° turn + 45° so the square lands as a cross */
   gap: 9px;
-  transform: rotate(45deg) scale(1.08);
+  transform: rotate(225deg);
 }
 
 .menu-dot {
@@ -274,7 +270,6 @@ body.page-transition-out {
   height: 4px;
   border-radius: 9999px;
   background-color: currentColor;
-  transition: transform 0.55s var(--ease-premium);
 }
 
 /* Logo ticker marquee */
@@ -513,8 +508,7 @@ body.custom-cursor-enabled button {
     transform: none;
   }
 
-  .menu-trigger:hover:not(.is-active) .menu-dots,
-  .menu-trigger.is-active .menu-dots {
+  .menu-trigger:hover .menu-dots {
     transform: none;
     gap: 7px;
   }

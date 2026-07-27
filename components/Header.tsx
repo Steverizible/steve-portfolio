@@ -59,9 +59,17 @@ export function NavOverlay() {
           <span className="text-foreground">{time || "—"}</span>
         </p>
 
-        {/* Spacer — MenuTrigger stays fixed above the overlay and morphs in place */}
-        <div className="flex justify-center" aria-hidden="true">
-          <div className="h-10 w-10" />
+        <div className="flex justify-center">
+          <button
+            type="button"
+            onClick={closeMenu}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-95"
+            aria-label="Close menu"
+          >
+            <span className="text-2xl font-light leading-none" aria-hidden="true">
+              ×
+            </span>
+          </button>
         </div>
 
         <div className="flex justify-end">
