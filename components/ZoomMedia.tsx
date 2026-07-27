@@ -86,9 +86,9 @@ export default function ZoomMedia({
   } as CSSProperties;
 
   return (
-    <div ref={ref} className={`overflow-hidden ${className}`}>
+    <div ref={ref} className={`relative overflow-hidden ${className}`}>
       <div
-        className={`h-full w-full origin-center will-change-transform ${mediaClassName}`}
+        className={`absolute inset-0 origin-center will-change-transform ${mediaClassName}`}
         style={style}
       >
         {children}
