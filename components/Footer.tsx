@@ -44,7 +44,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white">
-      <div className="w-full overflow-hidden border-t border-border pt-8 md:pt-12">
+      <div className="w-full overflow-hidden pt-8 md:pt-12">
         <p
           ref={markRef}
           className={`footer-wordmark w-full text-center font-bold uppercase leading-[0.82] tracking-tight ${
@@ -56,7 +56,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-between gap-4 border-t border-border px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted sm:flex-row md:px-10 lg:px-14">
+      <div className="flex w-full flex-col items-center justify-between gap-4 px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted sm:flex-row md:px-10 lg:px-14">
         <p>{siteMeta.copyright}</p>
 
         <Link
