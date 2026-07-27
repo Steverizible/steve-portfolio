@@ -9,8 +9,6 @@ export default function ExperienceBreakout() {
     <section className="w-full border-b border-border bg-background px-4 py-6 md:px-8 md:py-8 lg:px-12">
       <ZoomMedia
         className="relative aspect-[21/9] w-full min-h-[220px] overflow-hidden rounded-2xl border border-border md:min-h-[320px] md:rounded-3xl lg:min-h-[400px]"
-        enterScale={1.16}
-        exitScale={1}
       >
         <div className="relative h-full w-full">
           <Image

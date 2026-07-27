@@ -39,8 +39,6 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
     >
       <ZoomMedia
         className={`relative ${imageHeight} w-full overflow-hidden bg-[#ddd]`}
-        enterScale={1.14}
-        exitScale={1}
       >
         <div className="relative h-full w-full">
           {imageSrc ? (

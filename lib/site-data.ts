@@ -187,24 +187,28 @@ export const projects: Project[] = [
           heading: "Research",
           body:
             "The challenge was to develop a handboard that was not only durable and lightweight but also visually striking, akin to the high-performance gear seen in snowboarding and skateboarding. We needed a product that could stand out in both design and performance.",
+          imageSrc: "/images/work/slyde/research.gif",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "Using countless sketches, foam models, and 3D modeling, we refined the shape and functionality of each board to ensure an optimal riding experience for specific wave styles. The digital designs and foam printing allowed us to experiment with different shapes, curves, and materials to find the perfect balance between performance and aesthetics.",
+          imageSrc: "/images/work/slyde/design.jpg",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "Partnering with a factory in Taiwan, we developed the Slyde Handboard from the ground up, creating six high-quality stainless steel molds for each shape to ensure precision and consistency in production. Every aspect of production, from the core materials to the final finish, was carefully engineered to create a handboard that would outperform anything else in the market.",
+          imageSrc: "/images/work/slyde/development.gif",
         },
         {
           id: "concept",
           heading: "Concept",
           body:
             "Slyde quickly gained traction, selling over 10,000 boards worldwide and significantly contributing to the growth of bodysurfing. The brand helped redefine and create what was essentially a new spot, making wave riding more accessible and fun for ocean lovers around the world.",
+          imageSrc: "/images/work/slyde/concept.gif",
         },
       ],
       relatedProjectIds: ["portfolio-2008", "veldskoen-packaging"],

@@ -14,25 +14,25 @@ type ZoomMediaProps = {
   className?: string;
   /** Extra classes on the inner scaled layer. */
   mediaClassName?: string;
-  /** Start scale when the media first enters (zoomed in). */
-  enterScale?: number;
-  /** End scale as the media leaves / settles (zoomed out). */
-  exitScale?: number;
+  /** Scale when far from center (smaller). */
+  minScale?: number;
+  /** Peak scale when centered in the viewport (bigger). */
+  maxScale?: number;
 };
 
 /**
- * Scroll-linked zoom: media enters slightly zoomed in, then eases out as you scroll.
+ * Scroll-linked zoom: smaller → bigger as it enters center, then bigger → smaller as it leaves.
  * Respects prefers-reduced-motion.
  */
 export default function ZoomMedia({
   children,
   className = "",
   mediaClassName = "",
-  enterScale = 1.14,
-  exitScale = 1,
+  minScale = 0.92,
+  maxScale = 1.12,
 }: ZoomMediaProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(enterScale);
+  const [scale, setScale] = useState(minScale);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -55,13 +55,12 @@ export default function ZoomMedia({
     const update = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || 1;
-      // 0 when fully below viewport, 1 when fully above
-      const start = vh;
-      const end = -rect.height;
-      const progress = clamp((start - rect.top) / (start - end), 0, 1);
-      // Ease: mostly zoom out through the first half of travel
-      const t = 1 - Math.pow(1 - progress, 1.6);
-      setScale(enterScale + (exitScale - enterScale) * t);
+      // 0 when element center is at bottom of viewport, 1 at top
+      const centerY = rect.top + rect.height / 2;
+      const progress = clamp((vh - centerY) / vh, 0, 1);
+      // Smaller → bigger → smaller (peak at mid-viewport)
+      const wave = Math.sin(progress * Math.PI);
+      setScale(minScale + (maxScale - minScale) * wave);
     };
 
     const onScroll = () => {
@@ -80,7 +79,7 @@ export default function ZoomMedia({
       window.removeEventListener("resize", update);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [enterScale, exitScale, reduceMotion]);
+  }, [minScale, maxScale, reduceMotion]);
 
   const style = {
     transform: `scale(${reduceMotion ? 1 : scale})`,
