@@ -51,6 +51,10 @@ export default function Hero() {
         <p className="hero-fade-in hero-fade-in-delay-2 mt-2 text-center text-[clamp(1.25rem,4.5vw,3.75rem)] font-bold uppercase leading-tight tracking-tight text-muted md:mt-4">
           {hero.tagline}
         </p>
+
+        <p className="hero-fade-in hero-fade-in-delay-3 mt-5 max-w-md text-center text-sm leading-relaxed text-muted md:mt-6 md:max-w-xl md:text-base">
+          {hero.supportingStatement}
+        </p>
       </div>
 
       <div className="hero-fade-in hero-fade-in-delay-3 flex w-full flex-col items-center gap-1.5 px-6 pb-6 text-center sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:text-left md:px-10 md:pb-8 lg:px-14">

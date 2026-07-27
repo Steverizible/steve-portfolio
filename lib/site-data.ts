@@ -9,17 +9,17 @@
 
 export const siteMeta = {
   name: "Steve Watts",
-  title: "Steven Watts | Portfolio",
+  title: "Steve Watts | Digital Growth & AI Innovation",
   description:
-    "Founder, Creative Director, and Brand Strategist with over 15 years of experience leading creative teams and building compelling brand identities across diverse industries.",
+    "Digital growth and innovation leader building brands, DTC businesses, digital products, and AI-enabled operating systems across e-commerce, lifecycle marketing, customer experience, and creative strategy.",
   location: "San Clemente, CA",
   locationShort: "San Clemente, CA",
   email: "stevenstewart90@gmail.com",
   linkedInUrl: "https://www.linkedin.com/in/stevenstewartwatts/",
   resumeUrl:
     "https://drive.google.com/file/d/1wIqAsnoWu_yGf_r_Mn7QzB_54PUtBZXf/view?usp=drive_link",
-  copyright: "©2024 Steve Watts",
-  rightsReserved: "©2024 All Rights Reserved",
+  copyright: "©2026 Steve Watts",
+  rightsReserved: "©2026 All Rights Reserved",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -53,6 +53,11 @@ export type CaseStudy = {
   };
 };
 
+export type CardMetric = {
+  value: string;
+  label: string;
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -73,6 +78,12 @@ export type Project = {
   selectedName?: string;
   selectedYear?: string;
   featured: boolean;
+  /** Render this project as a full-width, emphasized featured card. */
+  featuredWide?: boolean;
+  /** Optional supporting description shown on emphasized cards. */
+  cardDescription?: string;
+  /** Optional headline metrics shown on emphasized cards. */
+  cardMetrics?: CardMetric[];
   caseStudy?: CaseStudy;
 };
 
@@ -106,7 +117,7 @@ export const navigation = {
     label: "CONTACT NOW",
     href: "/contact",
   },
-  availabilityLabel: "AVAILABLE FOR FREELANCE",
+  availabilityLabel: "OPEN TO SENIOR DIGITAL & AI ROLES",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -114,6 +125,28 @@ export const navigation = {
 // ---------------------------------------------------------------------------
 
 export const projects: Project[] = [
+  {
+    id: "fishewear-growth-system",
+    slug: "fishewear-growth-system",
+    label: "AI-Enabled DTC Growth",
+    name: "FisheWear",
+    category: "E-Commerce / Lifecycle / AI",
+    year: "2025–Present",
+    href: "/work/fishewear-growth-system",
+    selectedLabel: "FisheWear",
+    selectedName: "Digital Growth System",
+    selectedYear: "2025–Present",
+    featured: true,
+    featuredWide: true,
+    cardDescription:
+      "Building a connected growth engine across Shopify, Klaviyo, customer data, content, creative production, lifecycle automation, and AI-assisted workflows.",
+    cardMetrics: [
+      { value: "+63%", label: "Net Sales YoY" },
+      { value: "+76%", label: "Store Sessions YoY" },
+      { value: "+49%", label: "Average Order Value" },
+      { value: "$104K+", label: "Attributed Flow Revenue" },
+    ],
+  },
   {
     id: "multi-business",
     slug: "multi-business",
@@ -546,9 +579,11 @@ export function getFeaturedProjects(): Project[] {
 
 export const hero = {
   headline: "STEVE WATTS",
-  tagline: "Vision. Brand. Impact.",
+  tagline: "Digital Growth. AI Innovation. Brand Impact.",
+  supportingStatement:
+    "I build brands, digital products, and AI-enabled growth systems that turn ambitious ideas into measurable growth.",
   locationLabel: "BASED IN SAN CLEMENTE CA",
-  roles: ["Digital Designer", "Storyteller"],
+  roles: ["Digital Strategy", "DTC Growth Leader"],
   roleHref: "/#about",
   cta: {
     label: "Contact Now",
@@ -563,8 +598,9 @@ export const hero = {
 export const featuredWork = {
   title: "Featured Work",
   description:
-    "My creative spirit thrives in the digital space, where I combine storytelling, design, and strategic innovation to craft impactful brand experiences that connect and inspire.",
+    "A selection of businesses, products, campaigns, and digital systems I have helped build—combining creative direction, e-commerce, customer experience, lifecycle marketing, and practical AI implementation.",
   projectIds: [
+    "fishewear-growth-system",
     "veldskoen-packaging",
     "slyde-handboards",
     "multi-business",
@@ -586,11 +622,12 @@ export const featuredWork = {
 
 export const selectedWork = {
   title: "Selected Works",
-  periodLabel: "(2007 - 2024)",
+  periodLabel: "(2007 – Present)",
   description:
     "A curated archive of brand, product, packaging, and digital work across founder-led ventures and client collaborations.",
   /** Grid order matches Framer selected works page. */
   projectIds: [
+    "fishewear-growth-system",
     "multi-business",
     "slyde-handboards",
     "veldskoen-packaging",
@@ -611,9 +648,10 @@ export const moreAboutSteve = {
   title: "More About Steve",
   titleLines: ["More", "About", "STEVE"],
   headline:
-    "I'm a Creative Director and Brand Strategist. Passionate about minimalist design, storytelling, and crafting visuals that connect brands to people",
+    "I'm a digital growth leader, founder, and creative strategist who connects brand, technology, customer behavior, and AI to build businesses that grow.",
   body: [
-    "I harness cutting-edge design tools and creative strategies to bring visionary concepts to life. With a passion for innovation and storytelling, I excel at finding unexpected solutions that captivate audiences. My dedication to design and branding is driven by the belief that powerful storytelling can transform brands and elevate the customer experience.",
+    "For more than 15 years, I have built brands, launched products, led cross-functional teams, optimized e-commerce businesses, and turned creative ideas into measurable commercial results. My work spans product development, Shopify, lifecycle marketing, customer segmentation, paid acquisition, content, conversion optimization, and brand storytelling.",
+    "Today, I also design practical AI-assisted workflows that help small teams research faster, produce better work, connect information across platforms, and make clearer decisions. I believe the strongest digital systems combine human judgment, creative direction, customer insight, and technology rather than treating them as separate disciplines.",
   ],
   resumeCta: {
     label: "Download resume",
@@ -799,6 +837,14 @@ export type ExperienceItem = {
 export const experience = {
   title: "Experience",
   items: [
+    {
+      id: "fishewear",
+      company: "FisheWear",
+      role: "Head of Marketing & Growth",
+      period: "2025 – Present",
+      description:
+        "Leading DTC growth across Shopify, Klaviyo, lifecycle marketing, customer segmentation, product launches, SEO, content, creative testing, reporting, and AI-assisted operating systems for a founder-led women's outdoor apparel brand. Connected customer behavior, product storytelling, campaign strategy, and performance data into a more measurable and repeatable growth operation.",
+    },
     {
       id: "slyde-handboards",
       company: "Slyde Handboards",
