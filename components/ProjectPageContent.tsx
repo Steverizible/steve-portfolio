@@ -66,7 +66,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
       ?.map((id) => projects.find((item) => item.id === id))
       .filter((item): item is Project => Boolean(item)) ?? [];
 
-  const marquee = "More Works More Works More Works More Works";
+  const marqueeWords = Array.from({ length: 8 }, () => "More Works");
 
   return (
     <div className="animate-page-in w-full bg-white">
@@ -169,11 +169,23 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                 "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
             }}
           >
-            <div className="ticker-track flex w-max gap-10 px-4 text-[clamp(2.5rem,8vw,6.5rem)] font-bold uppercase leading-none tracking-tight text-foreground">
-              <span className="shrink-0 whitespace-nowrap">{marquee}</span>
-              <span className="shrink-0 whitespace-nowrap" aria-hidden="true">
-                {marquee}
-              </span>
+            <div className="ticker-track flex w-max gap-8 px-4 text-[clamp(2.5rem,8vw,6.5rem)] font-bold uppercase leading-none tracking-tight md:gap-10">
+              {[0, 1].map((copy) => (
+                <span
+                  key={copy}
+                  className="flex shrink-0 items-baseline gap-8 whitespace-nowrap md:gap-10"
+                  aria-hidden={copy === 1 ? true : undefined}
+                >
+                  {marqueeWords.map((word, index) => (
+                    <span
+                      key={`${copy}-${index}`}
+                      className={index % 2 === 0 ? "text-[#c8c8c8]" : "text-foreground"}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
+              ))}
             </div>
           </div>
 
