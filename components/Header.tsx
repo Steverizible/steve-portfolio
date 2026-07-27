@@ -45,6 +45,24 @@ export function NavOverlay() {
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
   return (
+    <>
+      {/* Fixed center close control — stays put while the panel rises from below */}
+      <button
+        type="button"
+        onClick={closeMenu}
+        className={`fixed left-1/2 top-4 z-[110] flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-foreground text-background transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 ${
+          isOpen
+            ? "pointer-events-auto scale-100 opacity-100"
+            : "pointer-events-none scale-75 opacity-0"
+        }`}
+        aria-label="Close menu"
+        tabIndex={isOpen ? 0 : -1}
+      >
+        <span className="text-xl font-light leading-none" aria-hidden="true">
+          ×
+        </span>
+      </button>
+
     <div
       className={`fixed inset-0 z-[100] flex flex-col bg-background transition-[transform,opacity] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isOpen
@@ -53,27 +71,27 @@ export function NavOverlay() {
       }`}
       aria-hidden={!isOpen}
     >
-      <div className="flex w-full items-center justify-between px-6 py-4 md:px-10 lg:px-14">
+      <div className="grid w-full grid-cols-3 items-center px-6 py-4 md:px-10 lg:px-14">
         <p className="text-xs font-medium uppercase tracking-wide text-muted">
           {navigation.localPrefix}
           <span className="text-foreground">{time || "—"}</span>
         </p>
-        <button
-          type="button"
-          onClick={closeMenu}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-opacity hover:opacity-60"
-          aria-label="Close menu"
-        >
-          <span className="text-lg leading-none">×</span>
-        </button>
-        <Button
-          href={navigation.contactCta.href}
-          variant="solid"
-          className="!px-5 !py-2.5 font-[family-name:var(--font-inter-tight)] uppercase"
-          onClick={closeMenu}
-        >
-          {navigation.contactCta.label}
-        </Button>
+
+        {/* Spacer — black X close is rendered in a fixed layer so it stays centered while the panel rises */}
+        <div className="flex justify-center" aria-hidden="true">
+          <div className="h-10 w-10" />
+        </div>
+
+        <div className="flex justify-end">
+          <Button
+            href={navigation.contactCta.href}
+            variant="solid"
+            className="!px-5 !py-2.5 font-[family-name:var(--font-inter-tight)] uppercase"
+            onClick={closeMenu}
+          >
+            {navigation.contactCta.label}
+          </Button>
+        </div>
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
@@ -134,5 +152,6 @@ export function NavOverlay() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
