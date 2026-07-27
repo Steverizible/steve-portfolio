@@ -1,7 +1,6 @@
-import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import PageChrome from "@/components/PageChrome";
-import { contact, projects, selectedWork, siteMeta } from "@/lib/site-data";
+import { projects, selectedWork } from "@/lib/site-data";
 
 export default function ProjectsPage() {
   const items = selectedWork.projectIds
@@ -37,13 +36,6 @@ export default function ProjectsPage() {
             <ProjectCard key={project.id} project={project} variant="selected" />
           ))}
         </div>
-      </div>
-
-      <div className="flex w-full items-center justify-between border-t border-border px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted md:px-10 lg:px-14">
-        <p>{siteMeta.copyright}</p>
-        <Link href="#top" className="transition-opacity hover:opacity-60">
-          {contact.backToTopLabel}
-        </Link>
       </div>
     </main>
   );

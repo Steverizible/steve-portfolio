@@ -14,22 +14,23 @@ type ZoomMediaProps = {
   className?: string;
   /** Extra classes on the inner scaled layer. */
   mediaClassName?: string;
-  /** Scale when far from center (smaller). */
+  /** Resting fill scale (frame stays put; image never shrinks away). */
   minScale?: number;
-  /** Peak scale when centered in the viewport (bigger). */
+  /** Peak scale when centered — image comes forward / expands in place. */
   maxScale?: number;
 };
 
 /**
- * Scroll-linked zoom: smaller → bigger as it enters center, then bigger → smaller as it leaves.
+ * Scroll-linked push-in zoom: the frame stays still; only the image expands
+ * forward as it crosses the viewport center, then eases back.
  * Respects prefers-reduced-motion.
  */
 export default function ZoomMedia({
   children,
   className = "",
   mediaClassName = "",
-  minScale = 0.92,
-  maxScale = 1.12,
+  minScale = 1,
+  maxScale = 1.18,
 }: ZoomMediaProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(minScale);
@@ -55,10 +56,9 @@ export default function ZoomMedia({
     const update = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || 1;
-      // 0 when element center is at bottom of viewport, 1 at top
       const centerY = rect.top + rect.height / 2;
       const progress = clamp((vh - centerY) / vh, 0, 1);
-      // Smaller → bigger → smaller (peak at mid-viewport)
+      // Peak expand when centered — no translate, only scale
       const wave = Math.sin(progress * Math.PI);
       setScale(minScale + (maxScale - minScale) * wave);
     };
@@ -82,7 +82,7 @@ export default function ZoomMedia({
   }, [minScale, maxScale, reduceMotion]);
 
   const style = {
-    transform: `scale(${reduceMotion ? 1 : scale})`,
+    transform: `scale3d(${reduceMotion ? 1 : scale}, ${reduceMotion ? 1 : scale}, 1)`,
   } as CSSProperties;
 
   return (

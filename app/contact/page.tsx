@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import PageChrome from "@/components/PageChrome";
 import { contactPage, siteMeta } from "@/lib/site-data";
 
+
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -127,13 +128,6 @@ export default function ContactPage() {
             </a>
           </div>
         </aside>
-      </div>
-
-      <div className="flex w-full items-center justify-between border-t border-border px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted md:px-10 lg:px-14">
-        <p>{siteMeta.copyright}</p>
-        <Link href="#top" className="transition-opacity hover:opacity-60">
-          {contactPage.backToTopLabel}
-        </Link>
       </div>
     </main>
   );
