@@ -15,8 +15,6 @@ export default function Contact() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <ZoomMedia
             className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-border bg-card lg:mx-0 lg:max-w-none"
-            enterScale={1.12}
-            exitScale={1}
           >
             <div className="relative h-full w-full">
               <Image

@@ -30,8 +30,6 @@ export default function Awards() {
                   {imageSrc && (
                     <ZoomMedia
                       className="relative h-24 w-32 shrink-0 overflow-hidden rounded-xl border border-border bg-card md:h-28 md:w-40"
-                      enterScale={1.12}
-                      exitScale={1}
                     >
                       <div className="relative h-full w-full">
                         <Image
