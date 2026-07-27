@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ViewTransition } from "react";
-import Button from "@/components/Button";
 import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import ZoomMedia from "@/components/ZoomMedia";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
-import { projects } from "@/lib/site-data";
+import { contact, projects, siteMeta } from "@/lib/site-data";
 
 type ProjectPageContentProps = {
   project: Project;
@@ -24,7 +25,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
 
   return (
     <div className="animate-page-in w-full">
-      <PageChrome backHref="/projects" backLabel="Back to works" />
+      <PageChrome />
 
       <div className="w-full px-6 py-12 md:px-10 md:py-16 lg:px-14">
         <h1 className="text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
@@ -55,18 +56,24 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
         )}
 
         {imageSrc && (
-          <div className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-card">
-            <ViewTransition name={`project-image-${project.id}`} share="project-morph">
-              <Image
-                src={imageSrc}
-                alt={project.name}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-            </ViewTransition>
-          </div>
+          <ZoomMedia
+            className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card"
+            enterScale={1.14}
+            exitScale={1}
+          >
+            <div className="relative h-full w-full">
+              <ViewTransition name={`project-image-${project.id}`} share="project-morph">
+                <Image
+                  src={imageSrc}
+                  alt={project.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
+                />
+              </ViewTransition>
+            </div>
+          </ZoomMedia>
         )}
 
         {caseStudy?.sections.map((section, index) => (
@@ -78,17 +85,41 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             <h2 className="text-xl font-bold uppercase tracking-tight md:text-2xl">
               {section.heading}
             </h2>
-            <p className="whitespace-pre-line text-base leading-relaxed text-muted md:text-lg">
-              {section.body}
-            </p>
+            <div>
+              <p className="whitespace-pre-line text-base leading-relaxed text-muted md:text-lg">
+                {section.body}
+              </p>
+              {section.imageSrc && (
+                <ZoomMedia
+                  className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card"
+                  enterScale={1.12}
+                  exitScale={1}
+                >
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={section.imageSrc}
+                      alt={section.heading}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 70vw"
+                    />
+                  </div>
+                </ZoomMedia>
+              )}
+            </div>
           </RevealOnScroll>
         ))}
 
         {caseStudy?.externalLink && (
           <div className="mt-12">
-            <Button href={caseStudy.externalLink.href} variant="outline">
+            <Link
+              href={caseStudy.externalLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-premium btn-outline inline-flex"
+            >
               {caseStudy.externalLink.label}
-            </Button>
+            </Link>
           </div>
         )}
 
@@ -117,15 +148,13 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
             </div>
           </div>
         )}
+      </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-4">
-          <Button href="/projects" variant="outline">
-            View all projects
-          </Button>
-          <Button href="/#work" variant="solid">
-            Back to work
-          </Button>
-        </div>
+      <div className="flex w-full items-center justify-between border-t border-border px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted md:px-10 lg:px-14">
+        <p>{siteMeta.copyright}</p>
+        <Link href="#top" className="transition-opacity hover:opacity-60">
+          {contact.backToTopLabel}
+        </Link>
       </div>
     </div>
   );

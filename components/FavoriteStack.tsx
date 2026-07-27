@@ -10,7 +10,8 @@ export default function FavoriteStack() {
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
           <StickySectionHeading bgClassName="bg-background">
-            {favoriteStack.title}
+            <span className="block">{favoriteStack.titleLines[0]}</span>
+            <span className="block">{favoriteStack.titleLines[1]}</span>
           </StickySectionHeading>
 
           <ul className="space-y-4 md:space-y-5">
@@ -41,10 +42,10 @@ export default function FavoriteStack() {
                   </div>
 
                   <div className="min-w-0 flex-1 rounded-xl bg-white p-5 md:p-6">
-                    <h3 className="text-sm font-bold uppercase tracking-tight md:text-base">
+                    <h3 className="text-sm font-bold tracking-tight md:text-base">
                       {item.name}
                     </h3>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-tight md:text-sm">
+                    <p className="mt-1 text-xs font-bold tracking-tight md:text-sm">
                       {item.category}
                     </p>
                     <p className="mt-3 text-sm leading-relaxed text-foreground md:text-base">

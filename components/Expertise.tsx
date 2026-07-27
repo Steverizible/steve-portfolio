@@ -30,7 +30,8 @@ export default function Expertise() {
           bgClassName="bg-background"
           className="text-3xl font-bold uppercase tracking-tight md:text-5xl"
         >
-          {expertise.title}
+          <span className="block">{expertise.titleLines[0]}</span>
+          <span className="block">{expertise.titleLines[1]}</span>
         </StickySectionHeading>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -54,7 +55,7 @@ export default function Expertise() {
                   </span>
                   <PlusButton active={activeItem?.id === item.id} />
                 </div>
-                <h3 className="mt-8 text-lg font-bold uppercase tracking-tight md:text-xl">
+                <h3 className="mt-8 text-lg font-bold tracking-tight md:text-xl">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted">

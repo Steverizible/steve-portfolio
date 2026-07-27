@@ -1,17 +1,18 @@
 /** Maps project and section ids to public image paths. */
 export const projectImages: Record<string, string> = {
-  "multi-business": "/images/projects/multi-business.avif",
-  "slyde-handboards": "/images/projects/slyde-handboards.avif",
-  "veldskoen-packaging": "/images/projects/veldskoen-packaging.png",
-  rizible: "/images/projects/rizible.avif",
-  "portfolio-2008": "/images/projects/portfolio.avif",
-  "rachel-zoe": "/images/projects/rachel-zoe.avif",
-  "veldskoen-print": "/images/projects/veldskoen-print.avif",
-  "the-grom": "/images/projects/the-grom.avif",
+  "multi-business": "/images/projects/multi-business.jpg",
+  "slyde-handboards": "/images/projects/slyde-handboards.jpg",
+  "veldskoen-packaging": "/images/projects/veldskoen-packaging.jpg",
+  rizible: "/images/projects/rizible.jpg",
+  "portfolio-2008": "/images/projects/portfolio.jpg",
+  "rachel-zoe": "/images/projects/rachel-zoe.jpg",
+  "veldskoen-print": "/images/projects/veldskoen-print.jpg",
+  "the-grom": "/images/projects/the-grom.jpg",
 };
 
 export const sectionImages = {
   about: "/images/about/steve.avif",
+  contactPortrait: "/images/about/contact-portrait.avif",
   motivation: "/images/motivation/motivation.avif",
   motivationSignature: "/images/motivation/signature.png",
   motivationBreakout: "/images/motivation/breakout.png",
@@ -33,6 +34,7 @@ export const stackImages: Record<string, string> = {
 export const awardImages: Record<string, string> = {
   "investor-relations": "/images/awards/investor-relations.avif",
   "press-features": "/images/awards/press-features.avif",
+  "orange-county-award": "/images/awards/investor-relations.avif",
 };
 
 export const logoImages: Record<string, string> = {

@@ -69,10 +69,10 @@ export function NavOverlay() {
         <Button
           href={navigation.contactCta.href}
           variant="solid"
-          className="!px-5 !py-2.5 uppercase"
+          className="!px-5 !py-2.5 font-[family-name:var(--font-inter-tight)] uppercase"
           onClick={closeMenu}
         >
-          Contact
+          {navigation.contactCta.label}
         </Button>
       </div>
 

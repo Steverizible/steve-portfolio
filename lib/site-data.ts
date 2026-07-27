@@ -36,6 +36,7 @@ export type CaseStudySection = {
   id: string;
   heading: string;
   body: string;
+  imageSrc?: string;
 };
 
 export type CaseStudy = {
@@ -67,6 +68,10 @@ export type Project = {
   imageSrc?: string;
   /** Reference asset filename in reference/ for migration. */
   referenceImage?: string;
+  /** Overrides for selected works page card display. */
+  selectedLabel?: string;
+  selectedName?: string;
+  selectedYear?: string;
   featured: boolean;
   caseStudy?: CaseStudy;
 };
@@ -98,10 +103,10 @@ export const navigation = {
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   contactCta: {
-    label: "Contact now",
+    label: "CONTACT NOW",
     href: "/contact",
   },
-  availabilityLabel: "Available for freelance",
+  availabilityLabel: "AVAILABLE FOR FREELANCE",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -116,6 +121,7 @@ export const projects: Project[] = [
     name: "Multi Business",
     category: "Email",
     year: "2010-2025",
+    selectedYear: "2010-24",
     href: "/work/multi-business",
     referenceImage: "BuMzxENCqkpoJutTtqHUDqkZsw.avif",
     featured: true,
@@ -162,6 +168,9 @@ export const projects: Project[] = [
     name: "Slyde Handboards",
     category: "Product/Graphic",
     year: "2010",
+    selectedLabel: "Slyde Handboards",
+    selectedName: "Business",
+    selectedYear: "2010-2023",
     href: "/work/slyde-handboards",
     referenceImage: "JEi4oggbYQA9XdRsMFutoxKDmwI.avif",
     featured: true,
@@ -208,6 +217,7 @@ export const projects: Project[] = [
     name: "Veldskoen Shoes",
     category: "Packaging",
     year: "2022",
+    selectedName: "Brand",
     href: "/work/veldskoen-packaging",
     referenceImage: "aHfIoxhXP6eh2D6dUXvdrRiLIU.avif",
     featured: true,
@@ -254,6 +264,7 @@ export const projects: Project[] = [
     name: "Rizible",
     category: "Branding",
     year: "2024",
+    selectedYear: "2023",
     href: "/work/rizible",
     featured: true,
     caseStudy: {
@@ -350,6 +361,9 @@ export const projects: Project[] = [
     name: "Rachel Zoe",
     category: "Collab",
     year: "2022",
+    selectedLabel: "Rachel Zoe Collab",
+    selectedName: "Collab",
+    selectedYear: "2024",
     href: "/work/rachel-zoe",
     featured: true,
     caseStudy: {
@@ -444,6 +458,8 @@ export const projects: Project[] = [
     name: "Slyde handboards",
     category: "Product dev",
     year: "2018",
+    selectedLabel: "The grom",
+    selectedName: "Product Dev",
     href: "/work/the-grom",
     featured: true,
     caseStudy: {
@@ -497,10 +513,11 @@ export function getFeaturedProjects(): Project[] {
 // ---------------------------------------------------------------------------
 
 export const hero = {
-  headline: "Steve Watts",
+  headline: "sTEVE WATTS",
   tagline: "Vision. Brand. Impact.",
-  locationLabel: "Based in San Clemente, CA",
-  roles: ["Digital Designer", "Story Teller"],
+  locationLabel: "BASED IN SAN CLEMENTE CA",
+  roles: ["Digital Designer", "STORY TELLER"],
+  roleHref: "/#about",
   cta: {
     label: "Contact now",
     href: "/contact",
@@ -537,7 +554,7 @@ export const featuredWork = {
 
 export const selectedWork = {
   title: "Selected Works",
-  periodLabel: "(2007 – 2024)",
+  periodLabel: "(2007 - 2024)",
   description:
     "A curated archive of brand, product, packaging, and digital work across founder-led ventures and client collaborations.",
   /** Grid order matches Framer selected works page. */
@@ -560,6 +577,7 @@ export const selectedWork = {
 
 export const moreAboutSteve = {
   title: "More About Steve",
+  titleLines: ["More", "About", "STEVE"],
   headline:
     "I'm a Creative Director and Brand Strategist. Passionate about minimalist design, storytelling, and crafting visuals that connect brands to people",
   body: [
@@ -610,6 +628,7 @@ export type ExpertiseItem = {
 
 export const expertise = {
   title: "Expertise",
+  titleLines: ["My", "EXPERTISE"],
   items: [
     {
       id: "creative-leadership",
@@ -656,7 +675,7 @@ export const expertise = {
     {
       id: "ecomm-growth",
       number: 4,
-      title: "Ecomm Growth",
+      title: "ecomm growth",
       preview:
         "Proven ability to scale brands from inception to million-dollar success stories through strategic planning and execution.",
       modalTitle: "Ecomm Growth",
@@ -670,7 +689,7 @@ export const expertise = {
     {
       id: "email-marketing",
       number: 5,
-      title: "Email Marketing",
+      title: "email marketing",
       preview:
         "Creating engaging email marketing strategies, and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
       modalTitle: "Email Marketing",
@@ -684,7 +703,7 @@ export const expertise = {
     {
       id: "seo",
       number: 6,
-      title: "SEO: It's a Passion",
+      title: "seo: it's a passion",
       preview:
         "I optimize content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
       modalTitle: "SEO: Optimized for",
@@ -750,16 +769,16 @@ export const experience = {
   items: [
     {
       id: "slyde-handboards",
-      company: "Slyde Handboards",
-      role: "Founder + Creative Director",
-      period: "2010 – 2024",
+      company: "slyde Handboards",
+      role: "founder + Creative director",
+      period: "2010 - 2024",
       description:
         "At Slyde Handboards, I built a million-dollar brand from the ground up, securing $500K in funding from Mark Cuban and Ashton Kutcher. I led branding, product development, and multi-channel marketing, using Facebook ads, email, and storytelling to drive growth. Through strategic partnerships and UX/UI optimization, I boosted conversions, expanded market reach, and earned features in Forbes and The New York Times.",
     },
     {
       id: "veldskoen",
       company: "Veldskoen",
-      role: "Founder + Creative Director",
+      role: "fOUNDER + cREATIVE DIRECTOR",
       period: "2018 – 2024",
       description:
         "At Veldskoen USA, I transformed a startup into a $250K/month brand within a year through strategic storytelling, digital marketing, and eCommerce optimization. Managing a $30K/month ad budget, I leveraged Facebook and Google Ads, influencer partnerships, and data-driven campaigns to maximize ROI. I also enhanced the brand's identity, customer experience, and sustainability efforts, positioning Veldskoen as a globally recognized lifestyle brand.",
@@ -767,7 +786,7 @@ export const experience = {
     {
       id: "happybond",
       company: "Happybond",
-      role: "Paid Media Consultancy",
+      role: "paid media consultancy",
       period: "2023 – 2024",
       description:
         "I led the explosive growth of HappyBond, skyrocketing monthly revenue from $5K to $50K in just a few months. Through a powerful blend of paid media, organic marketing, and high-converting email campaigns.",
@@ -775,7 +794,7 @@ export const experience = {
     {
       id: "ilan-dei",
       company: "Ilan dei",
-      role: "Junior Designer",
+      role: "junior designer",
       period: "2008 – 2010",
       description:
         "I started my career as a Junior Designer at Illan Dei, honing my skills in product design, branding, and creative storytelling.",
@@ -796,24 +815,25 @@ export type StackItem = {
 
 export const favoriteStack = {
   title: "Favorite Stack",
+  titleLines: ["Favorite", "STack"],
   items: [
     {
       id: "adobe-suite",
-      name: "Adobe Suite",
+      name: "adobe SUITE",
       category: "Creative Design and Visual Storytelling",
       description:
         "I leverage Adobe Creative Suite (Photoshop, Illustrator, and Premiere Pro) extensively in my work, particularly for digital design, video editing, and creating compelling visual content. Whether it's using Photoshop for graphics, Illustrator for vector designs, or Premiere Pro for video projects",
     },
     {
       id: "klaviyo",
-      name: "Klaviyo",
+      name: "kLAVIYO",
       category: "Customer data platform / SMS marketing / Mobile push",
       description:
         "With 15 years of experience in email marketing, I've honed my skills in creating data-driven campaigns that engage, convert, and retain customers. From developing strategies to crafting compelling content and optimizing deliverability, I've worked across various industries to design emails that drive results.",
     },
     {
       id: "capcut",
-      name: "CapCut",
+      name: "CAPCUT",
       category: "VIDEO EDITING",
       description:
         "With extensive experience using CapCut, I specialize in crafting high-quality paid media and organic videos that engage audiences and drive results. My expertise includes advanced editing techniques, seamless transitions, and creative storytelling to elevate brand content.",
@@ -827,21 +847,21 @@ export const favoriteStack = {
     },
     {
       id: "shopify",
-      name: "Shopify",
+      name: "shopify",
       category: "Web design and build",
       description:
         "With over 15 years of experience in Shopify, I specialize in creating minimalist, elegant designs that prioritize refined typography and intuitive user experiences. Passionate about conversion rate optimization, I leverage A/B testing and strategic landing page development to drive engagement and maximize results.",
     },
     {
       id: "clickup",
-      name: "ClickUp",
+      name: "Click up",
       category: "Project managment",
       description:
         "With extensive project management experience using primarily ClickUp, I excel at keeping teams aligned, on schedule, and focused on deliverables. My approach ensures efficient task management, streamlined workflows, and successful project execution from start to finish.",
     },
     {
       id: "microsoft-office",
-      name: "Microsoft Office Suite",
+      name: "microsoft office suite",
       category: "15+ Years of Expertise",
       description:
         "With 15 years of experience in both Microsoft Office and Google Suite environments, I specialize in using Excel and Google Sheets for advanced data analysis, reporting, and automation, as well as crafting professional documents in Word and Google Docs. My expertise ensures efficient workflow management, seamless collaboration, and high-quality deliverables.",
@@ -875,16 +895,16 @@ export const awardsMedia = {
   items: [
     {
       id: "investor-relations",
-      title: "Investor Relations",
-      subtitle: "Mark Cuban + Ashton Kutcher",
+      title: "Investor relations",
+      subtitle: "mark cuban + Ashton Kutcher",
       year: "2017",
       description:
         "Successfully pitched and obtained funding from investors like Mark Cuban and Ashton Kutcher, driving the growth and market presence of Slyde Handboards and Veldskoen USA and Named Mark Cubans Top 5 favorite Investments by Inc Magazine.",
     },
     {
       id: "press-features",
-      title: "Featured in New York Times",
-      subtitle: "ARNO Red Themed Portfolio",
+      title: "fEATURED IN NEW YORK TIMES",
+      subtitle: "ARNO RED Themed PORTFOLIO",
       year: "2017",
       description:
         "Featured in prominent publications such as the New York Times, Forbes, and Business Journal, along with a memorable appearance on Shark Tank, gaining nationwide recognition and bolstering brand visibility.",
@@ -894,7 +914,7 @@ export const awardsMedia = {
     {
       id: "orange-county-award",
       title: "Award-Winning Leadership",
-      subtitle: "Orange County Business Journal",
+      subtitle: "oRANGE COUNTY bUSINESS jOURNAL",
       year: "2020",
       description:
         "Received the Orange County Business Journal Up-and-Coming Award for exceptional growth and innovation.",
@@ -990,7 +1010,7 @@ export const faq = {
 export const contact = {
   id: "contact",
   headline: "Let's Work Together",
-  headlineLines: ["Let's Work", "Together"],
+  headlineLines: ["Let'S WORK", "TOGETHER"],
   subheadline: "contact",
   description:
     "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",

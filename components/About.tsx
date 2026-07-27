@@ -95,24 +95,29 @@ export default function About() {
 
   const p = scrollProgress;
 
-  // Step A — heading enters from above (0 → ~32%)
-  const headingEnter = easeOutCubic(phase(p, 0, 0.32));
-  // Step B/C — heading drifts downward while pill rises over it
-  const headingDrift = easeOutCubic(phase(p, 0.28, 0.88));
-  // Step B — pill rises into center (starts after heading settles)
-  const pillRise = easeOutCubic(phase(p, 0.22, 0.88));
-  // Soft edge fade only after the pill mostly covers the type
-  const headingBehindFade = easeOutCubic(phase(p, 0.58, 0.94));
+  // Step A — heading enters from above (0 → ~28%)
+  const headingEnter = easeOutCubic(phase(p, 0, 0.28));
+  // Step B/C — heading drifts down + shrinks behind rising pill
+  const headingExit = easeOutCubic(phase(p, 0.26, 0.86));
+  // Pill rises into center
+  const pillRise = easeOutCubic(phase(p, 0.18, 0.86));
+  // Pill zooms in on entry, then zooms out as scroll continues
+  const pillZoomOut = easeOutCubic(phase(p, 0.2, 0.92));
+  // Fully hide type once covered — no leftover sides showing through
+  const headingBehindFade = easeOutCubic(phase(p, 0.42, 0.78));
 
   const headingY = reduceMotion
     ? 0
-    : (1 - headingEnter) * -64 + headingDrift * (viewportHeight * 0.22);
+    : (1 - headingEnter) * -72 + headingExit * (viewportHeight * 0.18);
+  const headingScale = reduceMotion ? 1 : 1 - headingExit * 0.62;
   const headingOpacity = reduceMotion
     ? 1
-    : headingEnter * (1 - headingBehindFade * 0.55);
+    : headingEnter * (1 - headingBehindFade);
 
-  const pillStartOffset = viewportHeight * 0.46;
+  const pillStartOffset = viewportHeight * 0.48;
   const pillY = reduceMotion ? 0 : pillStartOffset * (1 - pillRise);
+  // Enter zoomed in (~1.22), settle zoomed out (~0.92)
+  const pillScale = reduceMotion ? 1 : 1.22 - pillZoomOut * 0.3;
 
   if (reduceMotion) {
     return (
@@ -139,24 +144,25 @@ export default function About() {
 
   return (
     <section className="relative border-b border-border bg-background" id="about">
-      {/* Scroll track — stays above body copy until animation exits viewport */}
       <div ref={stageRef} className={`relative z-10 w-full ${SCROLL_TRACK}`}>
         <div className="sticky top-0 isolate h-svh w-full overflow-hidden bg-background">
-          {/* Heading — behind pill (z-1); drifts down and soft-fades as the image covers it */}
+          {/* Heading — shrinks + fades completely behind the pill */}
           <div
             className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center px-6 will-change-transform lg:px-14"
             style={{
-              transform: `translate3d(0, ${headingY}px, 0)`,
+              transform: `translate3d(0, ${headingY}px, 0) scale(${headingScale})`,
               opacity: headingOpacity,
             }}
           >
             <SectionHeading />
           </div>
 
-          {/* Pill — in front (z-3), rises upward over heading */}
+          {/* Pill — rises and zooms out over the title */}
           <div
             className="pointer-events-none absolute inset-0 z-[3] flex items-center justify-center will-change-transform"
-            style={{ transform: `translate3d(0, ${pillY}px, 0)` }}
+            style={{
+              transform: `translate3d(0, ${pillY}px, 0) scale(${pillScale})`,
+            }}
           >
             <div className={`${PILL_CLASS} ${PILL_SIZE_CLASS}`}>
               <Image
@@ -184,8 +190,11 @@ function SectionHeading() {
       className="text-center font-bold uppercase leading-[0.9] tracking-tight text-foreground"
       aria-label={moreAboutSteve.title}
     >
-      <span className={HEADING_LINE_CLASS}>More About</span>
-      <span className={HEADING_LINE_CLASS}>Steve</span>
+      {moreAboutSteve.titleLines.map((line) => (
+        <span key={line} className={HEADING_LINE_CLASS}>
+          {line}
+        </span>
+      ))}
     </h2>
   );
 }

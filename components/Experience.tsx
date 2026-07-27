@@ -19,15 +19,15 @@ export default function Experience() {
                 delayMs={index * 60}
                 className="border-t border-border py-8"
               >
-                <p className="text-base font-bold uppercase tracking-tight md:text-lg">
+                <p className="text-base font-bold tracking-tight md:text-lg">
                   {item.company}
                 </p>
 
                 <div className="mt-2 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                  <p className="text-sm font-bold uppercase tracking-tight md:text-base">
+                  <p className="text-sm font-bold tracking-tight md:text-base">
                     {item.role}
                   </p>
-                  <p className="shrink-0 text-sm font-bold uppercase tracking-tight md:text-base">
+                  <p className="shrink-0 text-sm font-bold tracking-tight md:text-base">
                     {item.period}
                   </p>
                 </div>

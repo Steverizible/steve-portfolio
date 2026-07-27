@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Button from "@/components/Button";
 import MenuTrigger from "@/components/MenuTrigger";
 import { useLocalTime } from "@/lib/use-local-time";
@@ -9,11 +10,11 @@ export default function Hero() {
   const time = useLocalTime();
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col bg-hero-background">
+    <section className="relative flex min-h-[77.25vh] w-full flex-col bg-hero-background md:min-h-[85vh]">
       <div className="grid w-full grid-cols-3 items-center px-6 pt-6 md:px-10 md:pt-8 lg:px-14">
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
           {navigation.localPrefix}
-          {time || "—"}
+          <span className="text-[color:var(--time)]">{time || "—"}</span>
         </p>
 
         <div className="flex justify-center">
@@ -24,7 +25,7 @@ export default function Hero() {
           <Button
             href={navigation.contactCta.href}
             variant="solid"
-            className="!px-5 !py-2.5 !text-[11px] uppercase md:!text-xs"
+            className="!px-5 !py-2.5 !text-[11px] font-[family-name:var(--font-inter-tight)] uppercase md:!text-xs"
           >
             {navigation.contactCta.label}
           </Button>
@@ -51,10 +52,14 @@ export default function Hero() {
 
       <div className="hero-fade-in hero-fade-in-delay-3 flex w-full items-end justify-between px-6 pb-6 md:px-10 md:pb-8 lg:px-14">
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
-          {hero.locationLabel.replace(",", "")}
+          {hero.locationLabel}
         </p>
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
-          {hero.roles[0]} + {hero.roles[1]}
+          <Link href={hero.roleHref} className="transition-opacity hover:opacity-60">
+            {hero.roles[0]}
+          </Link>
+          {" + "}
+          {hero.roles[1]}
         </p>
       </div>
     </section>

@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f5f7;
-  --hero-background: #f5f5f7;
+  --background: #ffffff;
+  --hero-background: #f0f0f0;
   --foreground: #1d1d1f;
-  --muted: #8a8a8a;
+  --muted: #525252;
+  --time: #383838;
   --border: rgba(29, 29, 31, 0.1);
   --card: #f5f5f7;
   --accent-green: #3d9e47;
@@ -25,6 +26,25 @@
   --color-accent-green: var(--accent-green);
   --font-sans: var(--font-instrument-sans);
   --font-display: var(--font-inter-tight);
+}
+
+/* Framer-aligned breakpoints helpers */
+@media (min-width: 810px) {
+  :root {
+    --scroll-offset: 1.25rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --scroll-offset: 1.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --scroll-offset: 1.75rem;
+  }
 }
 
 html {
@@ -185,8 +205,9 @@ body.page-transition-out {
   justify-content: center;
   border-radius: 9999px;
   padding: 0.75rem 2rem;
+  font-family: var(--font-inter-tight), var(--font-instrument-sans), system-ui, sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;

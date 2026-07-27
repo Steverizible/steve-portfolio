@@ -6,14 +6,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import { faq } from "@/lib/site-data";
 
 export default function FAQ() {
-  const [activeTopic, setActiveTopic] = useState<string | null>(faq.topics[0]?.id ?? null);
-  const [openId, setOpenId] = useState<string | null>(
-    faq.items.find((item) => item.topicId === faq.topics[0]?.id)?.id ?? faq.items[0]?.id ?? null
-  );
-
-  const visibleItems = activeTopic
-    ? faq.items.filter((item) => item.topicId === activeTopic)
-    : faq.items;
+  const [openId, setOpenId] = useState<string | null>(faq.items[0]?.id ?? null);
 
   const toggle = (id: string) => {
     setOpenId((current) => (current === id ? null : id));
@@ -29,25 +22,17 @@ export default function FAQ() {
 
         <RevealOnScroll className="mt-10 flex flex-wrap justify-center gap-2">
           {faq.topics.map((topic) => (
-            <button
+            <span
               key={topic.id}
-              type="button"
-              onClick={() => {
-                setActiveTopic(topic.id);
-                const first = faq.items.find((item) => item.topicId === topic.id);
-                setOpenId(first?.id ?? null);
-              }}
-              className={`faq-topic rounded-full border border-border px-3 py-1 text-xs font-medium ${
-                activeTopic === topic.id ? "is-active" : "text-muted"
-              }`}
+              className="faq-topic rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground"
             >
               {topic.label}
-            </button>
+            </span>
           ))}
         </RevealOnScroll>
 
         <div className="mt-12 divide-y divide-border border-y border-border lg:px-24">
-          {visibleItems.map((item, index) => {
+          {faq.items.map((item, index) => {
             const isOpen = openId === item.id;
 
             return (
@@ -85,12 +70,6 @@ export default function FAQ() {
               </RevealOnScroll>
             );
           })}
-
-          {visibleItems.length === 0 && (
-            <p className="py-8 text-center text-sm text-muted">
-              No questions in this topic yet.
-            </p>
-          )}
         </div>
       </div>
     </section>

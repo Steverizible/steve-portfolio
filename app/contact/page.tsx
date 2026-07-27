@@ -24,7 +24,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen w-full animate-page-in bg-background">
-      <PageChrome backHref="/" backLabel="Back home" />
+      <PageChrome />
 
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-12 md:px-10 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-14">
         <div>
