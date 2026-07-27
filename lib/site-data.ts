@@ -577,7 +577,7 @@ export const selectedWork = {
 
 export const moreAboutSteve = {
   title: "More About Steve",
-  titleLines: ["More About", "STEVE"],
+  titleLines: ["More", "About", "STEVE"],
   headline:
     "I'm a Creative Director and Brand Strategist. Passionate about minimalist design, storytelling, and crafting visuals that connect brands to people",
   body: [

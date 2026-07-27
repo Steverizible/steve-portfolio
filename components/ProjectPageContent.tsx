@@ -6,6 +6,7 @@ import { ViewTransition } from "react";
 import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import ZoomMedia from "@/components/ZoomMedia";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
 import { contact, projects, siteMeta } from "@/lib/site-data";
@@ -55,18 +56,24 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
         )}
 
         {imageSrc && (
-          <div className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-card">
-            <ViewTransition name={`project-image-${project.id}`} share="project-morph">
-              <Image
-                src={imageSrc}
-                alt={project.name}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-            </ViewTransition>
-          </div>
+          <ZoomMedia
+            className="relative mt-12 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card"
+            enterScale={1.14}
+            exitScale={1}
+          >
+            <div className="relative h-full w-full">
+              <ViewTransition name={`project-image-${project.id}`} share="project-morph">
+                <Image
+                  src={imageSrc}
+                  alt={project.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
+                />
+              </ViewTransition>
+            </div>
+          </ZoomMedia>
         )}
 
         {caseStudy?.sections.map((section, index) => (
@@ -83,15 +90,21 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                 {section.body}
               </p>
               {section.imageSrc && (
-                <div className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-card">
-                  <Image
-                    src={section.imageSrc}
-                    alt={section.heading}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 70vw"
-                  />
-                </div>
+                <ZoomMedia
+                  className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card"
+                  enterScale={1.12}
+                  exitScale={1}
+                >
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={section.imageSrc}
+                      alt={section.heading}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 70vw"
+                    />
+                  </div>
+                </ZoomMedia>
               )}
             </div>
           </RevealOnScroll>
