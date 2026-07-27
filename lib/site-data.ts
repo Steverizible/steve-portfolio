@@ -138,24 +138,28 @@ export const projects: Project[] = [
           heading: "The Challenge",
           body:
             "The objective was to drive 40–50% of overall revenue by reaching broad audiences and finely segmented niches. The challenge lay in developing a strategy that combined personalization with mass appeal to break through the noise.",
+          imageSrc: "/images/work/multi-business/challenge.jpg",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "I created visually striking email templates that seamlessly blend bold imagery with clear, persuasive calls to action. Every design element was thoughtfully chosen to guide the reader through a story-like experience, elevating the brand’s narrative.",
+          imageSrc: "/images/work/multi-business/design.gif",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "By integrating data-driven insights and rigorous A/B testing, I fine-tuned each email to achieve consistently high open rates (over 50%) and robust clickthroughs (3–5%). The development process balanced creative sketches with technical precision to ensure flawless performance across devices and dark screens.",
+          imageSrc: "/images/work/multi-business/development.gif",
         },
         {
           id: "outcome",
           heading: "Outcome",
           body:
             "Our campaigns and flows across our 3 companies consistently delivered impressive results—significantly boosting revenue and deepening customer engagement. We maintained a consistent open rate of over 50% and an average click-through rate of 10-20%, showcasing exceptional engagement levels and the effectiveness of our strategies.",
+          imageSrc: "/images/work/multi-business/outcome.jpg",
         },
       ],
       relatedProjectIds: ["rachel-zoe", "veldskoen-packaging"],
@@ -238,24 +242,28 @@ export const projects: Project[] = [
           heading: "The Challenge",
           body:
             "Our mission was to create a box that embodies what Veldskoen stands for: authenticity, eco-consciousness, and adventure. We explored how to balance functionality, sustainability, and aesthetics while meeting customer expectations for an impactful unboxing experience.",
+          imageSrc: "/images/work/veldskoen-packaging/challenge.gif",
         },
         {
           id: "process",
           heading: "Design Process",
           body:
             "The design process was driven by the principles of minimal waste and maximum storytelling. Earthy textures, clean lines, and bold branding elements reflected Veldskoen’s connection to nature and craftsmanship. Customer experience remained front and center, ensuring every box conveyed the spirit of exploration and authenticity.",
+          imageSrc: "/images/work/veldskoen-packaging/process.jpg",
         },
         {
           id: "development",
           heading: "The Development",
           body:
             "We explored countless materials, created detailed sketches, and tested numerous prototypes. We refined each fold and finish to achieve the right combination of durability and sustainability. By carefully sourcing recyclable materials, we crafted a box that protects the product and minimizes its footprint on the planet.",
+          imageSrc: "/images/work/veldskoen-packaging/development.jpg",
         },
         {
           id: "outcome",
           heading: "The Outcome",
           body:
             "☝️ The final shoe box and insert tell a story of quality, sustainability, and adventure—the essence of the Veldskoen brand. From the tactile materials to the thoughtful unboxing experience, this packaging reflects the journey every step of the way.",
+          imageSrc: "/images/work/veldskoen-packaging/outcome.jpg",
         },
       ],
       relatedProjectIds: ["slyde-handboards", "rachel-zoe"],
@@ -284,24 +292,28 @@ export const projects: Project[] = [
           heading: "The challenge",
           body:
             "How do you create a visual identity that screams simplicity, inspires confidence, and conveys momentum? The challenge was building a brand that speaks directly to innovators and problem-solvers, showing Rizible as approachable and unapologetically bold.",
+          imageSrc: "/images/work/rizible/challenge.gif",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "The design process focused on translating clarity into visuals. Clean, geometric shapes with soft edges were selected to mirror Rizible’s balance between functionality and approachability. Bold typography and purposeful negative space helped eliminate visual clutter while reinforcing confidence.",
+          imageSrc: "/images/work/rizible/design.jpg",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "From sketching initial concepts to refining every curve and corner, each element of the logo was meticulously crafted to reflect Rizible’s dynamic yet streamlined nature. Typography was carefully selected for its readability and strength, embodying purpose without complexity.",
+          imageSrc: "/images/work/rizible/development.jpg",
         },
         {
           id: "outcome",
           heading: "Outcome",
           body:
             "The final logo and visual identity perfectly capture Rizible’s essence: bold, clear, and collaborative. Rounded edges convey friendliness, while the heavy geometric forms radiate strength and purpose. It's a mark that symbolizes getting things done with clarity, confidence, and a little fun along the way.",
+          imageSrc: "/images/work/rizible/outcome.jpg",
         },
       ],
       relatedProjectIds: ["rachel-zoe", "slyde-handboards"],
@@ -329,24 +341,28 @@ export const projects: Project[] = [
           heading: "Research",
           body:
             "In a world where technology has automated much of daily life, many feel disconnected and restless. Extreme sports provide an outlet, yet the deeper psychological benefits are often overlooked. The challenge was to create a tangible object that keeps the thrill and anticipation of adventure alive in everyday moments.",
+          imageSrc: "/images/work/portfolio/research.jpg",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "Little Dude is minimalist yet expressive—his form invites interpretation, reflection, and interaction. Crafted with sustainability in mind, he’s designed to be both a personal totem and a storytelling piece, evolving with the user's experiences.",
+          imageSrc: "/images/work/portfolio/design.jpg",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "From early sketches to collecting and studying toys, the process was hands-on and iterative. Materials were carefully selected to balance durability with a tactile, comforting feel. User feedback shaped key elements, from the countdown mechanism to the vials that store physical memories of past adventures.",
+          imageSrc: "/images/work/portfolio/development.jpg",
         },
         {
           id: "concept",
           heading: "Concept",
           body:
             "More than just an object, Little Dude is a ritual. He marks the countdown to your next adventure, holds physical tokens of past experiences, and serves as a visual record of your journey. In a fast-paced world, he offers a pause—a moment to reflect, anticipate, and stay connected to the thrill of living.",
+          imageSrc: "/images/work/portfolio/concept.jpg",
         },
         {
           id: "how-to-use",
@@ -383,24 +399,28 @@ export const projects: Project[] = [
           heading: "The Challenge",
           body:
             "The challenge was to deliver a premium blanket at an accessible price point while maintaining the high standards expected by Rachel Zoe's clientele. Additionally, the blankets needed to be produced and shipped to meet tight deadlines during the COVID-19 pandemic.",
+          imageSrc: "/images/work/rachel-zoe/challenge.jpg",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "We created a refined, zebra-style design, combining elegance with African-inspired patterns. The design quickly became a fan favorite, highly requested by Curateur's customers for its unique and stylish appeal.",
+          imageSrc: "/images/work/rachel-zoe/design.jpg",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "Collaborating closely with our South African mill, we ensured the blankets met the required quality and aesthetic standards. Despite production challenges, we successfully created a product that fit seamlessly into Curateur's monthly collection.",
+          imageSrc: "/images/work/rachel-zoe/development.jpg",
         },
         {
           id: "outcome",
           heading: "Outcome",
           body:
             "The result was a major success—over 30,000 blankets sold, along with a generous donation of 10,000 blankets to the people of Lesotho, one of the world's poorest countries. The campaign not only boosted sales but also made a significant social impact.",
+          imageSrc: "/images/work/rachel-zoe/outcome.jpg",
         },
       ],
       relatedProjectIds: ["veldskoen-packaging", "portfolio-2008"],
@@ -428,24 +448,28 @@ export const projects: Project[] = [
           heading: "Tight Turnaround",
           body:
             "The challenge was to showcase Veldskoen's shoes in a lifestyle format that authentically told the brand’s African story—all within a tight deadline. The lookbook needed to be equally stunning in both digital and print formats, ensuring a seamless and impactful presentation.",
+          imageSrc: "/images/work/veldskoen-print/tight-turnaround.jpg",
         },
         {
           id: "bold-minimalism",
           heading: "Bold Minimalism",
           body:
             "The design maintained the core brand colors and feel while allowing each shoe style to take center stage. By letting the product speak for itself, the lookbook achieved a clean yet compelling visual narrative.",
+          imageSrc: "/images/work/veldskoen-print/bold-minimalism.jpg",
         },
         {
           id: "curated-visuals",
           heading: "Curated Visuals",
           body:
             "To bring the vision to life, I sourced and organized media while coordinating a targeted photoshoot to fill any content gaps. This strategic approach ensured the lookbook was cohesive and visually compelling.",
+          imageSrc: "/images/work/veldskoen-print/curated-visuals.jpg",
         },
         {
           id: "engaging-storytelling",
           heading: "Engaging Storytelling",
           body:
             "The final product was a visually rich, magazine-style lookbook that beautifully told the Veldskoen story. It showcased the shoes through stunning photography and provided a clear, engaging vision of how they can be styled with various outfits.",
+          imageSrc: "/images/work/veldskoen-print/engaging-storytelling.jpg",
         },
       ],
       relatedProjectIds: ["portfolio-2008", "veldskoen-packaging"],
@@ -479,24 +503,28 @@ export const projects: Project[] = [
           heading: "Research",
           body:
             "The challenge was to create a fun and safer option for kids to ride waves while ensuring durability and ease of use. To achieve this, we needed to find a manufacturer specializing in softboard technology. We partnered with Playmaker, whose expertise in mold development and manufacturing processes enabled us to bring this innovative product to life. Watch below 👇",
+          imageSrc: "/images/work/the-grom/research.jpg",
         },
         {
           id: "design",
           heading: "Design",
           body:
             "The design process focused on creating a playful and approachable shape with vibrant, exciting color variations that appeal to kids and parents alike. We crafted a fun name, “The Grom,” and designed eye-catching packaging to stand out on retail shelves. Every detail, from the shape to the colors, was chosen to inspire fun and adventure in the ocean.",
+          imageSrc: "/images/work/the-grom/design.jpg",
         },
         {
           id: "development",
           heading: "Development",
           body:
             "The development phase involved countless sketches, foam models, and a highly technical 3D model that was turned into a mold. By collaborating closely with our factory partners, we perfected the manufacturing process, enabling production of up to 200 boards per day. This efficient production capacity ensured we could meet growing demand without compromising on quality.",
+          imageSrc: "/images/work/the-grom/development.jpg",
         },
         {
           id: "concept",
           heading: "Concept",
           body:
             "The Grom Kids Handboard became our best-selling product, drawing the attention of major retailers like Dick’s Sporting Goods. Its success not only expanded our product line but also solidified our brand's presence in the youth market, proving that innovative design and strategic manufacturing can create a hit in the competitive surf industry.",
+          imageSrc: "/images/work/the-grom/concept.jpg",
         },
       ],
       relatedProjectIds: ["portfolio-2008", "veldskoen-print"],
