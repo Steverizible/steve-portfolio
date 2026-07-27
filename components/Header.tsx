@@ -50,7 +50,7 @@ export function NavOverlay() {
       <button
         type="button"
         onClick={closeMenu}
-        className={`fixed left-1/2 top-4 z-[110] flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-foreground text-background transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 ${
+        className={`fixed left-1/2 top-[1.35rem] z-[110] flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-foreground text-background transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-[1.15rem] ${
           isOpen
             ? "pointer-events-auto scale-100 opacity-100"
             : "pointer-events-none scale-75 opacity-0"

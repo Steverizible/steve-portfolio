@@ -20,11 +20,13 @@ function CaseImage({
   alt,
   priority = false,
   viewTransitionName,
+  className = "",
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   viewTransitionName?: string;
+  className?: string;
 }) {
   const isGif = src.toLowerCase().endsWith(".gif");
   const image = (
@@ -40,7 +42,9 @@ function CaseImage({
   );
 
   return (
-    <ZoomMedia className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card md:mt-10">
+    <ZoomMedia
+      className={`relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card ${className}`}
+    >
       <div className="relative h-full w-full">
         {viewTransitionName ? (
           <ViewTransition name={viewTransitionName} share="project-morph">
@@ -65,46 +69,49 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
   const marquee = "More Works More Works More Works More Works";
 
   return (
-    <div className="animate-page-in w-full">
+    <div className="animate-page-in w-full bg-white">
       <PageChrome />
 
       <div className="w-full px-6 py-12 md:px-10 md:py-16 lg:px-14">
-        <h1 className="text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
-          {caseStudy?.title ?? project.label}
-        </h1>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(220px,0.55fr)] lg:items-start lg:gap-16 xl:gap-24">
+          <div>
+            <h1 className="text-4xl font-bold uppercase tracking-tight md:text-5xl lg:text-6xl">
+              {caseStudy?.title ?? project.label}
+            </h1>
 
-        {caseStudy?.intro && (
-          <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted md:text-lg">
-            {caseStudy.intro}
-          </p>
-        )}
+            {caseStudy?.intro && (
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:mt-8 md:text-lg">
+                {caseStudy.intro}
+              </p>
+            )}
+          </div>
 
-        {caseStudy && (
-          <dl className="mt-10 grid gap-4 border-y border-border py-6 text-sm uppercase tracking-wide sm:grid-cols-3">
-            <div>
-              <dt className="text-muted">Client</dt>
-              <dd className="mt-1 font-semibold">{caseStudy.client}</dd>
-            </div>
-            <div>
-              <dt className="text-muted">Year</dt>
-              <dd className="mt-1 font-semibold">{caseStudy.year}</dd>
-            </div>
-            <div>
-              <dt className="text-muted">Category</dt>
-              <dd className="mt-1 font-semibold">{caseStudy.category}</dd>
-            </div>
-          </dl>
-        )}
+          {caseStudy && (
+            <dl className="divide-y divide-border border-y border-border text-sm uppercase tracking-wide">
+              <div className="flex flex-col gap-1 py-4">
+                <dt className="text-xs text-muted">Client</dt>
+                <dd className="font-bold text-foreground">{caseStudy.client}</dd>
+              </div>
+              <div className="flex flex-col gap-1 py-4">
+                <dt className="text-xs text-muted">Year</dt>
+                <dd className="font-bold text-foreground">{caseStudy.year}</dd>
+              </div>
+              <div className="flex flex-col gap-1 py-4">
+                <dt className="text-xs text-muted">Category</dt>
+                <dd className="font-bold text-foreground">{caseStudy.category}</dd>
+              </div>
+            </dl>
+          )}
+        </div>
 
         {imageSrc && (
-          <div className="mt-12">
-            <CaseImage
-              src={imageSrc}
-              alt={project.name}
-              priority
-              viewTransitionName={`project-image-${project.id}`}
-            />
-          </div>
+          <CaseImage
+            src={imageSrc}
+            alt={project.name}
+            priority
+            viewTransitionName={`project-image-${project.id}`}
+            className="mt-12 md:mt-14"
+          />
         )}
 
         {caseStudy?.sections.map((section, index) => (
@@ -122,7 +129,11 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
               </p>
             </div>
             {section.imageSrc && (
-              <CaseImage src={section.imageSrc} alt={section.heading} />
+              <CaseImage
+                src={section.imageSrc}
+                alt={section.heading}
+                className="mt-8 md:mt-10"
+              />
             )}
           </RevealOnScroll>
         ))}
@@ -148,7 +159,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
       </div>
 
       {relatedProjects.length > 0 && (
-        <div className="mt-8 w-full pb-16 md:mt-12 md:pb-20">
+        <div className="mt-8 w-full bg-white pb-16 md:mt-12 md:pb-20">
           <div
             className="relative overflow-hidden py-6 md:py-8"
             style={{
