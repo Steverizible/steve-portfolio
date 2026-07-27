@@ -33,7 +33,7 @@ export default function Awards() {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
-                        <h3 className="text-base font-bold uppercase tracking-tight md:text-lg">
+                        <h3 className="text-base font-bold tracking-tight md:text-lg">
                           {item.title}
                         </h3>
                         {item.subtitle && (

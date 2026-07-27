@@ -30,12 +30,18 @@ export const metadata: Metadata = {
     description: siteMeta.description,
     images: [
       {
-        url: "/images/og/og.jpg",
+        url: "/images/og/og.png",
         width: 1200,
         height: 630,
         alt: siteMeta.name,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMeta.title,
+    description: siteMeta.description,
+    images: ["/images/og/og.png"],
   },
 };
 

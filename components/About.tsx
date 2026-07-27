@@ -184,8 +184,8 @@ function SectionHeading() {
       className="text-center font-bold uppercase leading-[0.9] tracking-tight text-foreground"
       aria-label={moreAboutSteve.title}
     >
-      <span className={HEADING_LINE_CLASS}>More About</span>
-      <span className={HEADING_LINE_CLASS}>Steve</span>
+      <span className={HEADING_LINE_CLASS}>{moreAboutSteve.titleLines[0]}</span>
+      <span className={HEADING_LINE_CLASS}>{moreAboutSteve.titleLines[1]}</span>
     </h2>
   );
 }
