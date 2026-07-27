@@ -10,7 +10,10 @@ export default function Hero() {
   const time = useLocalTime();
 
   return (
-    <section className="relative flex min-h-[77.25vh] w-full flex-col bg-hero-background md:min-h-[85vh]">
+    <section
+      className="relative flex min-h-svh w-full flex-col"
+      style={{ backgroundColor: "#f0f0f0" }}
+    >
       <div className="grid w-full grid-cols-3 items-center px-6 pt-6 md:px-10 md:pt-8 lg:px-14">
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
           {navigation.localPrefix}
