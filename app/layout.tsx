@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Inter_Tight } from "next/font/google";
+import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import "./globals.css";
 import { siteMeta } from "@/lib/site-data";
@@ -56,7 +57,10 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${interTight.variable} h-full scroll-smooth`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex min-h-full flex-1 flex-col">{children}</div>
+        </Providers>
+        <Footer />
       </body>
     </html>
   );

@@ -34,9 +34,9 @@ export default function CustomCursor() {
     if (!enabled) return;
 
     const animate = () => {
-      // Heavy lag — cursor trails the pointer for a draggy feel
-      positionRef.current.x += (targetRef.current.x - positionRef.current.x) * 0.055;
-      positionRef.current.y += (targetRef.current.y - positionRef.current.y) * 0.055;
+      // Fast, responsive follow — slight smoothing without laggy drag
+      positionRef.current.x += (targetRef.current.x - positionRef.current.x) * 0.45;
+      positionRef.current.y += (targetRef.current.y - positionRef.current.y) * 0.45;
 
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${positionRef.current.x}px, ${positionRef.current.y}px, 0) translate(-50%, -50%)`;

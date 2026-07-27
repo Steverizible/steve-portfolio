@@ -9,7 +9,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import ZoomMedia from "@/components/ZoomMedia";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
-import { contact, projects, siteMeta } from "@/lib/site-data";
+import { projects } from "@/lib/site-data";
 
 type ProjectPageContentProps = {
   project: Project;
@@ -196,13 +196,6 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
           </div>
         </div>
       )}
-
-      <div className="flex w-full items-center justify-between border-t border-border px-6 py-6 text-xs font-medium uppercase tracking-wide text-muted md:px-10 lg:px-14">
-        <p>{siteMeta.copyright}</p>
-        <Link href="#top" className="transition-opacity hover:opacity-60">
-          {contact.backToTopLabel}
-        </Link>
-      </div>
     </div>
   );
 }
