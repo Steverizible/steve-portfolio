@@ -12,7 +12,7 @@ export const projectImages: Record<string, string> = {
 
 export const sectionImages = {
   about: "/images/about/steve.avif",
-  contactPortrait: "/images/about/contact-portrait.avif",
+  contactPortrait: "/images/about/contact-portrait.jpg",
   motivation: "/images/motivation/motivation.avif",
   motivationSignature: "/images/motivation/signature.png",
   motivationBreakout: "/images/motivation/breakout.png",
