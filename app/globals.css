@@ -104,31 +104,31 @@ body.page-transition-out {
 }
 
 ::view-transition-old(.nav-forward) {
-  --slide-offset: -40px;
+  --slide-offset: -14px;
   animation:
-    var(--duration-exit) ease-in both vt-fade-out,
-    400ms ease-in-out both vt-slide;
+    240ms var(--ease-premium) both vt-fade-out,
+    360ms var(--ease-premium) both vt-slide;
 }
 
 ::view-transition-new(.nav-forward) {
-  --slide-offset: 40px;
+  --slide-offset: 14px;
   animation:
-    var(--duration-enter) ease-out var(--duration-exit) both vt-fade-in,
-    420ms ease-in-out both vt-slide;
+    320ms var(--ease-premium) both vt-fade-in,
+    360ms var(--ease-premium) both vt-slide;
 }
 
 ::view-transition-old(.nav-back) {
-  --slide-offset: 40px;
+  --slide-offset: 14px;
   animation:
-    var(--duration-exit) ease-in both vt-fade-out,
-    400ms ease-in-out both vt-slide;
+    240ms var(--ease-premium) both vt-fade-out,
+    360ms var(--ease-premium) both vt-slide;
 }
 
 ::view-transition-new(.nav-back) {
-  --slide-offset: -40px;
+  --slide-offset: -14px;
   animation:
-    var(--duration-enter) ease-out var(--duration-exit) both vt-fade-in,
-    420ms ease-in-out both vt-slide;
+    320ms var(--ease-premium) both vt-fade-in,
+    360ms var(--ease-premium) both vt-slide;
 }
 
 @keyframes vt-fade-out {
@@ -158,7 +158,7 @@ body.page-transition-out {
 @keyframes page-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -167,7 +167,7 @@ body.page-transition-out {
 }
 
 .animate-page-in {
-  animation: page-in 0.55s var(--ease-premium) both;
+  animation: page-in 0.4s var(--ease-premium) both;
 }
 
 /* Hero entrance */
@@ -420,19 +420,20 @@ body.custom-cursor-enabled button {
   transform: translate3d(0, 0, 0);
 }
 
-/* Sticky section headings — stick within parent section only */
+/* Sticky section headings — stick flush to the top of the viewport */
 .sticky-section-heading {
   position: sticky;
-  top: 16px;
+  top: 0;
   z-index: 20;
   align-self: start;
   width: 100%;
-  padding-bottom: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
   .sticky-section-heading {
-    top: 24px;
+    padding-top: 1rem;
   }
 }
 

@@ -14,7 +14,7 @@ const PILL_CLASS =
   "relative overflow-hidden rounded-[140px] border border-border bg-card md:rounded-[160px]";
 
 const PILL_SIZE_CLASS =
-  "h-[min(64vh,560px)] w-[min(40vw,260px)] md:h-[min(68vh,620px)] md:w-[min(32vw,300px)] lg:w-[320px]";
+  "h-[min(54vh,480px)] w-[min(68vw,300px)] md:h-[min(68vh,620px)] md:w-[min(32vw,300px)] lg:w-[320px]";
 
 const HEADING_LINE_CLASS =
   "block text-[clamp(2.25rem,7vw,5.25rem)]";
