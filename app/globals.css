@@ -249,28 +249,32 @@ body.page-transition-out {
   color: var(--background);
 }
 
-/* Four-dot menu trigger — spaced like Framer */
+/* Four-dot menu trigger — square at rest, rotates into a cross when open */
 .menu-dots {
   display: grid;
   grid-template-columns: repeat(2, 4px);
   gap: 7px;
-  transition: transform 0.5s var(--ease-premium);
+  transition:
+    transform 0.55s var(--ease-premium),
+    gap 0.55s var(--ease-premium);
 }
 
-.menu-trigger:hover .menu-dots {
-  transform: rotate(18deg) scale(1.04);
+.menu-trigger:hover:not(.is-active) .menu-dots {
+  transform: rotate(20deg) scale(1.05);
 }
 
 .menu-trigger.is-active .menu-dots {
-  transform: rotate(45deg) scale(1.06);
+  /* 45° turns the square of dots into a cross / plus */
+  gap: 9px;
+  transform: rotate(45deg) scale(1.08);
 }
 
 .menu-dot {
   width: 4px;
   height: 4px;
   border-radius: 9999px;
-  background-color: var(--foreground);
-  transition: transform 0.5s var(--ease-premium);
+  background-color: currentColor;
+  transition: transform 0.55s var(--ease-premium);
 }
 
 /* Logo ticker marquee */
@@ -509,9 +513,10 @@ body.custom-cursor-enabled button {
     transform: none;
   }
 
-  .menu-trigger:hover .menu-dots,
+  .menu-trigger:hover:not(.is-active) .menu-dots,
   .menu-trigger.is-active .menu-dots {
     transform: none;
+    gap: 7px;
   }
 
   .reveal-heading,

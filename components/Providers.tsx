@@ -5,6 +5,7 @@ import { ViewTransition } from "react";
 import CustomCursor from "@/components/CustomCursor";
 import HashScroll from "@/components/HashScroll";
 import { NavOverlay } from "@/components/Header";
+import MenuTrigger from "@/components/MenuTrigger";
 import { MenuProvider } from "@/lib/menu-context";
 
 export default function Providers({ children }: { children: ReactNode }) {
@@ -12,6 +13,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     <MenuProvider>
       <CustomCursor />
       <HashScroll />
+      <MenuTrigger />
       <NavOverlay />
       <ViewTransition
         enter={{ "nav-forward": "nav-forward", "nav-back": "nav-back", default: "page-fade" }}

@@ -45,24 +45,6 @@ export function NavOverlay() {
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
   return (
-    <>
-      {/* Fixed center close control — stays put while the panel rises from below */}
-      <button
-        type="button"
-        onClick={closeMenu}
-        className={`fixed left-1/2 top-[1.35rem] z-[110] flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-foreground text-background transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-[1.15rem] ${
-          isOpen
-            ? "pointer-events-auto scale-100 opacity-100"
-            : "pointer-events-none scale-75 opacity-0"
-        }`}
-        aria-label="Close menu"
-        tabIndex={isOpen ? 0 : -1}
-      >
-        <span className="text-xl font-light leading-none" aria-hidden="true">
-          ×
-        </span>
-      </button>
-
     <div
       className={`fixed inset-0 z-[100] flex flex-col bg-background transition-[transform,opacity] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isOpen
@@ -77,7 +59,7 @@ export function NavOverlay() {
           <span className="text-foreground">{time || "—"}</span>
         </p>
 
-        {/* Spacer — black X close is rendered in a fixed layer so it stays centered while the panel rises */}
+        {/* Spacer — MenuTrigger stays fixed above the overlay and morphs in place */}
         <div className="flex justify-center" aria-hidden="true">
           <div className="h-10 w-10" />
         </div>
@@ -152,6 +134,5 @@ export function NavOverlay() {
         </Link>
       </div>
     </div>
-    </>
   );
 }

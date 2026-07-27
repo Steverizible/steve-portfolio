@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "@/components/Button";
-import MenuTrigger from "@/components/MenuTrigger";
 import { useLocalTime } from "@/lib/use-local-time";
 import { navigation, siteMeta } from "@/lib/site-data";
 
@@ -17,8 +16,8 @@ export default function PageChrome() {
           <span className="text-[color:var(--time)] text-foreground">{time || "—"}</span>
         </p>
 
-        <div className="flex justify-center">
-          <MenuTrigger />
+        <div className="flex justify-center" aria-hidden="true">
+          <div className="h-10 w-10" />
         </div>
 
         <div className="flex items-center justify-end gap-4">
