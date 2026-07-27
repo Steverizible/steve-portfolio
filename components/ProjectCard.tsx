@@ -35,7 +35,7 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
       href={project.href}
       data-cursor-view
       transitionTypes={["nav-forward"]}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card transition-[transform,box-shadow,opacity] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-md"
+      className="group block overflow-hidden rounded-2xl border border-border bg-card transition-[box-shadow,opacity] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-md"
     >
       <ZoomMedia
         className={`relative ${imageHeight} w-full overflow-hidden bg-[#ddd]`}
@@ -47,7 +47,7 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
                 src={imageSrc}
                 alt={`${label} — ${name}`}
                 fill
-                className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+                className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </ViewTransition>
