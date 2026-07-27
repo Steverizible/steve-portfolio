@@ -52,7 +52,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="hero-fade-in hero-fade-in-delay-3 flex w-full items-end justify-between px-6 pb-6 md:px-10 md:pb-8 lg:px-14">
+      <div className="hero-fade-in hero-fade-in-delay-3 flex w-full flex-col items-center gap-1.5 px-6 pb-6 text-center sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:text-left md:px-10 md:pb-8 lg:px-14">
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
           {hero.locationLabel}
         </p>

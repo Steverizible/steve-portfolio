@@ -11,7 +11,7 @@ export default function LogoTicker() {
           {items.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className="flex h-[88px] w-[88px] shrink-0 items-center justify-center border border-[#d6d6d6] bg-[#f3f3f3] p-4 md:h-[104px] md:w-[104px] md:p-5"
+              className="flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-2xl bg-[#f3f3f3] p-4 md:h-[104px] md:w-[104px] md:p-5"
             >
               {item.imageSrc ? (
                 <div className="relative h-full w-full">
