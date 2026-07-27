@@ -9,7 +9,7 @@
 
 export const siteMeta = {
   name: "Steve Watts",
-  title: "Steven watts | Portfolio",
+  title: "Steven Watts | Portfolio",
   description:
     "Founder, Creative Director, and Brand Strategist with over 15 years of experience leading creative teams and building compelling brand identities across diverse industries.",
   location: "San Clemente, CA",
@@ -482,16 +482,16 @@ export const projects: Project[] = [
   {
     id: "the-grom",
     slug: "the-grom",
-    label: "Product dev",
-    name: "Slyde handboards",
-    category: "Product dev",
+    label: "Product Dev",
+    name: "Slyde Handboards",
+    category: "Product Dev",
     year: "2018",
-    selectedLabel: "The grom",
+    selectedLabel: "The Grom",
     selectedName: "Product Dev",
     href: "/work/the-grom",
     featured: true,
     caseStudy: {
-      title: "The grom",
+      title: "The Grom",
       intro:
         "The Grom Kids Handboard is a soft foam handboard designed specifically for young wave riders, providing a fun and safe way to experience bodysurfing. Developed to expand our product line and appeal to a younger demographic, it offers an exciting alternative for kids and parents looking to enjoy the ocean in a playful, approachable way.",
       client: "Slyde Handboards",
@@ -545,13 +545,13 @@ export function getFeaturedProjects(): Project[] {
 // ---------------------------------------------------------------------------
 
 export const hero = {
-  headline: "sTEVE WATTS",
+  headline: "STEVE WATTS",
   tagline: "Vision. Brand. Impact.",
   locationLabel: "BASED IN SAN CLEMENTE CA",
-  roles: ["Digital Designer", "STORY TELLER"],
+  roles: ["Digital Designer", "Storyteller"],
   roleHref: "/#about",
   cta: {
-    label: "Contact now",
+    label: "Contact Now",
     href: "/contact",
   },
 } as const;
@@ -575,7 +575,7 @@ export const featuredWork = {
     "the-grom",
   ],
   moreProjectsCta: {
-    label: "see more projects",
+    label: "See More Projects",
     href: "/projects",
   },
 } as const;
@@ -660,7 +660,7 @@ export type ExpertiseItem = {
 
 export const expertise = {
   title: "Expertise",
-  titleLines: ["My", "EXPERTISE"],
+  titleLines: ["My", "Expertise"],
   items: [
     {
       id: "creative-leadership",
@@ -707,10 +707,10 @@ export const expertise = {
     {
       id: "ecomm-growth",
       number: 4,
-      title: "ecomm growth",
+      title: "E-Comm Growth",
       preview:
         "Proven ability to scale brands from inception to million-dollar success stories through strategic planning and execution.",
-      modalTitle: "Ecomm Growth",
+      modalTitle: "E-Comm Growth",
       modalSubtitle: "Conversion-Focused Digital Growth",
       modalBody:
         "I drive e-commerce success through data-backed strategies, UX optimization, and high-converting digital campaigns. By refining customer journeys and leveraging A/B testing, I've boosted conversions and expanded market reach. My expertise in Shopify, CRO, and multi-channel marketing turns online stores into revenue powerhouses.",
@@ -721,7 +721,7 @@ export const expertise = {
     {
       id: "email-marketing",
       number: 5,
-      title: "email marketing",
+      title: "Email Marketing",
       preview:
         "Creating engaging email marketing strategies, and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
       modalTitle: "Email Marketing",
@@ -735,10 +735,10 @@ export const expertise = {
     {
       id: "seo",
       number: 6,
-      title: "seo: it's a passion",
+      title: "SEO: It's a Passion",
       preview:
         "I optimize content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
-      modalTitle: "SEO: Optimized for",
+      modalTitle: "SEO: Optimized For",
       modalSubtitle: "Data-Driven Revenue Growth",
       modalBody:
         "I drive organic traffic through strategic SEO, including keyword research, content optimization, and technical improvements. My data-driven approach boosts search rankings, increases visibility, and enhances user engagement for sustained brand growth.",
@@ -801,8 +801,8 @@ export const experience = {
   items: [
     {
       id: "slyde-handboards",
-      company: "slyde Handboards",
-      role: "founder + Creative director",
+      company: "Slyde Handboards",
+      role: "Founder + Creative Director",
       period: "2010 - 2024",
       description:
         "At Slyde Handboards, I built a million-dollar brand from the ground up, securing $500K in funding from Mark Cuban and Ashton Kutcher. I led branding, product development, and multi-channel marketing, using Facebook ads, email, and storytelling to drive growth. Through strategic partnerships and UX/UI optimization, I boosted conversions, expanded market reach, and earned features in Forbes and The New York Times.",
@@ -810,26 +810,26 @@ export const experience = {
     {
       id: "veldskoen",
       company: "Veldskoen",
-      role: "fOUNDER + cREATIVE DIRECTOR",
+      role: "Founder + Creative Director",
       period: "2018 – 2024",
       description:
         "At Veldskoen USA, I transformed a startup into a $250K/month brand within a year through strategic storytelling, digital marketing, and eCommerce optimization. Managing a $30K/month ad budget, I leveraged Facebook and Google Ads, influencer partnerships, and data-driven campaigns to maximize ROI. I also enhanced the brand's identity, customer experience, and sustainability efforts, positioning Veldskoen as a globally recognized lifestyle brand.",
     },
     {
       id: "happybond",
-      company: "Happybond",
-      role: "paid media consultancy",
+      company: "HappyBond",
+      role: "Paid Media Consultancy",
       period: "2023 – 2024",
       description:
         "I led the explosive growth of HappyBond, skyrocketing monthly revenue from $5K to $50K in just a few months. Through a powerful blend of paid media, organic marketing, and high-converting email campaigns.",
     },
     {
       id: "ilan-dei",
-      company: "Ilan dei",
-      role: "junior designer",
+      company: "Ilan Dei",
+      role: "Junior Designer",
       period: "2008 – 2010",
       description:
-        "I started my career as a Junior Designer at Illan Dei, honing my skills in product design, branding, and creative storytelling.",
+        "I started my career as a Junior Designer at Ilan Dei, honing my skills in product design, branding, and creative storytelling.",
     },
   ] satisfies ExperienceItem[],
 } as const;
@@ -847,53 +847,53 @@ export type StackItem = {
 
 export const favoriteStack = {
   title: "Favorite Stack",
-  titleLines: ["Favorite", "STack"],
+  titleLines: ["Favorite", "Stack"],
   items: [
     {
       id: "adobe-suite",
-      name: "adobe SUITE",
+      name: "Adobe Suite",
       category: "Creative Design and Visual Storytelling",
       description:
         "I leverage Adobe Creative Suite (Photoshop, Illustrator, and Premiere Pro) extensively in my work, particularly for digital design, video editing, and creating compelling visual content. Whether it's using Photoshop for graphics, Illustrator for vector designs, or Premiere Pro for video projects",
     },
     {
       id: "klaviyo",
-      name: "kLAVIYO",
-      category: "Customer data platform / SMS marketing / Mobile push",
+      name: "Klaviyo",
+      category: "Customer Data Platform / SMS Marketing / Mobile Push",
       description:
         "With 15 years of experience in email marketing, I've honed my skills in creating data-driven campaigns that engage, convert, and retain customers. From developing strategies to crafting compelling content and optimizing deliverability, I've worked across various industries to design emails that drive results.",
     },
     {
       id: "capcut",
-      name: "CAPCUT",
-      category: "VIDEO EDITING",
+      name: "CapCut",
+      category: "Video Editing",
       description:
         "With extensive experience using CapCut, I specialize in crafting high-quality paid media and organic videos that engage audiences and drive results. My expertise includes advanced editing techniques, seamless transitions, and creative storytelling to elevate brand content.",
     },
     {
       id: "figma",
       name: "Figma",
-      category: "collaborative Design Tool",
+      category: "Collaborative Design Tool",
       description:
         "I have extensive experience using Figma to design user paths and optimize user experiences through intuitive, collaborative workflows. Leveraging Figma Jam, I foster creative brainstorming and seamless team collaboration to bring innovative design solutions to life.",
     },
     {
       id: "shopify",
-      name: "shopify",
-      category: "Web design and build",
+      name: "Shopify",
+      category: "Web Design and Build",
       description:
         "With over 15 years of experience in Shopify, I specialize in creating minimalist, elegant designs that prioritize refined typography and intuitive user experiences. Passionate about conversion rate optimization, I leverage A/B testing and strategic landing page development to drive engagement and maximize results.",
     },
     {
       id: "clickup",
-      name: "Click up",
-      category: "Project managment",
+      name: "ClickUp",
+      category: "Project Management",
       description:
         "With extensive project management experience using primarily ClickUp, I excel at keeping teams aligned, on schedule, and focused on deliverables. My approach ensures efficient task management, streamlined workflows, and successful project execution from start to finish.",
     },
     {
       id: "microsoft-office",
-      name: "microsoft office suite",
+      name: "Microsoft Office Suite",
       category: "15+ Years of Expertise",
       description:
         "With 15 years of experience in both Microsoft Office and Google Suite environments, I specialize in using Excel and Google Sheets for advanced data analysis, reporting, and automation, as well as crafting professional documents in Word and Google Docs. My expertise ensures efficient workflow management, seamless collaboration, and high-quality deliverables.",
@@ -901,7 +901,7 @@ export const favoriteStack = {
     {
       id: "airtable",
       name: "Airtable",
-      category: "Streamlining paid Media Campaigns",
+      category: "Streamlining Paid Media Campaigns",
       description:
         "Experienced in using Airtable for planning and managing Facebook campaigns and social media projects. I create dynamic workflows, track content schedules, and streamline collaboration to ensure timely and impactful campaign execution.",
     },
@@ -927,26 +927,26 @@ export const awardsMedia = {
   items: [
     {
       id: "investor-relations",
-      title: "Investor relations",
-      subtitle: "mark cuban + Ashton Kutcher",
+      title: "Investor Relations",
+      subtitle: "Mark Cuban + Ashton Kutcher",
       year: "2017",
       description:
-        "Successfully pitched and obtained funding from investors like Mark Cuban and Ashton Kutcher, driving the growth and market presence of Slyde Handboards and Veldskoen USA and Named Mark Cubans Top 5 favorite Investments by Inc Magazine.",
+        "Successfully pitched and obtained funding from investors like Mark Cuban and Ashton Kutcher, driving the growth and market presence of Slyde Handboards and Veldskoen USA and named Mark Cuban's Top 5 favorite investments by Inc. Magazine.",
     },
     {
       id: "press-features",
-      title: "fEATURED IN NEW YORK TIMES",
-      subtitle: "ARNO RED Themed PORTFOLIO",
+      title: "Featured in New York Times",
+      subtitle: "Arno Red Themed Portfolio",
       year: "2017",
       description:
         "Featured in prominent publications such as the New York Times, Forbes, and Business Journal, along with a memorable appearance on Shark Tank, gaining nationwide recognition and bolstering brand visibility.",
       href: "https://www.nytimes.com/2016/04/28/business/smallbusiness/selling-surfers-on-a-new-way-to-ride-the-waves.html",
-      linkLabel: "full article",
+      linkLabel: "Full Article",
     },
     {
       id: "orange-county-award",
       title: "Award-Winning Leadership",
-      subtitle: "oRANGE COUNTY bUSINESS jOURNAL",
+      subtitle: "Orange County Business Journal",
       year: "2020",
       description:
         "Received the Orange County Business Journal Up-and-Coming Award for exceptional growth and innovation.",
@@ -976,7 +976,7 @@ export const faq = {
     { id: "brand-narrative", label: "Crafting a Strong Brand Narrative" },
     {
       id: "digital-marketing",
-      label: "Data-Driven Digital My Marketing Strategies",
+      label: "Data-Driven Digital Marketing Strategies",
     },
     { id: "ecommerce", label: "E-Commerce Optimization" },
     { id: "success-examples", label: "Real-World Success Examples" },
@@ -1042,21 +1042,21 @@ export const faq = {
 export const contact = {
   id: "contact",
   headline: "Let's Work Together",
-  headlineLines: ["Let'S WORK", "TOGETHER"],
-  subheadline: "contact",
+  headlineLines: ["Let's Work", "Together"],
+  subheadline: "Contact",
   description:
     "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",
   descriptionSecondary:
     "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
   cta: {
-    label: "contact",
+    label: "Contact",
     href: "/contact",
   },
   social: [
     {
-      label: "linkdin",
+      label: "LinkedIn",
       href: siteMeta.linkedInUrl,
-      handle: "steve watts",
+      handle: "Steve Watts",
     },
   ],
   footerNav: [] as NavLink[],
@@ -1071,7 +1071,7 @@ export const contactPage = {
   headline: "Say Hello!",
   description:
     "My creative spirit comes alive in the digital realm. With nimble fingers flying across the keyboard.",
-  formIntro: "Fill THIS form out",
+  formIntro: "Fill This Form Out",
   formFields: [
     {
       id: "name",
@@ -1098,22 +1098,22 @@ export const contactPage = {
       required: true,
     },
   ] satisfies ContactFormField[],
-  submitLabel: "SEND EMAIL",
-  socialHeading: "SOCIAL",
+  submitLabel: "Send Email",
+  socialHeading: "Social",
   social: {
-    label: "Linkdin",
+    label: "LinkedIn",
     href: siteMeta.linkedInUrl,
   },
   location: {
-    label: "CURRENT LOCATION",
-    value: "san Clemente, California (CA), 92672, United States",
+    label: "Current Location",
+    value: "San Clemente, California (CA), 92672, United States",
   },
   phone: {
     label: "Phone",
     value: "USA, +1 310 433 0363",
   },
   email: {
-    label: "EMAIL",
+    label: "Email",
     value: siteMeta.email,
     href: `mailto:${siteMeta.email}`,
   },
