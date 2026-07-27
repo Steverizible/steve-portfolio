@@ -21,7 +21,7 @@ export default function Contact() {
                 src={sectionImages.contactPortrait ?? sectionImages.about}
                 alt="Steve Watts"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[center_20%]"
                 sizes="(max-width: 1024px) 80vw, 40vw"
               />
             </div>
