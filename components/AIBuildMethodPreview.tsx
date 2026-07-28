@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/Button";
+import ImpactAtAGlance from "@/components/ImpactAtAGlance";
 import RevealHeading from "@/components/RevealHeading";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import { aiBuildMethodPreview as data } from "@/lib/ai-operating-model";
@@ -21,6 +22,14 @@ export default function AIBuildMethodPreview() {
             {data.introduction}
           </RevealOnScroll>
         </div>
+
+        <RevealOnScroll className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <ImpactAtAGlance
+            impact={data.impactAtAGlance}
+            variant="section"
+            tone="light"
+          />
+        </RevealOnScroll>
 
         <RevealOnScroll className="mt-12">
           <ol

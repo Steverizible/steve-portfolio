@@ -3,6 +3,8 @@
  * Copy and hierarchy from https://stevewattsportfolio.framer.website/
  */
 
+import type { ImpactAtGlance } from "@/lib/impact";
+
 // ---------------------------------------------------------------------------
 // Site meta
 // ---------------------------------------------------------------------------
@@ -53,6 +55,7 @@ export type CaseStudy = {
   };
 };
 
+/** @deprecated Prefer ImpactAtGlance / ImpactItem from lib/impact.ts */
 export type CardMetric = {
   value: string;
   label: string;
@@ -82,8 +85,13 @@ export type Project = {
   featuredWide?: boolean;
   /** Optional supporting description shown on emphasized cards. */
   cardDescription?: string;
-  /** Optional headline metrics shown on emphasized cards. */
+  /**
+   * Legacy flat metrics. Prefer `impactAtAGlance` for new work.
+   * Kept only for backward compatibility during migration.
+   */
   cardMetrics?: CardMetric[];
+  /** Shared Impact at a Glance panel for featured / archive cards. */
+  impactAtAGlance?: ImpactAtGlance;
   /** Restrained proof indicator when the linked case study includes an evidence gallery. */
   evidenceLabel?: string;
   caseStudy?: CaseStudy;
@@ -143,13 +151,38 @@ export const projects: Project[] = [
     featuredWide: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "Building a connected growth engine across Shopify, Klaviyo, customer data, content, creative production, lifecycle automation, and AI-assisted workflows.",
-    cardMetrics: [
-      { value: "+63%", label: "Net Sales YoY" },
-      { value: "+76%", label: "Store Sessions YoY" },
-      { value: "+49%", label: "Average Order Value" },
-      { value: "$104K+", label: "Attributed Flow Revenue" },
-    ],
+      "Building a connected DTC growth operation across Shopify, Klaviyo, lifecycle marketing, content, creative, customer data, and AI-assisted workflows.",
+    impactAtAGlance: {
+      eyebrow: "Impact at a Glance",
+      items: [
+        {
+          value: "+63%",
+          label: "Net Sales YoY",
+          type: "commercial",
+          prominence: "primary",
+        },
+        {
+          value: "+76%",
+          label: "Online Store Sessions YoY",
+          type: "commercial",
+          prominence: "secondary",
+        },
+        {
+          value: "$104K+",
+          label: "Attributed Flow Revenue",
+          type: "commercial",
+          prominence: "secondary",
+        },
+        {
+          value: "+49%",
+          label: "Average Order Value",
+          type: "commercial",
+          prominence: "secondary",
+        },
+      ],
+      guardrail:
+        "Shopify YoY comparison and Klaviyo-attributed flow revenue.",
+    },
   },
   {
     id: "totely-ai-storage",
@@ -165,7 +198,36 @@ export const projects: Project[] = [
     featured: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "A physical-and-digital storage system that lets people number a container, photograph what is inside, record where it lives, and later ask naturally where something was stored.",
+      "A physical-and-digital storage system designed to make stored belongings searchable through numbered containers, photography, location data, and natural-language retrieval.",
+    impactAtAGlance: {
+      eyebrow: "Impact at a Glance",
+      items: [
+        {
+          value: "Built From Zero",
+          label: "Product, Brand and Experience",
+          type: "product",
+          prominence: "primary",
+        },
+        {
+          value: "Physical + Digital",
+          label: "Labels, App and Retrieval System",
+          type: "product",
+          prominence: "secondary",
+        },
+        {
+          value: "4-Step Workflow",
+          label: "Number · Photograph · Locate · Find",
+          type: "product",
+          prominence: "secondary",
+        },
+        {
+          value: "Working Product",
+          label: "Marketing Site and Application",
+          type: "product",
+          prominence: "secondary",
+        },
+      ],
+    },
   },
   {
     id: "veldskoen-growth-story",
@@ -181,12 +243,32 @@ export const projects: Project[] = [
     featured: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "Built and scaled the U.S. business from $0 to approximately $250,000 per month within 12 months by connecting brand positioning, product, Shopify, customer acquisition, creative, and disciplined DTC execution.",
-    cardMetrics: [
-      { value: "$0 → $250K/Mo", label: "Approx. Monthly Revenue" },
-      { value: "12 Months", label: "Growth Story" },
-      { value: "$30K/Mo", label: "Ad Budget Managed" },
-    ],
+      "Built and scaled the U.S. business by connecting product, brand positioning, Shopify, customer acquisition, creative, and disciplined DTC execution.",
+    impactAtAGlance: {
+      eyebrow: "Impact at a Glance",
+      items: [
+        {
+          value: "$0 → $250K/Month",
+          label: "Approximate Monthly Revenue",
+          type: "commercial",
+          prominence: "primary",
+        },
+        {
+          value: "12 Months",
+          label: "Time to Reach the Run Rate",
+          type: "commercial",
+          prominence: "secondary",
+        },
+        {
+          value: "$30K/Month",
+          label: "Advertising Budget Managed",
+          type: "leadership",
+          prominence: "secondary",
+        },
+      ],
+      guardrail:
+        "Historical U.S. business result based on internal operating history and résumé records. Revenue is approximate and does not represent profit.",
+    },
   },
   {
     id: "multi-business",
@@ -239,6 +321,8 @@ export const projects: Project[] = [
       relatedProjectIds: ["rachel-zoe", "veldskoen-packaging"],
     },
   },
+  // Slyde impactAtAGlance: attach verified commercial/leadership impact during the
+  // dedicated Slyde case-study build. Do not invent speculative figures here.
   {
     id: "slyde-handboards",
     slug: "slyde-handboards",

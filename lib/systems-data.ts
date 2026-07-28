@@ -3,6 +3,8 @@
  * Expandable: add new SystemCaseStudy entries without changing AISystems UI.
  */
 
+import type { ImpactAtGlance } from "@/lib/impact";
+
 export type SystemCaseStudy = {
   id: string;
   slug: string;
@@ -17,6 +19,8 @@ export type SystemCaseStudy = {
   imageSrc?: string;
   /** Restrained proof indicator when the system page includes an evidence gallery. */
   evidenceLabel?: string;
+  /** Shared Impact at a Glance panel for operational / methodology scope. */
+  impactAtAGlance?: ImpactAtGlance;
 };
 
 export const aiSkillsSection = {
@@ -35,7 +39,7 @@ export const systems: SystemCaseStudy[] = [
     shortTitle: "Campaign Intelligence",
     title: "AI Campaign Intelligence & Creative Production System",
     description:
-      "A connected AI-assisted workflow that analyzes Klaviyo results, validates Shopify products and inventory, develops phased email and SMS campaigns, records structured plans in Airtable, creates Figma wireframes or production-ready creative, and prepares Klaviyo drafts for human review.",
+      "A connected workflow that turns Klaviyo performance and Shopify product data into campaign strategy, Airtable records, Figma production, reviewed drafts, and the next planning cycle.",
     category: "AI Workflow Design",
     year: "2026",
     href: "/systems/klaviyo-campaign-intelligence",
@@ -51,6 +55,31 @@ export const systems: SystemCaseStudy[] = [
     ],
     imageSrc: "/images/systems/klaviyo-campaign-intelligence.svg",
     evidenceLabel: "Case Study + Evidence",
+    impactAtAGlance: {
+      eyebrow: "Impact at a Glance",
+      items: [
+        {
+          value: "4 Core Platforms",
+          label: "Klaviyo · Shopify · Airtable · Figma",
+          type: "operational",
+          prominence: "primary",
+        },
+        {
+          value: "2 Creative Paths",
+          label: "Designer Wireframe or AI-Assisted First Design",
+          type: "operational",
+          prominence: "secondary",
+        },
+        {
+          value: "1 Closed Loop",
+          label: "Plan · Create · Measure · Improve",
+          type: "operational",
+          prominence: "secondary",
+        },
+      ],
+      guardrail:
+        "Human approval is required before scheduling or sending any campaign.",
+    },
   },
 ];
 
