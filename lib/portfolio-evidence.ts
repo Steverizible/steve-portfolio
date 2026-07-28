@@ -631,7 +631,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       preferredPath:
         "public/images/evidence/veldskoen/revenue-growth-redacted.webp",
       requiredAssetNote:
-        "Use aggregate monthly figures only. Remove customer information, order numbers, individual order values, account identifiers, private admin information, vendor costs, and margin details. Do not invent a growth graph.",
+        "Provide a redacted aggregate monthly revenue report for the measured period. Do not invent a growth graph.",
       replacementPriority: "high",
       span: "wide",
       privacyNote:
@@ -655,7 +655,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       toolLabel: "Shopify",
       preferredPath: "public/images/evidence/veldskoen/shopify-experience.webp",
       requiredAssetNote:
-        "Prefer period-accurate storefront captures. Remove private admin UI and customer data.",
+        "Add a period-accurate storefront capture with private admin UI and customer data removed.",
       replacementPriority: "high",
       caption:
         "Temporary slot for the Shopify brand and product experience that carried discovery through purchase.",
@@ -674,7 +674,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       toolLabel: "Paid Creative",
       preferredPath: "public/images/evidence/veldskoen/paid-creative.webp",
       requiredAssetNote:
-        "Do not display private audience data, account identifiers, or unapproved performance metrics.",
+        "Add approved ad creatives only—no audience data, account IDs, or unapproved performance metrics.",
       replacementPriority: "high",
       privacyNote:
         "Audience and account data must not appear in creative evidence.",
@@ -696,7 +696,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       preferredPath:
         "public/images/evidence/veldskoen/product-development.webp",
       requiredAssetNote:
-        "Do not claim sole design authorship. Prefer authentic process and launch materials from the U.S. period.",
+        "Add authentic U.S.-period process or launch materials. Do not imply sole design authorship.",
       replacementPriority: "medium",
       caption:
         "Temporary slot for product-development and launch evidence across concept, assortment, and merchandising.",
@@ -716,7 +716,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       preferredPath:
         "public/images/evidence/veldskoen/packaging-development.webp",
       requiredAssetNote:
-        "Do not claim carbon neutrality, certifications, or environmental reductions without verified support.",
+        "Add packaging photography. Avoid unverified sustainability certification claims.",
       replacementPriority: "high",
       caption:
         "Temporary slot for premium packaging development that continued the brand experience after checkout.",
@@ -736,7 +736,7 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
       preferredPath:
         "public/images/evidence/veldskoen/brand-storytelling.webp",
       requiredAssetNote:
-        "Do not mix Slyde press or investment achievements into this evidence. Named partners or press only when verified for Veldskoen.",
+        "Add Veldskoen-only storytelling assets. Do not mix Slyde press or unverified partners.",
       replacementPriority: "medium",
       caption:
         "Temporary slot for brand and community storytelling across social, campaign, and customer touchpoints.",
