@@ -27,6 +27,10 @@ export type ValueCard = {
   summary: string;
   href: string;
   outcome?: string;
+  /** Up to four short capability labels. */
+  capabilities?: string[];
+  /** Small supporting project image. */
+  image?: string;
 };
 
 export type ContactPath = {
@@ -45,7 +49,7 @@ export const roleFitPage = {
     supportingHeadline:
       "Digital growth, e-commerce, product development, creative leadership, and practical AI systems—connected from strategy through execution.",
     intro:
-      "I bring together founder experience, commercial growth, product development, customer experience, brand strategy, e-commerce, lifecycle marketing, and AI-assisted operations.\n\nMy strongest work happens where businesses need someone who can understand the customer, define the opportunity, connect teams and platforms, build the system, and remain accountable for the commercial result.",
+      "I connect founder experience, commercial growth, product development, brand, e-commerce, and AI-assisted operations.\n\nMy strongest work is where a business needs someone to understand the customer, define the opportunity, build the system, and own the commercial result.",
     meta: [
       {
         label: "Experience",
@@ -108,8 +112,6 @@ export const roleFitPage = {
           prominence: "secondary",
         },
       ],
-      guardrail:
-        "Commercial figures retain the methodology and evidence standards documented in their respective case studies. Investment, revenue, attributed marketing results, and business growth must not be treated as interchangeable measurements.",
     } satisfies ImpactAtGlance,
   },
 
@@ -318,43 +320,53 @@ export const roleFitPage = {
       title: "Grow Existing Businesses",
       proofLabel: "FisheWear",
       summary:
-        "Modernizing and connecting e-commerce, lifecycle, content, creative, customer data, and performance analysis.",
+        "Modernizing and connecting e-commerce, lifecycle, content, and performance across a DTC brand.",
       href: "/work/fishewear-growth-system",
       outcome: "+63% Net Sales YoY",
+      capabilities: ["E-Commerce", "Lifecycle", "Content", "AI Operations"],
+      image: "/images/projects/fishewear-growth-system.svg",
     },
     {
       id: "build-brands",
       title: "Build and Scale Brands",
       proofLabel: "Veldskoen",
       summary:
-        "Building the U.S. business from early-stage launch to approximately $250,000 in monthly revenue.",
+        "Building a U.S. business from launch to approximately $250K in monthly revenue.",
       href: "/work/veldskoen-growth-story",
       outcome: "$0 → ~$250K/month within 12 months",
+      capabilities: ["Branding", "Shopify", "Acquisition", "Packaging"],
+      image: "/images/projects/veldskoen-print.jpg",
     },
     {
       id: "invent-companies",
       title: "Invent Products and Companies",
       proofLabel: "Slyde",
       summary:
-        "Moving from product idea and category education through manufacturing, investment, e-commerce, partnerships, and community.",
+        "Moving from product idea through manufacturing, investment, e-commerce, and community.",
       href: "/work/slyde-handboards",
       outcome: "$500K outside investment secured",
+      capabilities: ["Product Design", "Manufacturing", "Investment", "Community"],
+      image: "/images/projects/slyde-handboards.jpg",
     },
     {
       id: "digital-products",
       title: "Create Digital Products",
       proofLabel: "Totely",
       summary:
-        "Taking a customer problem through research, positioning, UX, application development, physical labels, and a working product ecosystem.",
+        "Taking a customer problem through research, product strategy, and a working product.",
       href: "/work/totely-ai-storage",
+      capabilities: ["Research", "Product Strategy", "Code + Apps", "SEO"],
+      image: "/images/projects/totely-ai-storage.webp",
     },
     {
       id: "ai-systems",
       title: "Design AI Operating Systems",
       proofLabel: "Campaign Intelligence",
       summary:
-        "Connecting performance data, commercial validation, planning, creative production, human approval, drafts, analysis, and the next planning cycle.",
+        "Connecting performance data, planning, creative, and human approval into one loop.",
       href: "/systems/klaviyo-campaign-intelligence",
+      capabilities: ["Klaviyo", "Airtable", "Figma", "Automation"],
+      image: "/images/systems/klaviyo-campaign-intelligence.svg",
     },
   ] satisfies ValueCard[],
 

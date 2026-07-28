@@ -32,7 +32,7 @@ export const stackImages: Record<string, string> = {
   figma: "/images/stack/figma.avif",
   airtable: "/images/stack/airtable.avif",
   shopify: "/images/stack/shopify.avif",
-  clickup: "/images/stack/clickup.avif",
+  clickup: "/logos/tech/clickup.svg",
   "microsoft-office": "/images/stack/microsoft-office.avif",
 };
 

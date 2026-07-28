@@ -62,7 +62,7 @@ export const fishewearCaseStudy = {
       { value: "$104K+", label: "Revenue Attributed to Automated Klaviyo Flows" },
     ] satisfies CaseStudyMetric[],
     methodologyNote:
-      "Shopify results compare January 1–July 27, 2026 with the equivalent 2025 period. Klaviyo revenue represents attributed automated-flow revenue during the measured 2026 period. Marketing attribution is directional and should not be interpreted as audited financial reporting.",
+      "Shopify results compare the 2026 period year over year; Klaviyo revenue is attributed automated-flow revenue.",
   },
 
   intro: {

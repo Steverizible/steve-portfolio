@@ -47,7 +47,7 @@ export const slydeCaseStudy = {
       },
     ] satisfies MetaItem[],
     methodologyNote:
-      "Investment, operating scope, collaboration growth, and historical business claims are based on résumé records and supporting founder documentation. Evidence should be displayed as real, redacted, prototype, illustrative, or temporary according to the portfolio’s evidence standards.",
+      "Founded and led Slyde from product idea to a nationally recognized surf brand, securing $500K in outside investment.",
     image: {
       src: "/images/projects/slyde-handboards.jpg",
       alt: "Slyde Handboards product photography from the founder-led brand archive.",

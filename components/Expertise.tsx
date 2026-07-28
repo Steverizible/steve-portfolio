@@ -47,7 +47,7 @@ export default function Expertise() {
                     openModal(item);
                   }
                 }}
-                className="group flex h-full cursor-pointer flex-col rounded-xl border border-border bg-card p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-md md:p-8"
+                className="group flex h-full cursor-pointer flex-col rounded-2xl border border-border bg-card p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-md md:p-8"
               >
                 <div className="flex items-start justify-between gap-4">
                   <span className="text-sm font-medium text-muted">

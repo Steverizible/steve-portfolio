@@ -139,9 +139,6 @@ export default function VeldskoenCaseStudy({ project }: { project: Project }) {
               />
             ))}
           </div>
-          <p className="mt-8 rounded-2xl border border-border bg-card p-5 text-sm leading-relaxed text-muted md:p-6 md:text-base">
-            {data.commercialResult.methodologyNote}
-          </p>
         </RevealOnScroll>
 
         {/* Growth system */}
