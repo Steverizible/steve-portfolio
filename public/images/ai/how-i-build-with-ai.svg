@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200" role="img" aria-label="Human-led AI operating loop from discovery to improvement">
+  <rect width="2000" height="1200" fill="#121212"/>
+  <text x="100" y="120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" fill="#f5f5f5">How I Build With AI</text>
+  <text x="100" y="175" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" fill="#b0b0b0">Discover ’ Decide ’ Design ’ Build ’ Connect ’ Govern ’ Measure ’ Improve</text>
+
+  <circle cx="1000" cy="640" r="320" fill="none" stroke="#2a2a2a" stroke-width="4"/>
+  <circle cx="1000" cy="640" r="220" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-dasharray="10 12"/>
+
+  <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#f3ba48">
+    <text x="960" y="300">Discover</text>
+    <text x="1240" y="430">Decide</text>
+    <text x="1300" y="660">Design</text>
+    <text x="1200" y="900">Build</text>
+    <text x="900" y="980">Connect</text>
+    <text x="620" y="900">Govern</text>
+    <text x="540" y="660">Measure</text>
+    <text x="620" y="430">Improve</text>
+  </g>
+
+  <rect x="820" y="560" width="360" height="160" rx="24" fill="#1a1a1a" stroke="#f3ba48" stroke-width="3"/>
+  <text x="1000" y="625" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5">Human judgment</text>
+  <text x="1000" y="665" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#c8c8c8">AI-assisted execution</text>
+
+  <text x="100" y="1120" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#9a9a9a">No fake dashboards · No autonomous claims · Evidence before automation</text>
+</svg>

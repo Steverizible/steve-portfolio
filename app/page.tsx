@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import AIBuildMethodPreview from "@/components/AIBuildMethodPreview";
 import AISystems from "@/components/AISystems";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <FeaturedWork />
         <AISystems />
+        <AIBuildMethodPreview />
         <About />
         <Expertise />
         <Motivation />

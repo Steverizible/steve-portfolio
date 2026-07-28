@@ -111,6 +111,7 @@ export const navigation = {
   overlayLinks: [
     { label: "Home", href: "/#top", badge: "2" },
     { label: "Work", href: "/#work" },
+    { label: "How I Build With AI", href: "/how-i-build-with-ai" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   contactCta: {
@@ -665,13 +666,14 @@ export const moreAboutSteve = {
   title: "More About Steve",
   titleLines: ["More", "About", "STEVE"],
   headline:
-    "I'm a digital growth leader, founder, and creative strategist who connects brand, technology, customer behavior, and AI to build businesses that grow.",
+    "I’m a digital growth leader, founder, and creative strategist who connects brand, technology, customer behavior, and AI to build products, workflows, and businesses that grow.",
   body: [
     "For more than 15 years, I have built brands, launched products, led cross-functional teams, optimized e-commerce businesses, and turned creative ideas into measurable commercial results. My work spans product development, Shopify, lifecycle marketing, customer segmentation, paid acquisition, content, conversion optimization, and brand storytelling.",
     "Today, I also design practical AI-assisted workflows that help small teams research faster, produce better work, connect information across platforms, and make clearer decisions. I believe the strongest digital systems combine human judgment, creative direction, customer insight, and technology rather than treating them as separate disciplines.",
   ],
   resumeCta: {
     label: "Download resume",
+    // Existing Drive résumé URL preserved; review manually if a newer Digital Strategy & Innovation résumé should replace it.
     href: siteMeta.resumeUrl,
   },
 } as const;
@@ -718,86 +720,86 @@ export const expertise = {
   titleLines: ["My", "Expertise"],
   items: [
     {
-      id: "creative-leadership",
+      id: "digital-strategy-innovation",
       number: 1,
-      title: "Creative Leadership",
+      title: "Digital Strategy & Innovation",
       preview:
-        "Craft intuitive navigation that makes features accessible. Choose layouts and graphics that fit your personality.",
-      modalTitle: "Creative Leadership:",
-      modalSubtitle: "Vision, Innovation, & Impact",
+        "Connecting customer insight, commercial priorities, and technology into clear digital direction teams can execute.",
+      modalTitle: "Digital Strategy & Innovation",
+      modalSubtitle: "Clarity, Systems & Practical Change",
       modalBody:
-        "I turn ideas into multi-million-dollar brands, leading high-performing teams to drive innovation, storytelling, and growth. As the force behind Slyde Handboards and Veldskoen USA, I've scaled startups, secured $500K from Mark Cuban & Ashton Kutcher, and built brands featured in Forbes and The New York Times. With expertise in branding, digital marketing, and e-commerce, I fuse creativity with data-driven strategy to deliver real results. Recognized for award-winning leadership, I don't just create—I inspire, execute, and grow.",
-      modalImage: "/images/expertise/creative-leadership.avif",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
-    },
-    {
-      id: "digital-marketing",
-      number: 2,
-      title: "Digital Marketing",
-      preview:
-        "Digital marketing specialist with a flair for crafting high-performing Facebook ad campaigns—driving engagement, boosting brand visibility, and delivering measurable growth.",
-      modalTitle: "Digital Marketing",
-      modalSubtitle: "Data-Driven Revenue Growth",
-      modalBody:
-        "I specialize in high-impact digital marketing that transforms brands and drives revenue. Managing $30K+ monthly ad budgets, I've optimized Facebook, Google, and email campaigns to maximize ROI. My expertise in Shopify, UX/UI, and conversion optimization has fueled e-commerce success, scaling Veldskoen USA to $250K/month in a year. By blending strategic storytelling with performance marketing, I create campaigns that not only engage but convert—turning audiences into loyal customers and brands into industry leaders.",
+        "I help brands and operators turn fragmented activity into a coherent digital strategy. That means defining the customer problem, prioritizing opportunities, aligning channels and tools, and building operating systems that support measurable growth. Innovation is useful only when it improves decisions, customer experience, or commercial outcomes—so I focus on practical implementation, cross-functional leadership, and iteration rather than novelty for its own sake.",
       modalImage: "/images/expertise/digital-marketing.webp",
       ctaLabel: "E-mail",
       ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
-      id: "storytelling-branding",
-      number: 3,
-      title: "Storytelling & Branding",
+      id: "dtc-ecommerce-growth",
+      number: 2,
+      title: "DTC & E-Commerce Growth",
       preview:
-        "Crafting compelling narratives that resonate with audiences and strengthen brand loyalty.",
-      modalTitle: "Storytelling & Branding:",
-      modalSubtitle: "Crafting Iconic Narratives",
+        "Building Shopify-centered growth systems across acquisition, conversion, retention, product launches, and reporting.",
+      modalTitle: "DTC & E-Commerce Growth",
+      modalSubtitle: "Commerce, Conversion & Compounding Results",
       modalBody:
-        "I build brands that captivate and convert. By blending authentic storytelling with strategic branding, I create compelling narratives that forge deep customer connections. From securing national media features to driving multi-million-dollar brand growth, my approach turns vision into lasting impact.",
-      modalImage: "/images/expertise/storytelling-branding.webp",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
-    },
-    {
-      id: "ecomm-growth",
-      number: 4,
-      title: "E-Comm Growth",
-      preview:
-        "Proven ability to scale brands from inception to million-dollar success stories through strategic planning and execution.",
-      modalTitle: "E-Comm Growth",
-      modalSubtitle: "Conversion-Focused Digital Growth",
-      modalBody:
-        "I drive e-commerce success through data-backed strategies, UX optimization, and high-converting digital campaigns. By refining customer journeys and leveraging A/B testing, I've boosted conversions and expanded market reach. My expertise in Shopify, CRO, and multi-channel marketing turns online stores into revenue powerhouses.",
+        "I operate at the intersection of product, merchandising, customer behavior, and performance marketing. Across founder-led DTC brands, I have built and scaled e-commerce systems that connect storefront experience, lifecycle communication, content, creative testing, and measurement. The goal is durable growth: clearer customer journeys, stronger conversion foundations, and retention systems that keep earning after the first purchase.",
       modalImage: "/images/expertise/ecomm-growth.webp",
       ctaLabel: "E-mail",
       ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
-      id: "email-marketing",
-      number: 5,
-      title: "Email Marketing",
+      id: "ai-workflow-system-design",
+      number: 3,
+      title: "AI Workflow & System Design",
       preview:
-        "Creating engaging email marketing strategies, and dynamic e-commerce solutions that fuel brand growth and customer engagement.",
-      modalTitle: "Email Marketing",
-      modalSubtitle: "Data-Driven Revenue Growth",
+        "Designing human-led, AI-assisted workflows that move from evidence and strategy to production, review, and learning.",
+      modalTitle: "AI Workflow & System Design",
+      modalSubtitle: "Practical Systems, Not Novelty Tools",
       modalBody:
-        "I create high-performing, on-brand email campaigns that drive 40-50% of overall brand revenue. With 40-60% open rates and 5%+ click-through rates, I leverage robust segmentation and extensive A/B testing to optimize engagement, retention, and conversions—turning email into a powerhouse for sustained growth.",
+        "I design AI-enabled operating models that gather context, apply commercial and brand rules, prepare structured work, and pass it into tools teams already use. The systems support research, campaign production, creative handoffs, documentation, and measurement—while keeping humans accountable for approval, privacy, and final decisions. AI accelerates the work; judgment, taste, and responsibility remain human.",
+      modalImage: "/images/expertise/seo.avif",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
+    },
+    {
+      id: "lifecycle-retention-marketing",
+      number: 4,
+      title: "Lifecycle & Retention Marketing",
+      preview:
+        "Building email and SMS systems that protect list health while driving relevant revenue across the customer journey.",
+      modalTitle: "Lifecycle & Retention Marketing",
+      modalSubtitle: "Segmentation, Flows & Campaign Operations",
+      modalBody:
+        "Lifecycle marketing is where customer understanding becomes commercial advantage. I design audience strategy, flow architecture, campaign phases, exclusions, and creative systems that keep communication relevant. Using Klaviyo and connected commerce data, I focus on engagement quality, retention, and long-term list health—not short-term pressure that damages trust.",
       modalImage: "/images/expertise/email-marketing.avif",
       ctaLabel: "E-mail",
       ctaHref: "mailto:stevenstewart90@gmail.com",
     },
     {
-      id: "seo",
-      number: 6,
-      title: "SEO: It's a Passion",
+      id: "product-customer-experience",
+      number: 5,
+      title: "Product & Customer Experience",
       preview:
-        "I optimize content, keywords, and site performance to boost rankings, drive traffic, and increase conversions.",
-      modalTitle: "SEO: Optimized For",
-      modalSubtitle: "Data-Driven Revenue Growth",
+        "Turning customer friction into clearer products, journeys, and experiences people can actually use.",
+      modalTitle: "Product & Customer Experience",
+      modalSubtitle: "Usefulness, Clarity & Adoption",
       modalBody:
-        "I drive organic traffic through strategic SEO, including keyword research, content optimization, and technical improvements. My data-driven approach boosts search rankings, increases visibility, and enhances user engagement for sustained brand growth.",
-      modalImage: "/images/expertise/seo.avif",
+        "Whether the work is a digital product, a campaign experience, or an operational workflow, I start with the customer job to be done. I map journeys, simplify interfaces, define requirements, and pressure-test edge cases so the experience remains understandable under real conditions. Strong products and growth systems share the same foundation: empathy, clarity, and disciplined prioritization.",
+      modalImage: "/images/expertise/creative-leadership.avif",
+      ctaLabel: "E-mail",
+      ctaHref: "mailto:stevenstewart90@gmail.com",
+    },
+    {
+      id: "brand-creative-storytelling",
+      number: 6,
+      title: "Brand, Creative & Storytelling",
+      preview:
+        "Building brand systems and creative direction that connect emotion, product truth, and commercial intent.",
+      modalTitle: "Brand, Creative & Storytelling",
+      modalSubtitle: "Narrative, Design Direction & Cultural Signal",
+      modalBody:
+        "I come from founder and creative leadership work across product brands that had to earn attention through story, design, and cultural relevance. That foundation still shapes my digital growth practice: positioning, creative systems, content direction, and campaign narrative must reinforce the same customer promise. Creative work is strongest when it is strategically grounded and operationally repeatable.",
+      modalImage: "/images/expertise/storytelling-branding.webp",
       ctaLabel: "E-mail",
       ctaHref: "mailto:stevenstewart90@gmail.com",
     },
@@ -860,13 +862,21 @@ export const experience = {
       role: "Head of Marketing & Growth",
       period: "2025 – Present",
       description:
-        "Leading DTC growth across Shopify, Klaviyo, lifecycle marketing, customer segmentation, product launches, SEO, content, creative testing, reporting, and AI-assisted operating systems for a founder-led women's outdoor apparel brand. Connected customer behavior, product storytelling, campaign strategy, and performance data into a more measurable and repeatable growth operation.",
+        "Leading DTC growth across Shopify, Klaviyo, lifecycle marketing, customer segmentation, product launches, SEO, content, creative testing, performance reporting, and AI-assisted operating systems for a founder-led women’s outdoor apparel brand.",
+    },
+    {
+      id: "cognetix-ai",
+      company: "Cognetix AI",
+      role: "Strategic Advisor, AI Strategy & Digital Innovation",
+      period: "2023 – Present",
+      description:
+        "Advising executives and operators on practical AI applications across customer experience, marketing workflows, automation, content operations, digital strategy, and decision-making.",
     },
     {
       id: "slyde-handboards",
       company: "Slyde Handboards",
       role: "Founder + Creative Director",
-      period: "2010 - 2024",
+      period: "2010 – 2024",
       description:
         "At Slyde Handboards, I built a million-dollar brand from the ground up, securing $500K in funding from Mark Cuban and Ashton Kutcher. I led branding, product development, and multi-channel marketing, using Facebook ads, email, and storytelling to drive growth. Through strategic partnerships and UX/UI optimization, I boosted conversions, expanded market reach, and earned features in Forbes and The New York Times.",
     },
@@ -911,62 +921,64 @@ export type StackItem = {
 export const favoriteStack = {
   title: "Favorite Stack",
   titleLines: ["Favorite", "Stack"],
+  description:
+    "Tools organized by purpose across commerce, customer data, creative production, operations, and measurement—supporting connected workflows rather than isolated software proficiency.",
   items: [
     {
-      id: "adobe-suite",
-      name: "Adobe Suite",
-      category: "Creative Design and Visual Storytelling",
+      id: "shopify",
+      name: "Shopify",
+      category: "Commerce and Customer Data",
       description:
-        "I leverage Adobe Creative Suite (Photoshop, Illustrator, and Premiere Pro) extensively in my work, particularly for digital design, video editing, and creating compelling visual content. Whether it's using Photoshop for graphics, Illustrator for vector designs, or Premiere Pro for video projects",
+        "The commercial source of truth for product, inventory, storefront experience, and conversion work across DTC growth systems.",
     },
     {
       id: "klaviyo",
       name: "Klaviyo",
-      category: "Customer Data Platform / SMS Marketing / Mobile Push",
+      category: "Commerce and Customer Data",
       description:
-        "With 15 years of experience in email marketing, I've honed my skills in creating data-driven campaigns that engage, convert, and retain customers. From developing strategies to crafting compelling content and optimizing deliverability, I've worked across various industries to design emails that drive results.",
-    },
-    {
-      id: "capcut",
-      name: "CapCut",
-      category: "Video Editing",
-      description:
-        "With extensive experience using CapCut, I specialize in crafting high-quality paid media and organic videos that engage audiences and drive results. My expertise includes advanced editing techniques, seamless transitions, and creative storytelling to elevate brand content.",
+        "Lifecycle and retention infrastructure for email, SMS, segmentation, flows, campaign operations, and performance review.",
     },
     {
       id: "figma",
       name: "Figma",
-      category: "Collaborative Design Tool",
+      category: "Creative Production",
       description:
-        "I have extensive experience using Figma to design user paths and optimize user experiences through intuitive, collaborative workflows. Leveraging Figma Jam, I foster creative brainstorming and seamless team collaboration to bring innovative design solutions to life.",
+        "Collaborative design for user journeys, campaign wireframes, creative systems, and production handoffs.",
     },
     {
-      id: "shopify",
-      name: "Shopify",
-      category: "Web Design and Build",
+      id: "adobe-suite",
+      name: "Adobe Suite",
+      category: "Creative Production",
       description:
-        "With over 15 years of experience in Shopify, I specialize in creating minimalist, elegant designs that prioritize refined typography and intuitive user experiences. Passionate about conversion rate optimization, I leverage A/B testing and strategic landing page development to drive engagement and maximize results.",
+        "Visual design, image production, and motion support across brand, campaign, and content systems.",
     },
     {
-      id: "clickup",
-      name: "ClickUp",
-      category: "Project Management",
+      id: "capcut",
+      name: "CapCut",
+      category: "Creative Production",
       description:
-        "With extensive project management experience using primarily ClickUp, I excel at keeping teams aligned, on schedule, and focused on deliverables. My approach ensures efficient task management, streamlined workflows, and successful project execution from start to finish.",
-    },
-    {
-      id: "microsoft-office",
-      name: "Microsoft Office Suite",
-      category: "15+ Years of Expertise",
-      description:
-        "With 15 years of experience in both Microsoft Office and Google Suite environments, I specialize in using Excel and Google Sheets for advanced data analysis, reporting, and automation, as well as crafting professional documents in Word and Google Docs. My expertise ensures efficient workflow management, seamless collaboration, and high-quality deliverables.",
+        "Fast production for paid and organic video content that supports campaign and product storytelling.",
     },
     {
       id: "airtable",
       name: "Airtable",
-      category: "Streamlining Paid Media Campaigns",
+      category: "Operations and Collaboration",
       description:
-        "Experienced in using Airtable for planning and managing Facebook campaigns and social media projects. I create dynamic workflows, track content schedules, and streamline collaboration to ensure timely and impactful campaign execution.",
+        "Structured campaign and project records that keep strategy, creative status, review state, and learnings connected.",
+    },
+    {
+      id: "clickup",
+      name: "ClickUp",
+      category: "Operations and Collaboration",
+      description:
+        "Cross-functional planning and delivery tracking for marketing, product, and creative workstreams.",
+    },
+    {
+      id: "microsoft-office",
+      name: "Microsoft Office Suite",
+      category: "Measurement and Optimization",
+      description:
+        "Reporting, analysis, and documentation across Microsoft Office and Google Workspace for planning and decision support.",
     },
   ] satisfies StackItem[],
 } as const;
@@ -1108,9 +1120,9 @@ export const contact = {
   headlineLines: ["Let's Work", "Together"],
   subheadline: "Contact",
   description:
-    "Based in San Clemente, I am a creative director, brand strategist, and digital artist with a passion for storytelling, innovative design, and seamless user experiences.",
+    "I’m interested in senior digital strategy, e-commerce, growth, product, and AI innovation opportunities—as well as select advisory and founder-led collaborations.",
   descriptionSecondary:
-    "With a strong foundation in branding, e-commerce, and digital marketing, my work merges minimalist aesthetics, strategic typography, and intuitive design to craft compelling visual identities that drive engagement and business growth.",
+    "Based in San Clemente, I connect brand, technology, customer behavior, and AI-assisted operating systems to help teams build clearer products, stronger growth systems, and more accountable execution.",
   cta: {
     label: "Contact",
     href: "/contact",
@@ -1133,7 +1145,7 @@ export const contact = {
 export const contactPage = {
   headline: "Say Hello!",
   description:
-    "My creative spirit comes alive in the digital realm. With nimble fingers flying across the keyboard.",
+    "I’m interested in senior digital strategy, e-commerce, growth, product, and AI innovation opportunities—as well as select advisory and founder-led collaborations.",
   formIntro: "Fill This Form Out",
   formFields: [
     {
