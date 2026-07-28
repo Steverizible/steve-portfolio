@@ -51,12 +51,48 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://stevewattsportfolio.framer.website";
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteMeta.name,
+    jobTitle: "Digital Growth & AI Innovation Leader",
+    url: siteUrl,
+    email: siteMeta.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "San Clemente",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    sameAs: [siteMeta.linkedInUrl],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: `${siteMeta.name} Portfolio`,
+    url: siteUrl,
+    description: siteMeta.description,
+    author: { "@type": "Person", name: siteMeta.name },
+  };
+
   return (
     <html
       lang="en"
       className={`${instrumentSans.variable} ${interTight.variable} h-full scroll-smooth`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Providers>
           <div className="flex min-h-full flex-1 flex-col">{children}</div>
         </Providers>

@@ -9,10 +9,15 @@ export default function FavoriteStack() {
     <section className="border-b border-border bg-background">
       <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 xl:gap-32">
-          <StickySectionHeading bgClassName="bg-background">
-            <span className="block">{favoriteStack.titleLines[0]}</span>
-            <span className="block">{favoriteStack.titleLines[1]}</span>
-          </StickySectionHeading>
+          <div>
+            <StickySectionHeading bgClassName="bg-background">
+              <span className="block">{favoriteStack.titleLines[0]}</span>
+              <span className="block">{favoriteStack.titleLines[1]}</span>
+            </StickySectionHeading>
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-muted md:text-base">
+              {favoriteStack.description}
+            </p>
+          </div>
 
           <ul className="space-y-4 md:space-y-5">
             {favoriteStack.items.map((item, index) => {

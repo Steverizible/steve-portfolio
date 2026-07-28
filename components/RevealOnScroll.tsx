@@ -15,6 +15,7 @@ type RevealOnScrollProps = {
   /** Stagger delay in ms for sequenced reveals. */
   delayMs?: number;
   as?: "div" | "li" | "article" | "section";
+  id?: string;
 };
 
 export default function RevealOnScroll({
@@ -22,6 +23,7 @@ export default function RevealOnScroll({
   className = "",
   delayMs = 0,
   as = "div",
+  id,
 }: RevealOnScrollProps) {
   const Tag = as as ElementType;
   const ref = useRef<HTMLElement | null>(null);
@@ -52,6 +54,7 @@ export default function RevealOnScroll({
   return (
     <Tag
       ref={ref}
+      id={id}
       style={style}
       className={`reveal-on-scroll ${visible ? "is-visible" : ""} ${className}`}
     >

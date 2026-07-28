@@ -20,6 +20,8 @@ export const sectionImages = {
   motivationBreakout: "/images/motivation/breakout.png",
   experience: "/images/experience/experience.avif",
   experienceBreakout: "/images/experience/breakout.png",
+  howIBuildWithAI: "/images/ai/how-i-build-with-ai.svg",
+  operatingModel: "/images/ai/operating-model.svg",
 } as const;
 
 export const stackImages: Record<string, string> = {
