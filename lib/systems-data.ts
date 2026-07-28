@@ -15,6 +15,8 @@ export type SystemCaseStudy = {
   year: string;
   tags: string[];
   imageSrc?: string;
+  /** Restrained proof indicator when the system page includes an evidence gallery. */
+  evidenceLabel?: string;
 };
 
 export const aiSkillsSection = {
@@ -48,6 +50,7 @@ export const systems: SystemCaseStudy[] = [
       "AI Workflow Design",
     ],
     imageSrc: "/images/systems/klaviyo-campaign-intelligence.svg",
+    evidenceLabel: "Case Study + Evidence",
   },
 ];
 

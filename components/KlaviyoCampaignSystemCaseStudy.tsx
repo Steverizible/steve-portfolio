@@ -4,9 +4,11 @@ import Image from "next/image";
 import { ViewTransition } from "react";
 import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
+import ProofGallery from "@/components/ProofGallery";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ZoomMedia from "@/components/ZoomMedia";
 import { klaviyoCampaignSystem as data } from "@/lib/klaviyo-campaign-system";
+import { campaignEvidenceGallery } from "@/lib/portfolio-evidence";
 import { projects, type Project } from "@/lib/site-data";
 import type { SystemCaseStudy } from "@/lib/systems-data";
 
@@ -710,6 +712,11 @@ export default function KlaviyoCampaignSystemCaseStudy({
               </div>
             ))}
           </div>
+        </RevealOnScroll>
+
+        {/* Evidence gallery */}
+        <RevealOnScroll as="section" className={SECTION} id="evidence">
+          <ProofGallery section={campaignEvidenceGallery} />
         </RevealOnScroll>
 
         {/* 22 — Result */}

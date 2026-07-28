@@ -81,6 +81,12 @@ export default function SystemCard({ system }: SystemCardProps) {
             )}
           </ul>
 
+          {system.evidenceLabel && (
+            <p className="mt-5 text-[11px] font-medium uppercase tracking-wide text-white/55 md:text-xs">
+              {system.evidenceLabel}
+            </p>
+          )}
+
           <p className="mt-6 inline-flex items-center text-sm font-bold uppercase tracking-wide text-background underline-offset-4 group-hover:underline">
             View the System
             <span aria-hidden="true" className="ml-2">

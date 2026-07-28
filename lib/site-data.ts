@@ -84,6 +84,8 @@ export type Project = {
   cardDescription?: string;
   /** Optional headline metrics shown on emphasized cards. */
   cardMetrics?: CardMetric[];
+  /** Restrained proof indicator when the linked case study includes an evidence gallery. */
+  evidenceLabel?: string;
   caseStudy?: CaseStudy;
 };
 
@@ -139,6 +141,7 @@ export const projects: Project[] = [
     selectedYear: "2025–Present",
     featured: true,
     featuredWide: true,
+    evidenceLabel: "Case Study + Evidence",
     cardDescription:
       "Building a connected growth engine across Shopify, Klaviyo, customer data, content, creative production, lifecycle automation, and AI-assisted workflows.",
     cardMetrics: [
@@ -160,6 +163,7 @@ export const projects: Project[] = [
     selectedName: "AI Storage System",
     selectedYear: "2025–Present",
     featured: true,
+    evidenceLabel: "Case Study + Evidence",
     cardDescription:
       "A physical-and-digital storage system that lets people number a container, photograph what is inside, record where it lives, and later ask naturally where something was stored.",
   },

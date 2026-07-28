@@ -6,10 +6,12 @@ import Button from "@/components/Button";
 import HumanApprovalGuardrail from "@/components/HumanApprovalGuardrail";
 import ImplementationStatus from "@/components/ImplementationStatus";
 import PageChrome from "@/components/PageChrome";
+import ProofGallery from "@/components/ProofGallery";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import WorkflowDiagram from "@/components/WorkflowDiagram";
 import ZoomMedia from "@/components/ZoomMedia";
 import { aiOperatingModelPage as data } from "@/lib/ai-operating-model";
+import { aiMethodEvidenceGallery } from "@/lib/portfolio-evidence";
 
 const SECTION = "mt-16 border-t border-border pt-12 md:mt-20 md:pt-16";
 const HEADING =
@@ -326,6 +328,11 @@ export default function HowIBuildWithAI() {
             intro={data.implementation.intro}
             items={data.implementation.items}
           />
+        </RevealOnScroll>
+
+        {/* Cross-project evidence */}
+        <RevealOnScroll as="section" className={SECTION} id="evidence">
+          <ProofGallery section={aiMethodEvidenceGallery} />
         </RevealOnScroll>
 
         {/* Closing */}
