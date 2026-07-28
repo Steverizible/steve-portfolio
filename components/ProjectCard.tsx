@@ -35,7 +35,7 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
       : project.year;
 
   const showMetrics = isWide && Boolean(project.cardMetrics?.length);
-  const showDescription = isWide && Boolean(project.cardDescription);
+  const showDescription = Boolean(project.cardDescription);
 
   return (
     <Link
