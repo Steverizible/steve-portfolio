@@ -138,7 +138,9 @@ export function NavOverlay() {
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
   const isActive = (href: string) => {
-    if (href.startsWith("/#") || href === "/#top") return pathname === "/";
+    // Home is "active" on the homepage; other in-page anchors are not.
+    if (href === "/#top") return pathname === "/";
+    if (href.startsWith("/#")) return false;
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
