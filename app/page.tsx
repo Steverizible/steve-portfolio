@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import AISystems from "@/components/AISystems";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
@@ -18,6 +19,7 @@ export default function Home() {
       <main className="w-full">
         <Hero />
         <FeaturedWork />
+        <AISystems />
         <About />
         <Expertise />
         <Motivation />
