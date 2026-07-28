@@ -34,8 +34,14 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
       ? project.selectedYear
       : project.year;
 
-  const showMetrics = isWide && Boolean(project.cardMetrics?.length);
+  const showMetrics =
+    variant === "featured" && Boolean(project.cardMetrics?.length);
   const showDescription = Boolean(project.cardDescription);
+  const metricCount = project.cardMetrics?.length ?? 0;
+  const metricsGridClass =
+    metricCount <= 3
+      ? "mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-3 md:mt-6"
+      : "mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-6 md:grid-cols-4";
 
   return (
     <Link
@@ -91,10 +97,10 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
               </p>
             )}
             {showMetrics && (
-              <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-6 md:grid-cols-4">
+              <ul className={metricsGridClass}>
                 {project.cardMetrics?.map((metric) => (
                   <li key={metric.label}>
-                    <p className="text-2xl font-bold tracking-tight md:text-3xl">
+                    <p className="break-words text-2xl font-bold tracking-tight md:text-3xl">
                       {metric.value}
                     </p>
                     <p className="mt-1 text-[11px] uppercase tracking-wide text-white/60 md:text-xs">

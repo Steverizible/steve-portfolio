@@ -2,6 +2,7 @@
 export const projectImages: Record<string, string> = {
   "fishewear-growth-system": "/images/projects/fishewear-growth-system.svg",
   "totely-ai-storage": "/images/projects/totely-ai-storage.svg",
+  "veldskoen-growth-story": "/images/projects/veldskoen-growth-story.svg",
   "multi-business": "/images/projects/multi-business.jpg",
   "slyde-handboards": "/images/projects/slyde-handboards.jpg",
   "veldskoen-packaging": "/images/projects/veldskoen-packaging.jpg",

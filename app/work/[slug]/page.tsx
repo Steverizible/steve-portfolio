@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import FisheWearCaseStudy from "@/components/FisheWearCaseStudy";
 import ProjectPageContent from "@/components/ProjectPageContent";
 import TotelyCaseStudy from "@/components/TotelyCaseStudy";
+import VeldskoenCaseStudy from "@/components/VeldskoenCaseStudy";
 import { getProjectBySlug, projects, siteMeta } from "@/lib/site-data";
+import { veldskoenCaseStudy } from "@/lib/veldskoen-case-study";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://stevewattsportfolio.framer.website";
@@ -25,6 +27,7 @@ function metadataForProject(slug: string): Metadata {
     "fishewear-growth-system":
       "FisheWear Growth System | Steve Watts",
     "totely-ai-storage": "Totely AI Storage System | Steve Watts",
+    "veldskoen-growth-story": veldskoenCaseStudy.metadata.title,
   };
 
   const descriptions: Record<string, string> = {
@@ -32,6 +35,7 @@ function metadataForProject(slug: string): Metadata {
       "Case study: building an AI-enabled DTC growth system across Shopify, Klaviyo, lifecycle marketing, content, creative production, and performance reporting for FisheWear.",
     "totely-ai-storage":
       "Case study: Totely by There’s A Spot For That — an AI-assisted physical and digital storage system from problem discovery to working product.",
+    "veldskoen-growth-story": veldskoenCaseStudy.metadata.description,
   };
 
   const title =
@@ -94,6 +98,10 @@ function CaseStudyForProject({
     return <TotelyCaseStudy key={project.id} project={project} />;
   }
 
+  if (project.slug === "veldskoen-growth-story") {
+    return <VeldskoenCaseStudy key={project.id} project={project} />;
+  }
+
   return <ProjectPageContent key={project.id} project={project} />;
 }
 
@@ -109,8 +117,38 @@ export default async function WorkProjectPage({
     notFound();
   }
 
+  const structuredData =
+    project.slug === "veldskoen-growth-story"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: veldskoenCaseStudy.metadata.title,
+          description: veldskoenCaseStudy.metadata.description,
+          url: `${siteUrl}/work/${project.slug}`,
+          author: {
+            "@type": "Person",
+            name: siteMeta.name,
+            url: siteUrl,
+            sameAs: [siteMeta.linkedInUrl],
+          },
+          about: [
+            "Veldskoen Shoes USA",
+            "Direct-to-consumer brand building",
+            "E-commerce growth",
+            "Product development",
+            "Performance marketing",
+          ],
+        }
+      : null;
+
   return (
     <main className="w-full min-h-screen bg-background">
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      )}
       <CaseStudyForProject project={project} />
     </main>
   );

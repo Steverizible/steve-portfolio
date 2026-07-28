@@ -605,11 +605,169 @@ export const aiMethodEvidenceGallery: EvidenceGallerySection = {
   ]),
 };
 
+export const veldskoenEvidenceGallery: EvidenceGallerySection = {
+  projectId: "veldskoen-growth-story",
+  eyebrow: "The Evidence",
+  heading: "Building and Scaling the U.S. Brand in Practice",
+  introduction:
+    "The evidence should show the product, brand, Shopify experience, acquisition creative, packaging, operational work, and commercial result behind the growth story.",
+  privacyFooter:
+    "Customer information, order numbers, individual order values, account identifiers, private admin details, vendor costs, and margin information must be removed before publication.",
+  methodologyFooter:
+    "The approximate $250K monthly revenue figure is based on internal operating history and résumé records. Supporting historical platform evidence should replace temporary slots when approved redacted assets are available. Do not treat temporary placeholders as performance charts.",
+  items: withImages([
+    {
+      id: "veldskoen-revenue-growth",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Monthly Revenue Growth Evidence",
+      description:
+        "Verified historical business or Shopify reporting required for the measured period, showing aggregate approximate monthly revenue run rate only.",
+      whatItProves:
+        "The U.S. business reached approximately $250,000 per month within 12 months.",
+      status: "temporary",
+      category: "performance",
+      toolLabel: "Commerce Reporting",
+      preferredPath:
+        "public/images/evidence/veldskoen/revenue-growth-redacted.webp",
+      requiredAssetNote:
+        "Use aggregate monthly figures only. Remove customer information, order numbers, individual order values, account identifiers, private admin information, vendor costs, and margin details. Do not invent a growth graph.",
+      replacementPriority: "high",
+      span: "wide",
+      privacyNote:
+        "Customer, order-level, account, vendor, and margin details must be removed.",
+      methodologyNote:
+        "Placeholder only until a verified redacted historical report is available. Not a fabricated sales chart.",
+      caption:
+        "Temporary slot for redacted historical reporting showing approximate monthly revenue run rate within the first 12 months.",
+    },
+    {
+      id: "veldskoen-shopify-experience",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Shopify Brand and Product Experience",
+      description:
+        "Verified screenshot required of the homepage or landing page, product merchandising, product storytelling, mobile experience, and calls to action from the U.S. growth period.",
+      whatItProves:
+        "The brand story and commercial experience were translated into a working DTC storefront.",
+      status: "temporary",
+      category: "product",
+      toolLabel: "Shopify",
+      preferredPath: "public/images/evidence/veldskoen/shopify-experience.webp",
+      requiredAssetNote:
+        "Prefer period-accurate storefront captures. Remove private admin UI and customer data.",
+      replacementPriority: "high",
+      caption:
+        "Temporary slot for the Shopify brand and product experience that carried discovery through purchase.",
+    },
+    {
+      id: "veldskoen-paid-creative",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Customer Acquisition Creative",
+      description:
+        "Approved advertisement examples required showing product-first creative, lifestyle or origin storytelling, and multiple formats where available.",
+      whatItProves:
+        "Creative and performance marketing were developed as a connected customer-acquisition system.",
+      status: "temporary",
+      category: "creative",
+      toolLabel: "Paid Creative",
+      preferredPath: "public/images/evidence/veldskoen/paid-creative.webp",
+      requiredAssetNote:
+        "Do not display private audience data, account identifiers, or unapproved performance metrics.",
+      replacementPriority: "high",
+      privacyNote:
+        "Audience and account data must not appear in creative evidence.",
+      caption:
+        "Temporary slot for approved paid-acquisition creative used during the U.S. growth period.",
+    },
+    {
+      id: "veldskoen-product-development",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Product Development and Launch",
+      description:
+        "Verified assets required showing product concepts, samples, assortment, color development, production or launch stages, or approved product photography.",
+      whatItProves:
+        "Involvement extended through product development, launch, and merchandising.",
+      status: "temporary",
+      category: "product",
+      toolLabel: "Product",
+      preferredPath:
+        "public/images/evidence/veldskoen/product-development.webp",
+      requiredAssetNote:
+        "Do not claim sole design authorship. Prefer authentic process and launch materials from the U.S. period.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary slot for product-development and launch evidence across concept, assortment, and merchandising.",
+    },
+    {
+      id: "veldskoen-packaging",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Premium Packaging Development",
+      description:
+        "Verified packaging assets required showing structure, brand presentation, product protection, unboxing details, and approved sustainability-related features where accurate.",
+      whatItProves:
+        "Packaging was managed as part of the complete product and customer experience.",
+      status: "temporary",
+      category: "creative",
+      toolLabel: "Packaging",
+      preferredPath:
+        "public/images/evidence/veldskoen/packaging-development.webp",
+      requiredAssetNote:
+        "Do not claim carbon neutrality, certifications, or environmental reductions without verified support.",
+      replacementPriority: "high",
+      caption:
+        "Temporary slot for premium packaging development that continued the brand experience after checkout.",
+    },
+    {
+      id: "veldskoen-brand-storytelling",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Brand and Community Storytelling",
+      description:
+        "Verified social storytelling, campaign content, community content, or brand photography required. Partnership or press evidence only when the Veldskoen connection is verified.",
+      whatItProves:
+        "The company built recognition through a distinctive and consistent story across customer touchpoints.",
+      status: "temporary",
+      category: "creative",
+      toolLabel: "Brand Story",
+      preferredPath:
+        "public/images/evidence/veldskoen/brand-storytelling.webp",
+      requiredAssetNote:
+        "Do not mix Slyde press or investment achievements into this evidence. Named partners or press only when verified for Veldskoen.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary slot for brand and community storytelling across social, campaign, and customer touchpoints.",
+    },
+    {
+      id: "veldskoen-operating-system",
+      projectId: "veldskoen-growth-story",
+      sectionId: "evidence",
+      title: "Cross-Functional Growth Operation",
+      description:
+        "Illustrative connected operating view spanning product, marketing, creative, Shopify, packaging, suppliers, inventory, launch, and customer feedback.",
+      whatItProves:
+        "The commercial result depended on coordinating the complete business rather than optimizing one marketing channel.",
+      status: "illustrative",
+      category: "implementation",
+      toolLabel: "Operations",
+      imageSrc: "/images/evidence/veldskoen/operating-system.svg",
+      preferredPath: "public/images/evidence/veldskoen/operating-system.svg",
+      replacementPriority: "low",
+      caption:
+        "Illustrative diagram of the cross-functional growth operation. Replace with a redacted historical planning artifact when available.",
+    },
+  ]),
+};
+
 export const evidenceGalleries = {
   "fishewear-growth-system": fishewearEvidenceGallery,
   "totely-ai-storage": totelyEvidenceGallery,
   "klaviyo-campaign-intelligence": campaignEvidenceGallery,
   "how-i-build-with-ai": aiMethodEvidenceGallery,
+  "veldskoen-growth-story": veldskoenEvidenceGallery,
 } as const;
 
 export function getEvidenceGallery(
@@ -623,4 +781,5 @@ export const projectsWithEvidenceGallery = new Set([
   "fishewear-growth-system",
   "totely-ai-storage",
   "klaviyo-campaign-intelligence",
+  "veldskoen-growth-story",
 ]);

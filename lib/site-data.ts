@@ -168,6 +168,27 @@ export const projects: Project[] = [
       "A physical-and-digital storage system that lets people number a container, photograph what is inside, record where it lives, and later ask naturally where something was stored.",
   },
   {
+    id: "veldskoen-growth-story",
+    slug: "veldskoen-growth-story",
+    label: "DTC Brand Growth",
+    name: "Veldskoen Shoes USA",
+    category: "Brand Building / E-Commerce / Product",
+    year: "2018–2023",
+    href: "/work/veldskoen-growth-story",
+    selectedLabel: "Veldskoen Shoes USA",
+    selectedName: "DTC Growth Story",
+    selectedYear: "2018–2023",
+    featured: true,
+    evidenceLabel: "Case Study + Evidence",
+    cardDescription:
+      "Built and scaled the U.S. business from $0 to approximately $250,000 per month within 12 months by connecting brand positioning, product, Shopify, customer acquisition, creative, and disciplined DTC execution.",
+    cardMetrics: [
+      { value: "$0 → $250K/Mo", label: "Approx. Monthly Revenue" },
+      { value: "12 Months", label: "Growth Story" },
+      { value: "$30K/Mo", label: "Ad Budget Managed" },
+    ],
+  },
+  {
     id: "multi-business",
     slug: "multi-business",
     label: "Email",
@@ -622,9 +643,10 @@ export const featuredWork = {
   projectIds: [
     "fishewear-growth-system",
     "totely-ai-storage",
-    "veldskoen-packaging",
+    "veldskoen-growth-story",
     "slyde-handboards",
     "multi-business",
+    "veldskoen-packaging",
     "rizible",
     "portfolio-2008",
     "rachel-zoe",
@@ -650,6 +672,7 @@ export const selectedWork = {
   projectIds: [
     "fishewear-growth-system",
     "totely-ai-storage",
+    "veldskoen-growth-story",
     "multi-business",
     "slyde-handboards",
     "veldskoen-packaging",
