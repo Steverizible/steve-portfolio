@@ -23,7 +23,8 @@ export type EvidenceCategory =
   | "creative"
   | "technical"
   | "research"
-  | "implementation";
+  | "implementation"
+  | "leadership";
 
 export type EvidenceAsset = {
   id: string;
@@ -66,6 +67,7 @@ const PLACEHOLDER = {
   technical: "/images/evidence/placeholders/technical-proof.svg",
   research: "/images/evidence/placeholders/workflow-record.svg",
   implementation: "/images/evidence/placeholders/workflow-record.svg",
+  leadership: "/images/evidence/placeholders/workflow-record.svg",
 } as const;
 
 function resolveImage(asset: Omit<EvidenceAsset, "imageSrc"> & { imageSrc?: string }): string {
@@ -100,6 +102,7 @@ export const evidenceCategoryLabel: Record<EvidenceCategory, string> = {
   technical: "Technical",
   research: "Research",
   implementation: "Implementation",
+  leadership: "Leadership",
 };
 
 export const fishewearEvidenceGallery: EvidenceGallerySection = {
@@ -762,12 +765,249 @@ export const veldskoenEvidenceGallery: EvidenceGallerySection = {
   ]),
 };
 
+export const slydeEvidenceGallery: EvidenceGallerySection = {
+  projectId: "slyde-handboards",
+  eyebrow: "The Evidence",
+  heading: "From Early Product Development to National Brand",
+  introduction:
+    "The evidence should show the physical product, development process, e-commerce experience, creative direction, investment story, partnerships, team leadership, and community behind Slyde.",
+  privacyFooter:
+    "Remove deal terms, ownership details, signatures, bank information, supplier pricing, factory contacts, personal contact information, and confidential correspondence before publishing sensitive materials.",
+  methodologyFooter:
+    "The $500K investment claim refers to outside capital secured from Mark Cuban and Ashton Kutcher—not revenue, profit, or valuation. Collaboration growth (+30% / +$500K attributed revenue) remains a historical résumé claim with TEMPORARY evidence until redacted supporting records are added.",
+  items: withImages([
+    {
+      id: "slyde-early-prototypes",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Early Product Concepts and Prototypes",
+      description:
+        "Early sketches, physical prototypes, shape exploration, material experiments, or testing stages from original product development.",
+      whatItProves:
+        "Slyde began with original physical-product development rather than only brand or marketing work.",
+      status: "prototype",
+      category: "product",
+      toolLabel: "Product Development",
+      imageSrc: "/images/work/slyde/research.gif",
+      preferredPath: "public/images/evidence/slyde/early-prototypes.webp",
+      requiredAssetNote:
+        "Prefer clearer prototype stills. Do not expose proprietary manufacturing details that should remain private.",
+      replacementPriority: "high",
+      caption:
+        "Historical archive visual suggesting early research and concept exploration for the handboard product.",
+    },
+    {
+      id: "slyde-product-evolution",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Product Evolution",
+      description:
+        "Multiple product generations, form or construction changes, product range, or approved historical product photography.",
+      whatItProves:
+        "The product continued evolving through testing, production knowledge, and customer feedback.",
+      status: "real",
+      category: "product",
+      toolLabel: "Product",
+      imageSrc: "/images/work/slyde/design.jpg",
+      preferredPath: "public/images/evidence/slyde/product-evolution.webp",
+      replacementPriority: "high",
+      caption:
+        "Historical product-design photography from the Slyde archive showing form development.",
+    },
+    {
+      id: "slyde-manufacturing",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Manufacturing and Production Development",
+      description:
+        "Samples, production process, supplier coordination, quality review, packaging, or shipment preparation.",
+      whatItProves:
+        "The project moved from prototype into repeatable physical production.",
+      status: "real",
+      category: "implementation",
+      toolLabel: "Manufacturing",
+      imageSrc: "/images/work/slyde/development.gif",
+      preferredPath:
+        "public/images/evidence/slyde/manufacturing-redacted.webp",
+      requiredAssetNote:
+        "Remove supplier identities, pricing, margins, factory contacts, purchase-order information, addresses, and proprietary technical details where private.",
+      replacementPriority: "medium",
+      privacyNote:
+        "Supplier, pricing, and proprietary manufacturing details must be removed when publishing sensitive production records.",
+      caption:
+        "Historical production-development visual from the Slyde archive.",
+    },
+    {
+      id: "slyde-brand-system",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Brand and Creative Direction",
+      description:
+        "Identity, product photography, water photography, packaging, campaign assets, social creative, or retail materials.",
+      whatItProves:
+        "Creative direction connected the physical product to a consistent customer-facing brand.",
+      status: "real",
+      category: "creative",
+      toolLabel: "Creative",
+      imageSrc: "/images/work/slyde/concept.gif",
+      preferredPath:
+        "public/images/evidence/slyde/brand-creative-system.webp",
+      replacementPriority: "high",
+      caption:
+        "Historical creative and brand-direction visual from the Slyde archive.",
+    },
+    {
+      id: "slyde-shopify",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Slyde E-Commerce Experience",
+      description:
+        "Historical homepage, product page, education, product demonstration, mobile experience, and calls to action.",
+      whatItProves:
+        "The website functioned as both storefront and category-education platform.",
+      status: "temporary",
+      category: "product",
+      toolLabel: "Shopify",
+      preferredPath: "public/images/evidence/slyde/shopify-experience.webp",
+      requiredAssetNote:
+        "Use a local historical screenshot. Do not hotlink the current website. Remove private admin UI and customer data.",
+      replacementPriority: "high",
+      caption:
+        "Temporary slot for a historical Slyde Shopify storefront and product-education experience.",
+    },
+    {
+      id: "slyde-customer-education",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Customer and Category Education",
+      description:
+        "Product demonstration, how-to content, comparison content, video or image sequences, FAQs, or instructional material.",
+      whatItProves:
+        "Demand generation required teaching customers what the product was and how to use it.",
+      status: "temporary",
+      category: "creative",
+      toolLabel: "Education",
+      preferredPath: "public/images/evidence/slyde/customer-education.webp",
+      replacementPriority: "high",
+      caption:
+        "Temporary slot for customer and category education assets that taught the handboard experience.",
+    },
+    {
+      id: "slyde-investment",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Investment Pitch and Funding",
+      description:
+        "Pitch evidence, investment announcement, agreement summary, approved public media, or funding confirmation.",
+      whatItProves:
+        "The business secured $500,000 in outside investment from Mark Cuban and Ashton Kutcher.",
+      status: "temporary",
+      category: "performance",
+      toolLabel: "Investment",
+      preferredPath:
+        "public/images/evidence/slyde/investment-evidence-redacted.webp",
+      requiredAssetNote:
+        "Remove deal terms, ownership details, signatures, legal addresses, bank information, confidential correspondence, and private contact details.",
+      replacementPriority: "high",
+      span: "wide",
+      privacyNote:
+        "Deal terms, ownership, signatures, and financial identifiers must be removed.",
+      methodologyNote:
+        "Investment is not revenue, profit, or valuation. Placeholder only until approved redacted evidence is available.",
+      caption:
+        "Temporary slot for redacted investment evidence confirming $500K outside capital secured.",
+    },
+    {
+      id: "slyde-team",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Cross-Functional Team and Global Partners",
+      description:
+        "Team collaboration, creative production, product work, events, partners, or manufacturing and operating coordination.",
+      whatItProves:
+        "Slyde was built through leadership across 15+ professionals and global partners.",
+      status: "temporary",
+      category: "leadership",
+      toolLabel: "Leadership",
+      preferredPath: "public/images/evidence/slyde/team-and-partners.webp",
+      requiredAssetNote:
+        "Do not expose personal contact information. Obtain permission before publishing images of individuals where required.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary slot for team and partner collaboration evidence supporting the 15+ leadership claim.",
+    },
+    {
+      id: "slyde-partnerships",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Retail, Distribution and Brand Partnerships",
+      description:
+        "Retail placement, distributor materials, collaboration products, partner campaigns, or approved brand relationships.",
+      whatItProves:
+        "The company expanded beyond a single direct e-commerce channel.",
+      status: "temporary",
+      category: "implementation",
+      toolLabel: "Partnerships",
+      preferredPath: "public/images/evidence/slyde/partnerships.webp",
+      requiredAssetNote: "Do not name or display unapproved partners.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary slot for retail, distribution, and brand-partnership evidence.",
+    },
+    {
+      id: "slyde-collaboration-growth",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Collaboration Growth and Revenue",
+      description:
+        "Collaboration count or comparison, aggregate partnership revenue, defined time period, and supporting historical records.",
+      whatItProves:
+        "Historical records support the stated 30% increase in collaborations and additional $500,000 in attributed revenue.",
+      status: "temporary",
+      category: "performance",
+      toolLabel: "Collaborations",
+      preferredPath:
+        "public/images/evidence/slyde/collaboration-growth-redacted.webp",
+      requiredAssetNote:
+        "Use aggregate figures only. Separate clearly from the $500K investment claim. Remove partner-private commercial terms.",
+      replacementPriority: "high",
+      span: "wide",
+      privacyNote:
+        "Partner-private commercial terms and unapproved partner identities must be removed.",
+      methodologyNote:
+        "TEMPORARY until redacted supporting records are published. Do not treat this placeholder as verified commercial reporting. Not shown on the homepage.",
+      caption:
+        "Temporary slot for redacted collaboration-growth evidence supporting the conditional +30% / +$500K claim.",
+    },
+    {
+      id: "slyde-community",
+      projectId: "slyde-handboards",
+      sectionId: "evidence",
+      title: "Surf and Outdoor Community",
+      description:
+        "Real riders, events, customer content, demonstrations, community engagement, or ocean use.",
+      whatItProves:
+        "The brand was supported by participation, education, and authentic customer experience.",
+      status: "temporary",
+      category: "creative",
+      toolLabel: "Community",
+      preferredPath: "public/images/evidence/slyde/community.webp",
+      requiredAssetNote:
+        "Do not use generic stock imagery. Prefer owned Slyde community photography.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary slot for authentic Slyde community and ocean-use photography.",
+    },
+  ]),
+};
+
 export const evidenceGalleries = {
   "fishewear-growth-system": fishewearEvidenceGallery,
   "totely-ai-storage": totelyEvidenceGallery,
   "klaviyo-campaign-intelligence": campaignEvidenceGallery,
   "how-i-build-with-ai": aiMethodEvidenceGallery,
   "veldskoen-growth-story": veldskoenEvidenceGallery,
+  "slyde-handboards": slydeEvidenceGallery,
 } as const;
 
 export function getEvidenceGallery(
@@ -782,4 +1022,5 @@ export const projectsWithEvidenceGallery = new Set([
   "totely-ai-storage",
   "klaviyo-campaign-intelligence",
   "veldskoen-growth-story",
+  "slyde-handboards",
 ]);

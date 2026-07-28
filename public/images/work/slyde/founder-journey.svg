@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1250" role="img" aria-label="Editorial founder journey from opportunity through product evolution">
+  <rect width="2000" height="1250" fill="#0e1418"/>
+  <g fill="none" stroke="#1f2a32" stroke-width="2">
+    <circle cx="1000" cy="625" r="430"/>
+    <circle cx="1000" cy="625" r="300"/>
+  </g>
+  <g fill="#152028" stroke="#6eb6c9" stroke-width="2">
+    <circle cx="1000" cy="210" r="48"/>
+    <circle cx="1320" cy="300" r="48"/>
+    <circle cx="1480" cy="520" r="48"/>
+    <circle cx="1420" cy="780" r="48"/>
+    <circle cx="1180" cy="980" r="48"/>
+    <circle cx="820" cy="980" r="48"/>
+    <circle cx="580" cy="780" r="48"/>
+    <circle cx="520" cy="520" r="48"/>
+    <circle cx="680" cy="300" r="48"/>
+    <circle cx="1000" cy="625" r="64"/>
+  </g>
+  <path d="M1000 258 L1280 340 L1420 520 L1370 760 L1160 940 L840 940 L630 760 L580 520 L720 340 Z" fill="none" stroke="#3d7a8a" stroke-width="2" opacity="0.55"/>
+  <circle cx="1000" cy="625" r="26" fill="#6eb6c9"/>
+  <path d="M760 640c40-90 140-140 250-140 70 0 130 24 190 60 55 34 120 55 195 55 40 0 78-6 112-18" fill="none" stroke="#6eb6c9" stroke-width="3" opacity="0.45"/>
+</svg>

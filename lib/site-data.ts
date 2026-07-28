@@ -321,27 +321,61 @@ export const projects: Project[] = [
       relatedProjectIds: ["rachel-zoe", "veldskoen-packaging"],
     },
   },
-  // Slyde impactAtAGlance: attach verified commercial/leadership impact during the
-  // dedicated Slyde case-study build. Do not invent speculative figures here.
+  // Slyde: homepage At a Glance uses investment/leadership/product-scope only.
+  // Collaboration revenue (+30% / +$500K) stays in the case study with TEMPORARY evidence.
   {
     id: "slyde-handboards",
     slug: "slyde-handboards",
-    label: "Product/Graphic",
+    label: "Founder / Product Innovation",
     name: "Slyde Handboards",
-    category: "Product/Graphic",
-    year: "2010",
+    category: "Product Development / Brand Building / E-Commerce",
+    year: "2010–2024",
     selectedLabel: "Slyde Handboards",
-    selectedName: "Business",
-    selectedYear: "2010-2023",
+    selectedName: "Founder Story",
+    selectedYear: "2010–2024",
     href: "/work/slyde-handboards",
     referenceImage: "JEi4oggbYQA9XdRsMFutoxKDmwI.avif",
     featured: true,
+    evidenceLabel: "Case Study + Evidence",
+    cardDescription:
+      "Built Slyde from product idea to nationally recognized surf brand by connecting product development, manufacturing, brand storytelling, e-commerce, investment, partnerships, and community.",
+    impactAtAGlance: {
+      eyebrow: "At a Glance",
+      items: [
+        {
+          value: "$500K",
+          label: "Outside Investment Secured",
+          type: "commercial",
+          prominence: "primary",
+        },
+        {
+          value: "15+",
+          label: "Professionals and Global Partners Directed",
+          type: "leadership",
+          prominence: "secondary",
+        },
+        {
+          value: "Concept → National Brand",
+          label: "Product, E-Commerce and Community",
+          type: "product",
+          prominence: "secondary",
+        },
+        {
+          value: "2010–2024",
+          label: "Founder-Led Brand Building",
+          type: "leadership",
+          prominence: "secondary",
+        },
+      ],
+      guardrail:
+        "Investment, team scope, and brand-development results are based on historical operating and résumé records. Supporting evidence is included or identified inside the case study.",
+    },
     caseStudy: {
       title: "Slyde Handboards",
       intro:
         "Slyde Handboards is a brand that transformed the handboarding experience, revolutionizing the way we connect with the ocean. Born out of a passion for bodysurfing and a drive to innovate, Slyde quickly became a global leader in the sport, combining sleek design and cutting-edge technology.",
       client: "Slyde Handboards",
-      year: "2010-2023",
+      year: "2010-2024",
       category: "Product Design",
       sections: [
         {
@@ -362,14 +396,14 @@ export const projects: Project[] = [
           id: "development",
           heading: "Development",
           body:
-            "Partnering with a factory in Taiwan, we developed the Slyde Handboard from the ground up, creating six high-quality stainless steel molds for each shape to ensure precision and consistency in production. Every aspect of production, from the core materials to the final finish, was carefully engineered to create a handboard that would outperform anything else in the market.",
+            "We developed the Slyde Handboard from prototype into repeatable production, coordinating manufacturing partners, materials, finishes, and quality expectations so the product could be made, packaged, and supported consistently.",
           imageSrc: "/images/work/slyde/development.gif",
         },
         {
           id: "concept",
           heading: "Concept",
           body:
-            "Slyde quickly gained traction, selling over 10,000 boards worldwide and significantly contributing to the growth of bodysurfing. The brand helped redefine and create what was essentially a new spot, making wave riding more accessible and fun for ocean lovers around the world.",
+            "Slyde helped make an unfamiliar handboard category more understandable and approachable, connecting product design, brand storytelling, and ocean use for riders across skill levels.",
           imageSrc: "/images/work/slyde/concept.gif",
         },
       ],

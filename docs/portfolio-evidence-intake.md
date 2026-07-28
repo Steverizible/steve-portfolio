@@ -10,6 +10,7 @@ Asset folders:
 - `public/images/evidence/campaign-system/`
 - `public/images/evidence/ai-method/`
 - `public/images/evidence/veldskoen/`
+- `public/images/evidence/slyde/`
 - `public/images/evidence/placeholders/`
 
 ---
