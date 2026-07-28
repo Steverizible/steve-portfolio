@@ -31,7 +31,7 @@ export default function FeaturedWork() {
             <RevealOnScroll
               key={project.id}
               delayMs={(index % 2) * 80}
-              className={project.featuredWide ? "sm:col-span-2" : ""}
+              className={`h-full ${project.featuredWide ? "sm:col-span-2" : ""}`}
             >
               <ProjectCard project={project} variant="featured" />
             </RevealOnScroll>

@@ -278,7 +278,7 @@ export const projects: Project[] = [
   {
     id: "multi-business",
     slug: "multi-business",
-    label: "Email",
+    label: "Email + Lifecycle",
     name: "Multi Business",
     category: "Email",
     year: "2010-2025",
@@ -286,6 +286,9 @@ export const projects: Project[] = [
     href: "/work/multi-business",
     referenceImage: "BuMzxENCqkpoJutTtqHUDqkZsw.avif",
     featured: true,
+    cardDescription:
+      "Built Klaviyo email and lifecycle programs across multiple businesses—story-driven campaigns, segmentation, automation, and testing.",
+    quickGlance: ["Campaign Strategy", "Automated Flows", "Segmentation", "A/B Testing"],
     caseStudy: {
       title: "Impactful Campaign Messaging",
       intro:
@@ -425,6 +428,9 @@ export const projects: Project[] = [
     href: "/work/veldskoen-packaging",
     referenceImage: "aHfIoxhXP6eh2D6dUXvdrRiLIU.avif",
     featured: true,
+    cardDescription:
+      "Designed sustainable Veldskoen packaging—recyclable materials, minimal waste, and a premium, story-driven unboxing experience.",
+    quickGlance: ["Structural Design", "Sustainability", "Global Production", "Unboxing"],
     caseStudy: {
       title: "Veldskoen Packaging",
       intro:
@@ -475,6 +481,9 @@ export const projects: Project[] = [
     selectedYear: "2023",
     href: "/work/rizible",
     featured: true,
+    cardDescription:
+      "Crafted Rizible's brand identity—geometric logo, bold typography, and a clear visual system built around simplifying chaos.",
+    quickGlance: ["Positioning", "Identity", "Typography", "Brand System"],
     caseStudy: {
       title: "Rizible Branding",
       intro:
@@ -524,6 +533,9 @@ export const projects: Project[] = [
     year: "2008",
     href: "/work/portfolio",
     featured: true,
+    cardDescription:
+      "Designed Little Dude, a minimalist adventure totem—user research, prototyping, sustainable materials, and a countdown ritual.",
+    quickGlance: ["Research", "Prototyping", "Materials", "Product Design"],
     caseStudy: {
       title: "Product Design",
       intro:
@@ -573,7 +585,7 @@ export const projects: Project[] = [
   {
     id: "rachel-zoe",
     slug: "rachel-zoe",
-    label: "Collab",
+    label: "Collaboration",
     name: "Rachel Zoe",
     category: "Collab",
     year: "2022",
@@ -582,6 +594,9 @@ export const projects: Project[] = [
     selectedYear: "2024",
     href: "/work/rachel-zoe",
     featured: true,
+    cardDescription:
+      "Partnered with Rachel Zoe's Curateur via Thula Tula to design a premium African-inspired blanket as a lead subscription item.",
+    quickGlance: ["Partnership", "Product", "Mill Production", "Launch"],
     caseStudy: {
       title: "Rachel Zoe Collab",
       intro:
@@ -631,6 +646,9 @@ export const projects: Project[] = [
     year: "2022",
     href: "/work/veldskoen-print",
     featured: true,
+    cardDescription:
+      "Designed a magazine-style Veldskoen lookbook for a Chicago trade show—photography, art direction, and print-and-digital storytelling.",
+    quickGlance: ["Art Direction", "Photography", "Print + Digital", "Retail Pitch"],
     caseStudy: {
       title: "Heritage Meets Style",
       intro:
@@ -678,7 +696,7 @@ export const projects: Project[] = [
   {
     id: "the-grom",
     slug: "the-grom",
-    label: "Product Dev",
+    label: "Product Development",
     name: "Slyde Handboards",
     category: "Product Dev",
     year: "2018",
@@ -686,6 +704,9 @@ export const projects: Project[] = [
     selectedName: "Product Dev",
     href: "/work/the-grom",
     featured: true,
+    cardDescription:
+      "Developed The Grom kids handboard with a manufacturing partner—soft-foam design, 3D mold, and retail-ready packaging.",
+    quickGlance: ["Concept", "Prototyping", "Softboard Mfg", "Retail Packaging"],
     caseStudy: {
       title: "The Grom",
       intro:

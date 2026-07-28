@@ -10,9 +10,11 @@ export default function MenuTrigger() {
     <button
       type="button"
       onClick={openMenu}
-      className="menu-trigger flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-foreground transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      className="menu-trigger flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-foreground transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
       aria-label="Open menu"
+      aria-haspopup="dialog"
       aria-expanded={isOpen}
+      aria-controls="primary-navigation"
     >
       <span className="menu-dots" aria-hidden="true">
         {[0, 1, 2, 3].map((i) => (

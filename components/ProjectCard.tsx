@@ -54,10 +54,10 @@ export default function ProjectCard({
       href={project.href}
       data-cursor-view
       transitionTypes={["nav-forward"]}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card transition-[box-shadow,opacity] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-md"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[box-shadow,opacity] duration-[380ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-md"
     >
       <ZoomMedia
-        className={`relative ${imageHeight} w-full overflow-hidden bg-[#ddd]`}
+        className={`relative ${imageHeight} w-full shrink-0 overflow-hidden bg-[#ddd]`}
       >
         <div className="relative h-full w-full">
           {imageSrc ? (
@@ -80,7 +80,7 @@ export default function ProjectCard({
           )}
         </div>
       </ZoomMedia>
-      <div className="bg-foreground text-background">
+      <div className="flex flex-1 flex-col bg-foreground text-background">
         <div className="flex items-end justify-between gap-4 px-4 py-4 md:px-5 md:py-5">
           <div>
             <p className="text-sm font-bold uppercase tracking-wide md:text-base">
@@ -99,7 +99,7 @@ export default function ProjectCard({
         </div>
 
         {showBody && (
-          <div className="border-t border-white/10 px-4 pb-5 pt-4 md:px-5 md:pb-6 md:pt-5">
+          <div className="flex-1 border-t border-white/10 px-4 pb-5 pt-4 md:px-5 md:pb-6 md:pt-5">
             {showDescription && (
               <p className="max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
                 {project.cardDescription}
