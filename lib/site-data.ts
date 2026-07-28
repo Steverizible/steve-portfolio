@@ -148,6 +148,21 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "totely-ai-storage",
+    slug: "totely-ai-storage",
+    label: "AI Product / UX",
+    name: "Totely",
+    category: "AI Product Strategy",
+    year: "2025–Present",
+    href: "/work/totely-ai-storage",
+    selectedLabel: "Totely",
+    selectedName: "AI Storage System",
+    selectedYear: "2025–Present",
+    featured: true,
+    cardDescription:
+      "A physical-and-digital storage system that lets people number a container, photograph what is inside, record where it lives, and later ask naturally where something was stored.",
+  },
+  {
     id: "multi-business",
     slug: "multi-business",
     label: "Email",
@@ -601,6 +616,7 @@ export const featuredWork = {
     "A selection of businesses, products, campaigns, and digital systems I have helped build—combining creative direction, e-commerce, customer experience, lifecycle marketing, and practical AI implementation.",
   projectIds: [
     "fishewear-growth-system",
+    "totely-ai-storage",
     "veldskoen-packaging",
     "slyde-handboards",
     "multi-business",
@@ -628,6 +644,7 @@ export const selectedWork = {
   /** Grid order matches Framer selected works page. */
   projectIds: [
     "fishewear-growth-system",
+    "totely-ai-storage",
     "multi-business",
     "slyde-handboards",
     "veldskoen-packaging",

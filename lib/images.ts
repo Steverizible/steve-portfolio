@@ -1,6 +1,7 @@
 /** Maps project and section ids to public image paths. */
 export const projectImages: Record<string, string> = {
   "fishewear-growth-system": "/images/projects/fishewear-growth-system.svg",
+  "totely-ai-storage": "/images/projects/totely-ai-storage.svg",
   "multi-business": "/images/projects/multi-business.jpg",
   "slyde-handboards": "/images/projects/slyde-handboards.jpg",
   "veldskoen-packaging": "/images/projects/veldskoen-packaging.jpg",
