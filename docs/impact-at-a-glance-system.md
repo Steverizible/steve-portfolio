@@ -103,4 +103,6 @@ Do not invent productivity percentages, hours saved, Totely revenue/users/downlo
 
 ## Slyde follow-up
 
-Slyde can use this model once verified impact values are approved in its dedicated case-study build. Until then, leave `impactAtAGlance` unset and do not display speculative figures.
+Slyde uses this model with approved investment, leadership, and product-scope items on the homepage.
+
+Conditional collaboration growth (+30% / +$500K attributed revenue) stays inside the case study with TEMPORARY evidence until redacted supporting records are published. Do not promote that claim on the homepage without evidence.

@@ -5,8 +5,9 @@
  * Product / operational / leadership / methodology items are scope indicators—
  * never present them as financial metrics.
  *
- * Slyde: review and attach verified impact data during its dedicated case-study
- * build. Do not invent speculative Slyde figures here.
+ * Slyde homepage Impact at a Glance uses approved investment / leadership /
+ * product-scope claims. Collaboration revenue (+30% / +$500K) remains a
+ * case-study-only TEMPORARY claim until redacted evidence is published.
  */
 
 export type ImpactType =

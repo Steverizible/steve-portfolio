@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import FisheWearCaseStudy from "@/components/FisheWearCaseStudy";
 import ProjectPageContent from "@/components/ProjectPageContent";
+import SlydeCaseStudy from "@/components/SlydeCaseStudy";
 import TotelyCaseStudy from "@/components/TotelyCaseStudy";
 import VeldskoenCaseStudy from "@/components/VeldskoenCaseStudy";
 import { getProjectBySlug, projects, siteMeta } from "@/lib/site-data";
+import { slydeCaseStudy } from "@/lib/slyde-case-study";
 import { veldskoenCaseStudy } from "@/lib/veldskoen-case-study";
 
 const siteUrl =
@@ -28,6 +30,7 @@ function metadataForProject(slug: string): Metadata {
       "FisheWear Growth System | Steve Watts",
     "totely-ai-storage": "Totely AI Storage System | Steve Watts",
     "veldskoen-growth-story": veldskoenCaseStudy.metadata.title,
+    "slyde-handboards": slydeCaseStudy.metadata.title,
   };
 
   const descriptions: Record<string, string> = {
@@ -36,6 +39,7 @@ function metadataForProject(slug: string): Metadata {
     "totely-ai-storage":
       "Case study: Totely by There’s A Spot For That — an AI-assisted physical and digital storage system from problem discovery to working product.",
     "veldskoen-growth-story": veldskoenCaseStudy.metadata.description,
+    "slyde-handboards": slydeCaseStudy.metadata.description,
   };
 
   const title =
@@ -46,6 +50,21 @@ function metadataForProject(slug: string): Metadata {
     project.cardDescription ??
     project.caseStudy?.intro ??
     `${project.name} — ${project.category} project by Steve Watts.`;
+
+  const socialImage =
+    project.slug === "slyde-handboards"
+      ? {
+          url: "/images/projects/slyde-handboards.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Slyde Handboards",
+        }
+      : {
+          url: "/images/og/og.png",
+          width: 1200,
+          height: 630,
+          alt: siteMeta.name,
+        };
 
   return {
     title,
@@ -58,20 +77,13 @@ function metadataForProject(slug: string): Metadata {
       description,
       url: `${siteUrl}/work/${project.slug}`,
       type: "article",
-      images: [
-        {
-          url: "/images/og/og.png",
-          width: 1200,
-          height: 630,
-          alt: siteMeta.name,
-        },
-      ],
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/og/og.png"],
+      images: [socialImage.url],
     },
   };
 }
@@ -102,7 +114,63 @@ function CaseStudyForProject({
     return <VeldskoenCaseStudy key={project.id} project={project} />;
   }
 
+  if (project.slug === "slyde-handboards") {
+    return <SlydeCaseStudy key={project.id} project={project} />;
+  }
+
   return <ProjectPageContent key={project.id} project={project} />;
+}
+
+function structuredDataForProject(
+  project: NonNullable<ReturnType<typeof getProjectBySlug>>
+) {
+  if (project.slug === "veldskoen-growth-story") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: veldskoenCaseStudy.metadata.title,
+      description: veldskoenCaseStudy.metadata.description,
+      url: `${siteUrl}/work/${project.slug}`,
+      author: {
+        "@type": "Person",
+        name: siteMeta.name,
+        url: siteUrl,
+        sameAs: [siteMeta.linkedInUrl],
+      },
+      about: [
+        "Veldskoen Shoes USA",
+        "Direct-to-consumer brand building",
+        "E-commerce growth",
+        "Product development",
+        "Performance marketing",
+      ],
+    };
+  }
+
+  if (project.slug === "slyde-handboards") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: slydeCaseStudy.metadata.title,
+      description: slydeCaseStudy.metadata.description,
+      url: `${siteUrl}/work/${project.slug}`,
+      author: {
+        "@type": "Person",
+        name: siteMeta.name,
+        url: siteUrl,
+        sameAs: [siteMeta.linkedInUrl],
+      },
+      about: [
+        "Slyde Handboards",
+        "Product development",
+        "Brand building",
+        "E-commerce",
+        "Founder-led company building",
+      ],
+    };
+  }
+
+  return null;
 }
 
 export default async function WorkProjectPage({
@@ -117,29 +185,7 @@ export default async function WorkProjectPage({
     notFound();
   }
 
-  const structuredData =
-    project.slug === "veldskoen-growth-story"
-      ? {
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          name: veldskoenCaseStudy.metadata.title,
-          description: veldskoenCaseStudy.metadata.description,
-          url: `${siteUrl}/work/${project.slug}`,
-          author: {
-            "@type": "Person",
-            name: siteMeta.name,
-            url: siteUrl,
-            sameAs: [siteMeta.linkedInUrl],
-          },
-          about: [
-            "Veldskoen Shoes USA",
-            "Direct-to-consumer brand building",
-            "E-commerce growth",
-            "Product development",
-            "Performance marketing",
-          ],
-        }
-      : null;
+  const structuredData = structuredDataForProject(project);
 
   return (
     <main className="w-full min-h-screen bg-background">
