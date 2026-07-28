@@ -33,6 +33,10 @@ export default function RevealOnScroll({
     const element = ref.current;
     if (!element) return;
 
+    // threshold: 0 (not 0.1) so sections taller than ~10x the viewport still
+    // reveal. With a percentage threshold, an element taller than
+    // viewportHeight / threshold can never reach the ratio, leaving it stuck at
+    // opacity:0 — the root cause of the large blank area on mobile.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,7 +44,7 @@ export default function RevealOnScroll({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
     );
 
     observer.observe(element);

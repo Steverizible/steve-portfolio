@@ -48,8 +48,8 @@ export const fishewearCaseStudy = {
       },
     ] satisfies CaseStudyMeta[],
     image: {
-      src: "/images/work/fishewear/hero.svg",
-      alt: "Abstract editorial visual connecting outdoor brand storytelling with digital growth pathways in restrained neutral tones and water-inspired blues.",
+      src: "/images/work/ai-enabled-dtc-growth.webp",
+      alt: "Illustrative editorial scene of a DTC growth team connecting product, packaging, e-commerce, content, and photography in a naturally lit studio.",
     },
   },
 

@@ -49,11 +49,11 @@ export type ImplementationStatusItem = {
 export const aiOperatingModelPage = {
   hero: {
     eyebrow: "How I Build With AI",
-    title: "AI Is Not a Separate Tool in My Workflow",
+    title: "AI Is Integrated Throughout My Workflow",
     supportingHeadline:
-      "It is part of how I research, decide, design, build, connect, measure, and improve.",
+      "From research and strategy through development, production, review, and measurement.",
     intro:
-      "I use AI as part of a practical operating model that connects customer insight, business context, strategy, creative direction, product development, execution, and measurement.\n\nThe goal is not to automate judgment. The goal is to make information more usable, reduce repetitive work, explore better options, build faster, preserve context, and help small teams operate with greater clarity and capacity.",
+      "AI works across the whole process, while customer understanding, strategy, judgment, and final accountability stay human.\n\nIt makes information more usable, reduces repetitive work, and helps small teams move faster—without replacing the decisions that matter.",
     meta: [
       {
         label: "Focus",
@@ -492,8 +492,8 @@ export const aiBuildMethodPreview = {
   title: "How I Build With AI",
   titleLines: ["How I Build", "With AI"] as const,
   introduction:
-    "A practical operating model for moving from customer problems and business context to products, workflows, measurement, and continuous improvement.",
-  stages: ["Discover", "Decide", "Design", "Build", "Learn"] as const,
+    "AI is integrated across research, strategy, build, review, and measurement—while customer understanding, judgment, and final accountability stay human.",
+  stages: ["Research", "Strategy", "Build", "Review", "Measure"] as const,
   impactAtAGlance: {
     eyebrow: "Impact at a Glance",
     items: [

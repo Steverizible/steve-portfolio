@@ -324,7 +324,7 @@ export const roleFitPage = {
       href: "/work/fishewear-growth-system",
       outcome: "+63% Net Sales YoY",
       capabilities: ["E-Commerce", "Lifecycle", "Content", "AI Operations"],
-      image: "/images/projects/fishewear-growth-system.svg",
+      image: "/images/work/ai-enabled-dtc-growth.webp",
     },
     {
       id: "build-brands",
