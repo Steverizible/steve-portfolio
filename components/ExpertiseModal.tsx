@@ -73,6 +73,54 @@ export default function ExpertiseModal({ item, onClose }: ExpertiseModalProps) {
               <p className="text-sm leading-relaxed text-muted md:text-base">
                 {item.modalBody}
               </p>
+              {item.problems && item.problems.length > 0 ? (
+                <div className="mt-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    Problems solved
+                  </p>
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">
+                    {item.problems.map((problem) => (
+                      <li key={problem}>{problem}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {item.capabilities && item.capabilities.length > 0 ? (
+                <div className="mt-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    Capabilities
+                  </p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {item.capabilities.map((capability) => (
+                      <li
+                        key={capability}
+                        className="rounded-full border border-border px-3 py-1 text-xs font-medium text-foreground"
+                      >
+                        {capability}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {item.proof && item.proof.length > 0 ? (
+                <div className="mt-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    Related proof
+                  </p>
+                  <ul className="mt-3 flex flex-wrap gap-3">
+                    {item.proof.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          className="text-sm font-semibold underline underline-offset-4 transition-opacity hover:opacity-60"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <div className="mt-8">
                 <Button href={item.ctaHref} variant="outline" className="!px-8">
                   {item.ctaLabel}

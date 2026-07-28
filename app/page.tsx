@@ -12,6 +12,9 @@ import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
 import Motivation from "@/components/Motivation";
 import MotivationBreakout from "@/components/MotivationBreakout";
+import RecruiterSummary from "@/components/RecruiterSummary";
+import TechStackPreview from "@/components/TechStackPreview";
+import WhereICreateValue from "@/components/WhereICreateValue";
 
 export default function Home() {
   return (
@@ -20,14 +23,17 @@ export default function Home() {
       <main className="w-full">
         <Hero />
         <FeaturedWork />
+        <WhereICreateValue />
         <AISystems />
         <AIBuildMethodPreview />
+        <RecruiterSummary />
         <About />
         <Expertise />
         <Motivation />
         <MotivationBreakout />
         <Experience />
         <ExperienceBreakout />
+        <TechStackPreview />
         <FavoriteStack />
         <Awards />
         <FAQ />

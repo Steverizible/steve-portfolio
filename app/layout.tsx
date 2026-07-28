@@ -68,6 +68,15 @@ export default function RootLayout({
       addressCountry: "US",
     },
     sameAs: [siteMeta.linkedInUrl],
+    knowsAbout: [
+      "Digital strategy",
+      "DTC growth",
+      "E-commerce",
+      "AI workflow design",
+      "Product development",
+      "Lifecycle marketing",
+      "Brand leadership",
+    ],
   };
 
   const websiteSchema = {
