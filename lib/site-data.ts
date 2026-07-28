@@ -11,9 +11,9 @@ import type { ImpactAtGlance } from "@/lib/impact";
 
 export const siteMeta = {
   name: "Steve Watts",
-  title: "Steve Watts | Digital Growth & AI Innovation",
+  title: "Steve Watts | Digital Growth & AI Innovation Leader",
   description:
-    "Digital growth and innovation leader building brands, DTC businesses, digital products, and AI-enabled operating systems across e-commerce, lifecycle marketing, customer experience, and creative strategy.",
+    "Digital growth and AI innovation leader building brands, products, e-commerce businesses, and AI-enabled operating systems that connect strategy to measurable execution.",
   location: "San Clemente, CA",
   locationShort: "San Clemente, CA",
   email: "stevenstewart90@gmail.com",
@@ -115,20 +115,22 @@ export const navigation = {
   localPrefix: "LOCAL/",
   headerLinks: [
     { label: "Work", href: "/#work" },
-    { label: "About", href: "/#about" },
+    { label: "Role Fit", href: "/role-fit" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   overlayLinks: [
     { label: "Home", href: "/#top", badge: "2" },
     { label: "Work", href: "/#work" },
+    { label: "Role Fit", href: "/role-fit" },
     { label: "How I Build With AI", href: "/how-i-build-with-ai" },
+    { label: "About", href: "/#about" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   contactCta: {
     label: "CONTACT NOW",
     href: "/contact",
   },
-  availabilityLabel: "OPEN TO SENIOR DIGITAL & AI ROLES",
+  availabilityLabel: "OPEN TO SENIOR DIGITAL, E-COMMERCE, PRODUCT & AI ROLES",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -738,15 +740,20 @@ export function getFeaturedProjects(): Project[] {
 
 export const hero = {
   headline: "STEVE WATTS",
-  tagline: "Digital Growth. AI Innovation. Brand Impact.",
+  /** Primary professional positioning under the name lockup. */
+  tagline: "Digital Growth & AI Innovation Leader",
   supportingStatement:
-    "I build brands, digital products, and AI-enabled growth systems that turn ambitious ideas into measurable growth.",
+    "I build brands, products, e-commerce businesses, and AI-enabled operating systems that connect strategy to measurable execution.",
   locationLabel: "BASED IN SAN CLEMENTE CA",
-  roles: ["Digital Strategy", "DTC Growth Leader"],
-  roleHref: "/#about",
+  roles: ["Digital Strategy", "DTC Growth", "Product Innovation", "AI Systems"],
+  roleHref: "/role-fit",
   cta: {
-    label: "Contact Now",
-    href: "/contact",
+    label: "Explore Role Fit",
+    href: "/role-fit",
+  },
+  secondaryCta: {
+    label: "View Featured Work",
+    href: "/#work",
   },
 } as const;
 
@@ -811,10 +818,11 @@ export const moreAboutSteve = {
   title: "More About Steve",
   titleLines: ["More", "About", "STEVE"],
   headline:
-    "I’m a digital growth leader, founder, and creative strategist who connects brand, technology, customer behavior, and AI to build products, workflows, and businesses that grow.",
+    "I’m a digital growth leader, founder, product builder, and creative strategist who connects brand, technology, customer behavior, and AI to build products, workflows, and businesses that grow.",
   body: [
-    "For more than 15 years, I have built brands, launched products, led cross-functional teams, optimized e-commerce businesses, and turned creative ideas into measurable commercial results. My work spans product development, Shopify, lifecycle marketing, customer segmentation, paid acquisition, content, conversion optimization, and brand storytelling.",
-    "Today, I also design practical AI-assisted workflows that help small teams research faster, produce better work, connect information across platforms, and make clearer decisions. I believe the strongest digital systems combine human judgment, creative direction, customer insight, and technology rather than treating them as separate disciplines.",
+    "For more than 15 years, I have built physical products, digital experiences, e-commerce businesses, brands, teams, and customer-growth systems.",
+    "My work spans product development, Shopify, lifecycle marketing, customer segmentation, paid acquisition, content, conversion optimization, brand storytelling, creative direction, partnerships, and practical AI implementation.",
+    "Today, I use AI as part of a broader operating model—not as a substitute for strategy, judgment, leadership, or customer understanding.",
   ],
   resumeCta: {
     label: "Download resume",
@@ -855,6 +863,9 @@ export type ExpertiseItem = {
   modalTitle: string;
   modalSubtitle: string;
   modalBody: string;
+  problems?: string[];
+  capabilities?: string[];
+  proof?: Array<{ label: string; href: string }>;
   modalImage: string;
   ctaLabel: string;
   ctaHref: string;
@@ -874,9 +885,28 @@ export const expertise = {
       modalSubtitle: "Clarity, Systems & Practical Change",
       modalBody:
         "I help brands and operators turn fragmented activity into a coherent digital strategy. That means defining the customer problem, prioritizing opportunities, aligning channels and tools, and building operating systems that support measurable growth. Innovation is useful only when it improves decisions, customer experience, or commercial outcomes—so I focus on practical implementation, cross-functional leadership, and iteration rather than novelty for its own sake.",
+      problems: [
+        "Digital initiatives are fragmented across teams",
+        "Technology is adopted without a clear business purpose",
+        "Strategy does not translate into executable work",
+      ],
+      capabilities: [
+        "Digital transformation",
+        "Strategic planning",
+        "Cross-functional alignment",
+        "Measurement and prioritization",
+      ],
+      proof: [
+        { label: "How I Build With AI", href: "/how-i-build-with-ai" },
+        {
+          label: "Campaign Intelligence",
+          href: "/systems/klaviyo-campaign-intelligence",
+        },
+        { label: "FisheWear", href: "/work/fishewear-growth-system" },
+      ],
       modalImage: "/images/expertise/digital-marketing.webp",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
     {
       id: "dtc-ecommerce-growth",
@@ -888,9 +918,24 @@ export const expertise = {
       modalSubtitle: "Commerce, Conversion & Compounding Results",
       modalBody:
         "I operate at the intersection of product, merchandising, customer behavior, and performance marketing. Across founder-led DTC brands, I have built and scaled e-commerce systems that connect storefront experience, lifecycle communication, content, creative testing, and measurement. The goal is durable growth: clearer customer journeys, stronger conversion foundations, and retention systems that keep earning after the first purchase.",
+      problems: [
+        "Revenue depends too heavily on one channel",
+        "Shopify, email, content, and paid media are disconnected",
+        "Lifecycle systems are underdeveloped",
+      ],
+      capabilities: [
+        "Shopify strategy",
+        "Conversion optimization",
+        "Lifecycle marketing",
+        "Performance analysis",
+      ],
+      proof: [
+        { label: "FisheWear", href: "/work/fishewear-growth-system" },
+        { label: "Veldskoen", href: "/work/veldskoen-growth-story" },
+      ],
       modalImage: "/images/expertise/ecomm-growth.webp",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
     {
       id: "ai-workflow-system-design",
@@ -902,9 +947,28 @@ export const expertise = {
       modalSubtitle: "Practical Systems, Not Novelty Tools",
       modalBody:
         "I design AI-enabled operating models that gather context, apply commercial and brand rules, prepare structured work, and pass it into tools teams already use. The systems support research, campaign production, creative handoffs, documentation, and measurement—while keeping humans accountable for approval, privacy, and final decisions. AI accelerates the work; judgment, taste, and responsibility remain human.",
+      problems: [
+        "AI use is scattered across individual prompts",
+        "Teams repeatedly rebuild context",
+        "Automation lacks governance",
+      ],
+      capabilities: [
+        "AI operating-model design",
+        "Context architecture",
+        "Human approval systems",
+        "Governance and feedback loops",
+      ],
+      proof: [
+        {
+          label: "Campaign Intelligence",
+          href: "/systems/klaviyo-campaign-intelligence",
+        },
+        { label: "How I Build With AI", href: "/how-i-build-with-ai" },
+        { label: "Totely", href: "/work/totely-ai-storage" },
+      ],
       modalImage: "/images/expertise/seo.avif",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
     {
       id: "lifecycle-retention-marketing",
@@ -916,9 +980,27 @@ export const expertise = {
       modalSubtitle: "Segmentation, Flows & Campaign Operations",
       modalBody:
         "Lifecycle marketing is where customer understanding becomes commercial advantage. I design audience strategy, flow architecture, campaign phases, exclusions, and creative systems that keep communication relevant. Using Klaviyo and connected commerce data, I focus on engagement quality, retention, and long-term list health—not short-term pressure that damages trust.",
+      problems: [
+        "Lifecycle systems are underdeveloped",
+        "Campaigns lack audience relevance",
+        "Reporting does not guide the next decision",
+      ],
+      capabilities: [
+        "Segmentation",
+        "Campaign architecture",
+        "Flow design",
+        "Retention strategy",
+      ],
+      proof: [
+        { label: "FisheWear", href: "/work/fishewear-growth-system" },
+        {
+          label: "Campaign Intelligence",
+          href: "/systems/klaviyo-campaign-intelligence",
+        },
+      ],
       modalImage: "/images/expertise/email-marketing.avif",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
     {
       id: "product-customer-experience",
@@ -930,9 +1012,25 @@ export const expertise = {
       modalSubtitle: "Usefulness, Clarity & Adoption",
       modalBody:
         "Whether the work is a digital product, a campaign experience, or an operational workflow, I start with the customer job to be done. I map journeys, simplify interfaces, define requirements, and pressure-test edge cases so the experience remains understandable under real conditions. Strong products and growth systems share the same foundation: empathy, clarity, and disciplined prioritization.",
+      problems: [
+        "Product teams begin with technology instead of customer need",
+        "Brand, UX, development, and launch are disconnected",
+        "Product decisions lack a clear customer journey",
+      ],
+      capabilities: [
+        "Opportunity research",
+        "Product strategy",
+        "UX direction",
+        "Launch planning",
+      ],
+      proof: [
+        { label: "Totely", href: "/work/totely-ai-storage" },
+        { label: "Slyde", href: "/work/slyde-handboards" },
+        { label: "Veldskoen", href: "/work/veldskoen-growth-story" },
+      ],
       modalImage: "/images/expertise/creative-leadership.avif",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
     {
       id: "brand-creative-storytelling",
@@ -944,9 +1042,25 @@ export const expertise = {
       modalSubtitle: "Narrative, Design Direction & Cultural Signal",
       modalBody:
         "I come from founder and creative leadership work across product brands that had to earn attention through story, design, and cultural relevance. That foundation still shapes my digital growth practice: positioning, creative systems, content direction, and campaign narrative must reinforce the same customer promise. Creative work is strongest when it is strategically grounded and operationally repeatable.",
+      problems: [
+        "Creative work is disconnected from commercial strategy",
+        "Product stories are inconsistent across channels",
+        "Teams lack a shared direction",
+      ],
+      capabilities: [
+        "Brand strategy",
+        "Creative direction",
+        "Product storytelling",
+        "Campaign development",
+      ],
+      proof: [
+        { label: "Slyde", href: "/work/slyde-handboards" },
+        { label: "Veldskoen", href: "/work/veldskoen-growth-story" },
+        { label: "FisheWear", href: "/work/fishewear-growth-system" },
+      ],
       modalImage: "/images/expertise/storytelling-branding.webp",
-      ctaLabel: "E-mail",
-      ctaHref: "mailto:stevenstewart90@gmail.com",
+      ctaLabel: "Explore Role Fit",
+      ctaHref: "/role-fit",
     },
   ] satisfies ExpertiseItem[],
 } as const;
@@ -1023,7 +1137,7 @@ export const experience = {
       role: "Founder + Creative Director",
       period: "2010 – 2024",
       description:
-        "At Slyde Handboards, I built a million-dollar brand from the ground up, securing $500K in funding from Mark Cuban and Ashton Kutcher. I led branding, product development, and multi-channel marketing, using Facebook ads, email, and storytelling to drive growth. Through strategic partnerships and UX/UI optimization, I boosted conversions, expanded market reach, and earned features in Forbes and The New York Times.",
+        "Founded and led Slyde Handboards from product idea to nationally recognized surf brand—securing $500K in outside investment from Mark Cuban and Ashton Kutcher while directing product development, creative direction, Shopify growth, partnerships, PR, customer education, and community.",
     },
     {
       id: "veldskoen",
@@ -1031,7 +1145,7 @@ export const experience = {
       role: "Founder + Creative Director",
       period: "2018 – 2024",
       description:
-        "At Veldskoen USA, I transformed a startup into a $250K/month brand within a year through strategic storytelling, digital marketing, and eCommerce optimization. Managing a $30K/month ad budget, I leveraged Facebook and Google Ads, influencer partnerships, and data-driven campaigns to maximize ROI. I also enhanced the brand's identity, customer experience, and sustainability efforts, positioning Veldskoen as a globally recognized lifestyle brand.",
+        "Co-founded and scaled Veldskoen Shoes USA from $0 to approximately $250K/month within 12 months—leading brand positioning, product storytelling, Shopify, paid acquisition across an approximately $30K monthly media operation, packaging, partnerships, and customer experience.",
     },
     {
       id: "happybond",
@@ -1261,16 +1375,20 @@ export const faq = {
 
 export const contact = {
   id: "contact",
-  headline: "Let's Work Together",
-  headlineLines: ["Let's Work", "Together"],
+  headline: "Let's Build What Comes Next",
+  headlineLines: ["Let's Build", "What Comes Next"],
   subheadline: "Contact",
   description:
     "I’m interested in senior digital strategy, e-commerce, growth, product, and AI innovation opportunities—as well as select advisory and founder-led collaborations.",
   descriptionSecondary:
     "Based in San Clemente, I connect brand, technology, customer behavior, and AI-assisted operating systems to help teams build clearer products, stronger growth systems, and more accountable execution.",
   cta: {
-    label: "Contact",
-    href: "/contact",
+    label: "Discuss a Senior Role",
+    href: "/contact?intent=senior-role",
+  },
+  secondaryCta: {
+    label: "Explore Role Fit",
+    href: "/role-fit",
   },
   social: [
     {
@@ -1288,10 +1406,10 @@ export const contact = {
 // ---------------------------------------------------------------------------
 
 export const contactPage = {
-  headline: "Say Hello!",
+  headline: "Let’s Build What Comes Next",
   description:
-    "I’m interested in senior digital strategy, e-commerce, growth, product, and AI innovation opportunities—as well as select advisory and founder-led collaborations.",
-  formIntro: "Fill This Form Out",
+    "I’m interested in senior digital strategy, e-commerce, product, growth, and AI innovation roles—along with select advisory and founder-led collaborations.",
+  formIntro: "Tell me about the opportunity",
   formFields: [
     {
       id: "name",
@@ -1304,10 +1422,18 @@ export const contactPage = {
     {
       id: "email",
       name: "email",
-      label: "E-Mail",
+      label: "Email",
       type: "email",
-      placeholder: "E-Mail",
+      placeholder: "Email",
       required: true,
+    },
+    {
+      id: "company",
+      name: "company",
+      label: "Company",
+      type: "text",
+      placeholder: "Company",
+      required: false,
     },
     {
       id: "message",
@@ -1318,24 +1444,44 @@ export const contactPage = {
       required: true,
     },
   ] satisfies ContactFormField[],
+  opportunityField: {
+    id: "intent",
+    name: "intent",
+    label: "Role or opportunity type",
+    options: [
+      { value: "senior-role", label: "Senior Leadership Role" },
+      { value: "advisory", label: "Strategic Advisory" },
+      { value: "collaboration", label: "Founder or Product Collaboration" },
+      { value: "other", label: "Other / General Inquiry" },
+    ],
+  },
   submitLabel: "Send Email",
-  socialHeading: "Social",
+  socialHeading: "Connect",
   social: {
-    label: "LinkedIn",
+    label: "Connect on LinkedIn",
     href: siteMeta.linkedInUrl,
+  },
+  resume: {
+    label: "View Résumé",
+    href: siteMeta.resumeUrl,
+  },
+  roleFit: {
+    label: "Explore Role Fit",
+    href: "/role-fit",
   },
   location: {
     label: "Current Location",
-    value: "San Clemente, California (CA), 92672, United States",
+    value: "San Clemente, California",
   },
   phone: {
     label: "Phone",
     value: "USA, +1 310 433 0363",
   },
   email: {
-    label: "Email",
+    label: "Send an Email",
     value: siteMeta.email,
     href: `mailto:${siteMeta.email}`,
   },
+  trustHeading: "What I Bring",
   backToTopLabel: "Go Back To Top",
 } as const;

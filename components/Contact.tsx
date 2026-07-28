@@ -44,6 +44,15 @@ export default function Contact() {
               <Button href={contact.cta.href} variant="solid" className="uppercase">
                 {contact.cta.label}
               </Button>
+              {"secondaryCta" in contact && contact.secondaryCta ? (
+                <Button
+                  href={contact.secondaryCta.href}
+                  variant="outline"
+                  className="uppercase"
+                >
+                  {contact.secondaryCta.label}
+                </Button>
+              ) : null}
             </div>
 
             <ul className="mt-10 flex flex-wrap items-center justify-center gap-6 lg:justify-start">

@@ -8,6 +8,7 @@ import { hero, navigation } from "@/lib/site-data";
 
 export default function Hero() {
   const time = useLocalTime();
+  const roleLabels = hero.roles.slice(0, 4);
 
   return (
     <section
@@ -48,13 +49,33 @@ export default function Hero() {
           {hero.headline}
         </h1>
 
-        <p className="hero-fade-in hero-fade-in-delay-2 mt-2 text-center text-[clamp(1.25rem,4.5vw,3.75rem)] font-bold uppercase leading-tight tracking-tight text-muted md:mt-4">
+        <p className="hero-fade-in hero-fade-in-delay-2 mt-2 text-center text-[clamp(1.1rem,3.8vw,2.75rem)] font-bold uppercase leading-tight tracking-tight text-muted md:mt-4">
           {hero.tagline}
         </p>
 
         <p className="hero-fade-in hero-fade-in-delay-3 mt-5 max-w-md text-center text-sm leading-relaxed text-muted md:mt-6 md:max-w-xl md:text-base">
           {hero.supportingStatement}
         </p>
+
+        <ul className="hero-fade-in hero-fade-in-delay-3 mt-6 flex flex-wrap justify-center gap-2 md:mt-8">
+          {roleLabels.map((label) => (
+            <li
+              key={label}
+              className="rounded-full border border-border bg-white/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-foreground md:text-xs"
+            >
+              {label}
+            </li>
+          ))}
+        </ul>
+
+        <div className="hero-fade-in hero-fade-in-delay-3 mt-8 flex flex-wrap justify-center gap-3">
+          <Button href={hero.secondaryCta.href} variant="outline">
+            {hero.secondaryCta.label}
+          </Button>
+          <Button href={hero.cta.href} variant="solid">
+            {hero.cta.label}
+          </Button>
+        </div>
       </div>
 
       <div className="hero-fade-in hero-fade-in-delay-3 flex w-full flex-col items-center gap-1.5 px-6 pb-6 text-center sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:text-left md:px-10 md:pb-8 lg:px-14">
@@ -63,10 +84,8 @@ export default function Hero() {
         </p>
         <p className="text-[11px] font-medium uppercase tracking-wide text-foreground md:text-xs">
           <Link href={hero.roleHref} className="transition-opacity hover:opacity-60">
-            {hero.roles[0]}
+            Explore Role Fit
           </Link>
-          {" + "}
-          {hero.roles[1]}
         </p>
       </div>
     </section>
