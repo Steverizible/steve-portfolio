@@ -335,7 +335,7 @@ export const roleFitPage = {
       href: "/work/veldskoen-growth-story",
       outcome: "$0 → ~$250K/month within 12 months",
       capabilities: ["Branding", "Shopify", "Acquisition", "Packaging"],
-      image: "/images/projects/veldskoen-packaging.jpg",
+      image: "/images/projects/veldskoen-print.jpg",
     },
     {
       id: "invent-companies",
