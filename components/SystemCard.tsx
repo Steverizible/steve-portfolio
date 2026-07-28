@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
+import ImpactAtAGlance from "@/components/ImpactAtAGlance";
 import ZoomMedia from "@/components/ZoomMedia";
 import type { SystemCaseStudy } from "@/lib/systems-data";
 
@@ -64,6 +65,15 @@ export default function SystemCard({ system }: SystemCardProps) {
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/70 md:text-base">
             {system.description}
           </p>
+
+          {system.impactAtAGlance && (
+            <ImpactAtAGlance
+              impact={system.impactAtAGlance}
+              variant="card"
+              tone="dark"
+              className="mt-6"
+            />
+          )}
 
           <ul className="mt-5 flex flex-wrap gap-2" aria-label="System tags">
             {visibleTags.map((tag) => (

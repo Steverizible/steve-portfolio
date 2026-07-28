@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
+import ImpactAtAGlance from "@/components/ImpactAtAGlance";
 import ZoomMedia from "@/components/ZoomMedia";
 import type { Project } from "@/lib/site-data";
 import { projectImages } from "@/lib/images";
@@ -12,7 +13,10 @@ type ProjectCardProps = {
   variant?: "featured" | "selected";
 };
 
-export default function ProjectCard({ project, variant = "selected" }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  variant = "selected",
+}: ProjectCardProps) {
   const imageSrc = project.imageSrc ?? projectImages[project.id];
   const isWide = variant === "featured" && Boolean(project.featuredWide);
   const imageHeight = isWide
@@ -34,14 +38,12 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
       ? project.selectedYear
       : project.year;
 
-  const showMetrics =
-    variant === "featured" && Boolean(project.cardMetrics?.length);
+  const impact = project.impactAtAGlance;
+  const showFullImpact = variant === "featured" && Boolean(impact?.items.length);
+  const showCompactImpact =
+    variant === "selected" && Boolean(impact?.items.length);
   const showDescription = Boolean(project.cardDescription);
-  const metricCount = project.cardMetrics?.length ?? 0;
-  const metricsGridClass =
-    metricCount <= 3
-      ? "mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-3 md:mt-6"
-      : "mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-6 md:grid-cols-4";
+  const showBody = showDescription || showFullImpact || showCompactImpact;
 
   return (
     <Link
@@ -55,7 +57,10 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
       >
         <div className="relative h-full w-full">
           {imageSrc ? (
-            <ViewTransition name={`project-image-${project.id}`} share="project-morph">
+            <ViewTransition
+              name={`project-image-${project.id}`}
+              share="project-morph"
+            >
               <Image
                 src={imageSrc}
                 alt={`${label} — ${name}`}
@@ -89,26 +94,30 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
           </span>
         </div>
 
-        {(showDescription || showMetrics) && (
+        {showBody && (
           <div className="border-t border-white/10 px-4 pb-5 pt-4 md:px-5 md:pb-6 md:pt-5">
             {showDescription && (
               <p className="max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
                 {project.cardDescription}
               </p>
             )}
-            {showMetrics && (
-              <ul className={metricsGridClass}>
-                {project.cardMetrics?.map((metric) => (
-                  <li key={metric.label}>
-                    <p className="break-words text-2xl font-bold tracking-tight md:text-3xl">
-                      {metric.value}
-                    </p>
-                    <p className="mt-1 text-[11px] uppercase tracking-wide text-white/60 md:text-xs">
-                      {metric.label}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+
+            {showFullImpact && impact && (
+              <ImpactAtAGlance
+                impact={impact}
+                variant="card"
+                tone="dark"
+                className={showDescription ? "mt-6" : undefined}
+              />
+            )}
+
+            {showCompactImpact && impact && (
+              <ImpactAtAGlance
+                impact={impact}
+                variant="compact"
+                tone="dark"
+                className={showDescription ? "mt-2" : undefined}
+              />
             )}
           </div>
         )}

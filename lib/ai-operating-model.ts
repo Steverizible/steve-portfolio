@@ -492,8 +492,31 @@ export const aiBuildMethodPreview = {
   title: "How I Build With AI",
   titleLines: ["How I Build", "With AI"] as const,
   introduction:
-    "AI is part of how I discover problems, gather context, develop strategy, build products, connect tools, measure outcomes, and improve the next version.",
+    "A practical operating model for moving from customer problems and business context to products, workflows, measurement, and continuous improvement.",
   stages: ["Discover", "Decide", "Design", "Build", "Learn"] as const,
+  impactAtAGlance: {
+    eyebrow: "Impact at a Glance",
+    items: [
+      {
+        value: "9-Stage Model",
+        label: "From Problem Discovery to Continuous Improvement",
+        type: "methodology",
+        prominence: "primary",
+      },
+      {
+        value: "3 Types of Proof",
+        label: "Growth · Product · Operations",
+        type: "methodology",
+        prominence: "secondary",
+      },
+      {
+        value: "Human-Led",
+        label: "AI-Assisted Throughout",
+        type: "methodology",
+        prominence: "secondary",
+      },
+    ],
+  },
   proofs: [
     { label: "FisheWear", href: "/work/fishewear-growth-system" },
     { label: "Totely", href: "/work/totely-ai-storage" },
