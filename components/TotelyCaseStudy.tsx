@@ -5,8 +5,10 @@ import Link from "next/link";
 import { ViewTransition } from "react";
 import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
+import ProofGallery from "@/components/ProofGallery";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ZoomMedia from "@/components/ZoomMedia";
+import { totelyEvidenceGallery } from "@/lib/portfolio-evidence";
 import { totelyCaseStudy as data } from "@/lib/totely-case-study";
 import { projects, type Project } from "@/lib/site-data";
 
@@ -414,6 +416,11 @@ export default function TotelyCaseStudy({ project }: { project: Project }) {
               </li>
             ))}
           </ul>
+        </RevealOnScroll>
+
+        {/* Evidence gallery */}
+        <RevealOnScroll as="section" className={SECTION} id="evidence">
+          <ProofGallery section={totelyEvidenceGallery} />
         </RevealOnScroll>
 
         {/* Section 13 — Result */}

@@ -5,9 +5,11 @@ import Link from "next/link";
 import { ViewTransition } from "react";
 import PageChrome from "@/components/PageChrome";
 import ProjectCard from "@/components/ProjectCard";
+import ProofGallery from "@/components/ProofGallery";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ZoomMedia from "@/components/ZoomMedia";
 import { fishewearCaseStudy as data } from "@/lib/fishewear-case-study";
+import { fishewearEvidenceGallery } from "@/lib/portfolio-evidence";
 import { projects, type Project } from "@/lib/site-data";
 
 const SECTION = "mt-16 border-t border-border pt-12 md:mt-20 md:pt-16";
@@ -260,6 +262,11 @@ export default function FisheWearCaseStudy({ project }: { project: Project }) {
               {data.humanJudgment.body}
             </p>
           </div>
+        </RevealOnScroll>
+
+        {/* Evidence gallery */}
+        <RevealOnScroll as="section" className={SECTION} id="evidence">
+          <ProofGallery section={fishewearEvidenceGallery} />
         </RevealOnScroll>
 
         {/* Section 10 — The result */}

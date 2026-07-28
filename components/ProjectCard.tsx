@@ -72,6 +72,11 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
               {label}
             </p>
             <p className="mt-1 text-xs text-white/70 md:text-sm">{name}</p>
+            {project.evidenceLabel && (
+              <p className="mt-2 text-[11px] font-medium uppercase tracking-wide text-white/55 md:text-xs">
+                {project.evidenceLabel}
+              </p>
+            )}
           </div>
           <span className="shrink-0 rounded-full border border-white/30 px-3 py-1 text-xs font-medium">
             {year}
