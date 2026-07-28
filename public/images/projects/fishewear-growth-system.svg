@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Abstract composition of a connected growth system over water-inspired layers">
+  <defs>
+    <linearGradient id="fw-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef1f4"/>
+      <stop offset="1" stop-color="#dde5ec"/>
+    </linearGradient>
+    <linearGradient id="fw-water-a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b7d2e4"/>
+      <stop offset="1" stop-color="#6f97b6"/>
+    </linearGradient>
+    <linearGradient id="fw-water-b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe0ec"/>
+      <stop offset="1" stop-color="#8fb1c9"/>
+    </linearGradient>
+    <radialGradient id="fw-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f4f7f9"/>
+      <stop offset="1" stop-color="#f4f7f9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#fw-bg)"/>
+
+  <!-- soft horizon glow -->
+  <circle cx="1180" cy="360" r="300" fill="url(#fw-glow)"/>
+  <circle cx="1180" cy="360" r="120" fill="#e7eef3"/>
+
+  <!-- layered water / hill bands suggesting the outdoors -->
+  <path d="M0 720 C 340 640 560 700 820 700 C 1120 700 1360 620 1600 660 L1600 1000 L0 1000 Z" fill="url(#fw-water-b)" opacity="0.7"/>
+  <path d="M0 800 C 300 740 620 800 900 790 C 1200 780 1420 730 1600 760 L1600 1000 L0 1000 Z" fill="url(#fw-water-a)" opacity="0.9"/>
+
+  <!-- connected system / customer journey network -->
+  <g stroke="#41586a" stroke-width="3" opacity="0.55" fill="none" stroke-linecap="round">
+    <path d="M180 470 L440 380 L700 480 L960 360 L1220 470"/>
+  </g>
+  <g fill="#33485a">
+    <g opacity="0.9">
+      <circle cx="180" cy="470" r="16"/>
+      <circle cx="440" cy="380" r="16"/>
+      <circle cx="700" cy="480" r="16"/>
+      <circle cx="960" cy="360" r="16"/>
+      <circle cx="1220" cy="470" r="16"/>
+    </g>
+    <g fill="none" stroke="#33485a" stroke-width="2" opacity="0.4">
+      <circle cx="180" cy="470" r="30"/>
+      <circle cx="440" cy="380" r="30"/>
+      <circle cx="700" cy="480" r="30"/>
+      <circle cx="960" cy="360" r="30"/>
+      <circle cx="1220" cy="470" r="30"/>
+    </g>
+  </g>
+
+  <!-- concentric rings suggesting community / reach -->
+  <g fill="none" stroke="#6f97b6" stroke-width="2" opacity="0.35">
+    <circle cx="360" cy="250" r="60"/>
+    <circle cx="360" cy="250" r="100"/>
+    <circle cx="360" cy="250" r="140"/>
+  </g>
+</svg>

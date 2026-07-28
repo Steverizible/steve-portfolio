@@ -119,6 +119,7 @@ export function NavOverlay() {
                   if (event.key === "Enter" || event.key === " ") closeMenu();
                 }}
                 role="presentation"
+                className={project.featuredWide ? "sm:col-span-2" : ""}
               >
                 <ProjectCard project={project} variant="featured" />
               </div>

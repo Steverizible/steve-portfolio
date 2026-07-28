@@ -14,8 +14,12 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project, variant = "selected" }: ProjectCardProps) {
   const imageSrc = project.imageSrc ?? projectImages[project.id];
-  const imageHeight =
-    variant === "featured" ? "h-[280px] md:h-[360px]" : "h-[240px] md:h-[300px]";
+  const isWide = variant === "featured" && Boolean(project.featuredWide);
+  const imageHeight = isWide
+    ? "h-[300px] sm:h-[380px] lg:h-[460px]"
+    : variant === "featured"
+      ? "h-[280px] md:h-[360px]"
+      : "h-[240px] md:h-[300px]";
 
   const label =
     variant === "selected" && project.selectedLabel
@@ -29,6 +33,9 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
     variant === "selected" && project.selectedYear
       ? project.selectedYear
       : project.year;
+
+  const showMetrics = isWide && Boolean(project.cardMetrics?.length);
+  const showDescription = isWide && Boolean(project.cardDescription);
 
   return (
     <Link
@@ -48,7 +55,7 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
                 alt={`${label} — ${name}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes={isWide ? "100vw" : "(max-width: 768px) 100vw, 50vw"}
               />
             </ViewTransition>
           ) : (
@@ -58,16 +65,42 @@ export default function ProjectCard({ project, variant = "selected" }: ProjectCa
           )}
         </div>
       </ZoomMedia>
-      <div className="flex items-end justify-between gap-4 bg-foreground px-4 py-4 text-background md:px-5 md:py-5">
-        <div>
-          <p className="text-sm font-bold uppercase tracking-wide md:text-base">
-            {label}
-          </p>
-          <p className="mt-1 text-xs text-white/70 md:text-sm">{name}</p>
+      <div className="bg-foreground text-background">
+        <div className="flex items-end justify-between gap-4 px-4 py-4 md:px-5 md:py-5">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-wide md:text-base">
+              {label}
+            </p>
+            <p className="mt-1 text-xs text-white/70 md:text-sm">{name}</p>
+          </div>
+          <span className="shrink-0 rounded-full border border-white/30 px-3 py-1 text-xs font-medium">
+            {year}
+          </span>
         </div>
-        <span className="shrink-0 rounded-full border border-white/30 px-3 py-1 text-xs font-medium">
-          {year}
-        </span>
+
+        {(showDescription || showMetrics) && (
+          <div className="border-t border-white/10 px-4 pb-5 pt-4 md:px-5 md:pb-6 md:pt-5">
+            {showDescription && (
+              <p className="max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
+                {project.cardDescription}
+              </p>
+            )}
+            {showMetrics && (
+              <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:mt-6 md:grid-cols-4">
+                {project.cardMetrics?.map((metric) => (
+                  <li key={metric.label}>
+                    <p className="text-2xl font-bold tracking-tight md:text-3xl">
+                      {metric.value}
+                    </p>
+                    <p className="mt-1 text-[11px] uppercase tracking-wide text-white/60 md:text-xs">
+                      {metric.label}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
       </div>
     </Link>
   );

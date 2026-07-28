@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1250" role="img" aria-label="Editorial abstract collage connecting outdoor storytelling with digital growth pathways">
+  <defs>
+    <linearGradient id="fwh-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1f4f6"/>
+      <stop offset="1" stop-color="#dce4eb"/>
+    </linearGradient>
+    <linearGradient id="fwh-water-a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b7d2e4"/>
+      <stop offset="1" stop-color="#5f88a7"/>
+    </linearGradient>
+    <linearGradient id="fwh-water-b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d2e2ee"/>
+      <stop offset="1" stop-color="#84a8c2"/>
+    </linearGradient>
+    <linearGradient id="fwh-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaeff3"/>
+    </linearGradient>
+    <radialGradient id="fwh-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f6f9fb"/>
+      <stop offset="1" stop-color="#f6f9fb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="2000" height="1250" fill="url(#fwh-bg)"/>
+
+  <!-- soft sun / horizon over an outdoor scene -->
+  <circle cx="1520" cy="430" r="380" fill="url(#fwh-glow)"/>
+  <circle cx="1520" cy="440" r="150" fill="#e9f0f5"/>
+
+  <!-- layered hills / water -->
+  <path d="M0 860 C 380 780 720 860 1040 850 C 1420 838 1700 780 2000 820 L2000 1250 L0 1250 Z" fill="url(#fwh-water-b)" opacity="0.75"/>
+  <path d="M0 960 C 420 890 760 970 1120 960 C 1500 950 1760 900 2000 930 L2000 1250 L0 1250 Z" fill="url(#fwh-water-a)" opacity="0.92"/>
+
+  <!-- abstract interface fragments (no text, no fake dashboards) -->
+  <g opacity="0.92">
+    <rect x="150" y="250" width="360" height="240" rx="20" fill="url(#fwh-panel)" stroke="#d3dbe2" stroke-width="2"/>
+    <rect x="186" y="292" width="180" height="16" rx="8" fill="#c2ccd4"/>
+    <rect x="186" y="330" width="288" height="10" rx="5" fill="#dbe2e8"/>
+    <rect x="186" y="356" width="248" height="10" rx="5" fill="#dbe2e8"/>
+    <path d="M186 452 L246 420 L306 440 L366 398 L426 430 L474 410" fill="none" stroke="#6f97b6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g opacity="0.92">
+    <rect x="470" y="470" width="230" height="330" rx="24" fill="url(#fwh-panel)" stroke="#d3dbe2" stroke-width="2"/>
+    <rect x="470" y="470" width="230" height="120" rx="24" fill="#c9d8e4"/>
+    <rect x="502" y="622" width="150" height="14" rx="7" fill="#c2ccd4"/>
+    <rect x="502" y="654" width="166" height="9" rx="4" fill="#dbe2e8"/>
+    <rect x="502" y="676" width="120" height="9" rx="4" fill="#dbe2e8"/>
+    <rect x="502" y="726" width="110" height="30" rx="15" fill="#33485a"/>
+  </g>
+
+  <!-- connected customer-data pathways -->
+  <g stroke="#41586a" stroke-width="3.5" opacity="0.5" fill="none" stroke-linecap="round">
+    <path d="M300 640 C 560 640 620 360 900 380 C 1160 400 1240 620 1500 600"/>
+  </g>
+  <g>
+    <g fill="#33485a" opacity="0.95">
+      <circle cx="300" cy="640" r="17"/>
+      <circle cx="900" cy="380" r="17"/>
+      <circle cx="1500" cy="600" r="17"/>
+    </g>
+    <g fill="none" stroke="#33485a" stroke-width="2" opacity="0.4">
+      <circle cx="300" cy="640" r="32"/>
+      <circle cx="900" cy="380" r="32"/>
+      <circle cx="1500" cy="600" r="32"/>
+    </g>
+  </g>
+
+  <!-- community rings -->
+  <g fill="none" stroke="#6f97b6" stroke-width="2.5" opacity="0.32">
+    <circle cx="1580" cy="760" r="70"/>
+    <circle cx="1580" cy="760" r="120"/>
+    <circle cx="1580" cy="760" r="170"/>
+  </g>
+</svg>

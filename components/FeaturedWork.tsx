@@ -28,7 +28,11 @@ export default function FeaturedWork() {
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-20">
           {items.map((project, index) => (
-            <RevealOnScroll key={project.id} delayMs={(index % 2) * 80}>
+            <RevealOnScroll
+              key={project.id}
+              delayMs={(index % 2) * 80}
+              className={project.featuredWide ? "sm:col-span-2" : ""}
+            >
               <ProjectCard project={project} variant="featured" />
             </RevealOnScroll>
           ))}

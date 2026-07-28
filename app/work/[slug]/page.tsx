@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import FisheWearCaseStudy from "@/components/FisheWearCaseStudy";
 import ProjectPageContent from "@/components/ProjectPageContent";
 import { getProjectBySlug, projects } from "@/lib/site-data";
 
@@ -20,7 +21,11 @@ export default async function WorkProjectPage({
 
   return (
     <main className="w-full min-h-screen bg-background">
-      <ProjectPageContent key={project.id} project={project} />
+      {project.slug === "fishewear-growth-system" ? (
+        <FisheWearCaseStudy key={project.id} project={project} />
+      ) : (
+        <ProjectPageContent key={project.id} project={project} />
+      )}
     </main>
   );
 }
