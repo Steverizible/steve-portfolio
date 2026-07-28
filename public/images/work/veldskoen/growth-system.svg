@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1250" role="img" aria-label="Connected growth system suggesting product story through operational scale">
+  <rect width="2000" height="1250" fill="#111111"/>
+  <g fill="none" stroke="#2a2a2a" stroke-width="2">
+    <circle cx="1000" cy="625" r="420"/>
+    <circle cx="1000" cy="625" r="300"/>
+  </g>
+  <g fill="#1a1a1a" stroke="#c4a574" stroke-width="2">
+    <circle cx="1000" cy="220" r="54"/>
+    <circle cx="1380" cy="360" r="54"/>
+    <circle cx="1480" cy="700" r="54"/>
+    <circle cx="1240" cy="1000" r="54"/>
+    <circle cx="760" cy="1000" r="54"/>
+    <circle cx="520" cy="700" r="54"/>
+    <circle cx="620" cy="360" r="54"/>
+    <circle cx="1000" cy="625" r="70"/>
+  </g>
+  <path d="M1000 274 L1328 390 L1418 680 L1208 948 L792 948 L582 680 L672 390 Z" fill="none" stroke="#8a7350" stroke-width="2" opacity="0.55"/>
+  <circle cx="1000" cy="625" r="28" fill="#c4a574"/>
+</svg>

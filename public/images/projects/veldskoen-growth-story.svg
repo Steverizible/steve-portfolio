@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Editorial visual suggesting footwear storytelling and connected DTC growth">
+  <rect width="1600" height="1000" fill="#121212"/>
+  <rect x="0" y="0" width="1600" height="1000" fill="url(#vg)"/>
+  <defs>
+    <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1714"/>
+      <stop offset="55%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#1f1a16"/>
+    </linearGradient>
+  </defs>
+  <rect x="80" y="0" width="6" height="1000" fill="#2a2622"/>
+  <rect x="320" y="0" width="3" height="1000" fill="#24201c"/>
+  <rect x="980" y="0" width="3" height="1000" fill="#24201c"/>
+  <!-- Abstract sole silhouette -->
+  <path d="M220 620c40-120 140-190 280-190 90 0 150 30 210 70 70 48 150 78 240 78 120 0 210-40 280-110l40 34c-80 82-190 126-320 126-110 0-200-34-275-88-55-40-105-62-175-62-90 0-160 48-200 142z" fill="#2a241f" stroke="#c4a574" stroke-width="3"/>
+  <circle cx="1180" cy="280" r="120" fill="none" stroke="#c4a574" stroke-width="2" opacity="0.55"/>
+  <circle cx="1180" cy="280" r="72" fill="none" stroke="#8a7350" stroke-width="2" opacity="0.7"/>
+  <rect x="1080" y="520" width="360" height="220" rx="18" fill="#1b1815" stroke="#3a342c" stroke-width="2"/>
+  <rect x="1110" y="560" width="180" height="14" rx="7" fill="#c4a574" opacity="0.85"/>
+  <rect x="1110" y="600" width="280" height="10" rx="5" fill="#3a342c"/>
+  <rect x="1110" y="630" width="240" height="10" rx="5" fill="#322c26"/>
+  <rect x="1110" y="660" width="200" height="10" rx="5" fill="#2c2722"/>
+  <g fill="none" stroke="#c4a574" stroke-width="2" opacity="0.45">
+    <path d="M420 280h180"/><path d="M600 280h180"/><path d="M780 280h120"/>
+    <circle cx="420" cy="280" r="8"/><circle cx="600" cy="280" r="8"/><circle cx="780" cy="280" r="8"/><circle cx="900" cy="280" r="8"/>
+  </g>
+</svg>
