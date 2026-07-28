@@ -85,6 +85,8 @@ export type Project = {
   featuredWide?: boolean;
   /** Optional supporting description shown on emphasized cards. */
   cardDescription?: string;
+  /** Up to four short capability labels shown as quick-glance chips on the card. */
+  quickGlance?: string[];
   /**
    * Legacy flat metrics. Prefer `impactAtAGlance` for new work.
    * Kept only for backward compatibility during migration.
@@ -153,7 +155,8 @@ export const projects: Project[] = [
     featuredWide: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "Building a connected DTC growth operation across Shopify, Klaviyo, lifecycle marketing, content, creative, customer data, and AI-assisted workflows.",
+      "A connected DTC growth operation across Shopify, Klaviyo, content, creative, and AI-assisted workflows.",
+    quickGlance: ["DTC Growth", "Shopify", "Klaviyo", "AI Workflows"],
     impactAtAGlance: {
       eyebrow: "Impact at a Glance",
       items: [
@@ -200,7 +203,8 @@ export const projects: Project[] = [
     featured: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "I led Totely from market validation through product strategy, AI-assisted development, SEO architecture, marketing systems, and launch planning—creating both a searchable storage product and a reusable framework for building future startups faster.",
+      "Led Totely from market validation to a searchable storage product—and a reusable framework for launching future startups faster.",
+    quickGlance: ["Product Strategy", "AI Research", "Code + Apps", "SEO System"],
     impactAtAGlance: {
       eyebrow: "Impact at a Glance",
       items: [
@@ -245,13 +249,14 @@ export const projects: Project[] = [
     featured: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "Built and scaled the U.S. business by connecting product, brand positioning, Shopify, customer acquisition, creative, and disciplined DTC execution.",
+      "Built and scaled the U.S. business from launch to approximately $250K in monthly revenue within 12 months.",
+    quickGlance: ["Brand Growth", "Shopify", "Packaging", "Paid Acquisition"],
     impactAtAGlance: {
       eyebrow: "Impact at a Glance",
       items: [
         {
           value: "$0 → $250K/Month",
-          label: "Approximate Monthly Revenue",
+          label: "Monthly Revenue Growth",
           type: "commercial",
           prominence: "primary",
         },
@@ -268,8 +273,6 @@ export const projects: Project[] = [
           prominence: "secondary",
         },
       ],
-      guardrail:
-        "Historical U.S. business result based on internal operating history and résumé records. Revenue is approximate and does not represent profit.",
     },
   },
   {
@@ -340,7 +343,8 @@ export const projects: Project[] = [
     featured: true,
     evidenceLabel: "Case Study + Evidence",
     cardDescription:
-      "Built Slyde from product idea to nationally recognized surf brand by connecting product development, manufacturing, brand storytelling, e-commerce, investment, partnerships, and community.",
+      "Built Slyde from product idea to a nationally recognized surf brand, backed by $500K in outside investment.",
+    quickGlance: ["Product Design", "Manufacturing", "Investment", "Community"],
     impactAtAGlance: {
       eyebrow: "At a Glance",
       items: [
@@ -369,8 +373,6 @@ export const projects: Project[] = [
           prominence: "secondary",
         },
       ],
-      guardrail:
-        "Investment, team scope, and brand-development results are based on historical operating and résumé records. Supporting evidence is included or identified inside the case study.",
     },
     caseStudy: {
       title: "Slyde Handboards",

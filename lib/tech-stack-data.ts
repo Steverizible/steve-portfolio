@@ -169,8 +169,8 @@ export const techTools: TechTool[] = [
     category: "Operations & Collaboration",
     description:
       "Project planning, task coordination, and delivery tracking across teams.",
-    logoSrc: "/images/stack/clickup.avif",
-    logoAlt: "ClickUp",
+    logoSrc: "/logos/tech/clickup.svg",
+    logoAlt: "ClickUp logo",
     usageNote: "Used in current workflows",
   },
   {

@@ -43,7 +43,11 @@ export default function ProjectCard({
   const showCompactImpact =
     variant === "selected" && Boolean(impact?.items.length);
   const showDescription = Boolean(project.cardDescription);
-  const showBody = showDescription || showFullImpact || showCompactImpact;
+  const quickGlance =
+    variant === "featured" ? project.quickGlance?.slice(0, 4) : undefined;
+  const showQuickGlance = Boolean(quickGlance?.length);
+  const showBody =
+    showDescription || showQuickGlance || showFullImpact || showCompactImpact;
 
   return (
     <Link
@@ -102,12 +106,28 @@ export default function ProjectCard({
               </p>
             )}
 
+            {showQuickGlance && quickGlance && (
+              <ul
+                className={`flex flex-wrap gap-2 ${showDescription ? "mt-4" : ""}`}
+                aria-label="Capabilities"
+              >
+                {quickGlance.map((cap) => (
+                  <li
+                    key={cap}
+                    className="rounded-full border border-white/25 px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white/80 md:text-xs"
+                  >
+                    {cap}
+                  </li>
+                ))}
+              </ul>
+            )}
+
             {showFullImpact && impact && (
               <ImpactAtAGlance
                 impact={impact}
                 variant="card"
                 tone="dark"
-                className={showDescription ? "mt-6" : undefined}
+                className={showDescription || showQuickGlance ? "mt-6" : undefined}
               />
             )}
 
