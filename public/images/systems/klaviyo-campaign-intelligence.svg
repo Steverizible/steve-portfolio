@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Connected campaign system from data to creative drafts">
+  <rect width="1600" height="1000" fill="#141414"/>
+  <text x="80" y="110" font-family="ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="700" fill="#f5f5f5">Campaign Intelligence</text>
+  <text x="80" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" fill="#b0b0b0">Data ’ Strategy ’ Creative ’ Draft ’ Learn</text>
+
+  <!-- Data node -->
+  <g transform="translate(80 260)">
+    <rect width="280" height="200" rx="20" fill="#1c1c1c" stroke="#6b4ea8" stroke-width="3"/>
+    <text x="28" y="48" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#b79cf0">KLAVIYO</text>
+    <rect x="28" y="72" width="180" height="12" rx="6" fill="#333"/>
+    <rect x="28" y="100" width="140" height="10" rx="5" fill="#2a2a2a"/>
+    <rect x="28" y="128" width="160" height="10" rx="5" fill="#2a2a2a"/>
+    <text x="28" y="175" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#d0d0d0">Performance evidence</text>
+  </g>
+
+  <!-- Shopify node -->
+  <g transform="translate(420 260)">
+    <rect width="280" height="200" rx="20" fill="#1c1c1c" stroke="#4ea87a" stroke-width="3"/>
+    <text x="28" y="48" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#7fd4a8">SHOPIFY</text>
+    <rect x="28" y="72" width="120" height="70" rx="10" fill="#243028"/>
+    <rect x="160" y="72" width="90" height="12" rx="6" fill="#333"/>
+    <rect x="160" y="96" width="70" height="10" rx="5" fill="#2a2a2a"/>
+    <text x="28" y="175" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#d0d0d0">Verified products</text>
+  </g>
+
+  <!-- Airtable node -->
+  <g transform="translate(760 260)">
+    <rect width="280" height="200" rx="20" fill="#1c1c1c" stroke="#d96b4a" stroke-width="3"/>
+    <text x="28" y="48" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#f0a48c">AIRTABLE</text>
+    <rect x="28" y="72" width="224" height="18" rx="4" fill="#2e2420"/>
+    <rect x="28" y="100" width="224" height="18" rx="4" fill="#292929"/>
+    <rect x="28" y="128" width="224" height="18" rx="4" fill="#292929"/>
+    <text x="28" y="175" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#d0d0d0">Structured campaign record</text>
+  </g>
+
+  <!-- Figma / draft node -->
+  <g transform="translate(1100 260)">
+    <rect width="400" height="200" rx="20" fill="#1c1c1c" stroke="#6a9ad4" stroke-width="3"/>
+    <text x="28" y="48" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#9ec2f0">FIGMA ’ KLAVIYO DRAFT</text>
+    <rect x="28" y="72" width="150" height="90" rx="10" fill="#222"/>
+    <rect x="46" y="90" width="114" height="10" rx="5" fill="#3a3a3a"/>
+    <rect x="46" y="112" width="80" height="8" rx="4" fill="#333"/>
+    <rect x="200" y="72" width="170" height="90" rx="10" fill="#1a2030" stroke="#6a9ad4" stroke-width="2"/>
+    <text x="220" y="125" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#d8d8d8">Review-ready</text>
+  </g>
+
+  <!-- Loop -->
+  <path d="M220 520 C220 700, 1380 700, 1380 520" fill="none" stroke="#f3ba48" stroke-width="3" stroke-dasharray="10 12" opacity="0.8"/>
+  <text x="680" y="740" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="700" fill="#f3ba48">Measure ’ Learn ’ Plan Better</text>
+  <text x="80" y="900" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#a0a0a0">Human approval required before send</text>
+</svg>

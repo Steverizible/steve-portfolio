@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200" role="img" aria-label="Closed-loop campaign operating system stages">
+  <rect width="2000" height="1200" fill="#111111"/>
+  <text x="80" y="100" font-family="ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="700" fill="#f5f5f5">Operating loop</text>
+  <text x="80" y="150" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" fill="#b0b0b0">Plan ’ Create ’ Design ’ Review ’ Draft ’ Launch ’ Measure ’ Learn</text>
+
+  <!-- Row 1 -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(80 220)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#6b4ea8" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#b79cf0">01</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Objective</text>
+    </g>
+    <g transform="translate(400 220)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#6b4ea8" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#b79cf0">02</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Klaviyo Analysis</text>
+    </g>
+    <g transform="translate(720 220)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#4ea87a" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#7fd4a8">03</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Shopify Validation</text>
+    </g>
+    <g transform="translate(1040 220)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#d96b4a" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#f0a48c">04</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Strategy</text>
+    </g>
+    <g transform="translate(1360 220)">
+      <rect width="520" height="140" rx="18" fill="#1a1a1a" stroke="#d96b4a" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#f0a48c">0506</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Phased Plan + Airtable Record</text>
+    </g>
+  </g>
+
+  <!-- Row 2 -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(80 420)">
+      <rect width="420" height="140" rx="18" fill="#1a1a1a" stroke="#6a9ad4" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#9ec2f0">0708</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Figma Brief / Wireframe / Design</text>
+    </g>
+    <g transform="translate(540 420)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#f3ba48" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#f3ba48">09</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Human Review</text>
+    </g>
+    <g transform="translate(860 420)">
+      <rect width="320" height="140" rx="18" fill="#1a1a1a" stroke="#6b4ea8" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#b79cf0">10</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Klaviyo Draft</text>
+    </g>
+    <g transform="translate(1220 420)">
+      <rect width="280" height="140" rx="18" fill="#1a1a1a" stroke="#f3ba48" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#f3ba48">11</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Human Launch</text>
+    </g>
+    <g transform="translate(1540 420)">
+      <rect width="340" height="140" rx="18" fill="#1a1a1a" stroke="#6b4ea8" stroke-width="2"/>
+      <text x="24" y="48" font-size="16" font-weight="700" fill="#b79cf0">12</text>
+      <text x="24" y="88" font-size="20" font-weight="600" fill="#f0f0f0">Performance Analysis</text>
+    </g>
+  </g>
+
+  <!-- Loop back -->
+  <path d="M1710 580 C1710 780, 220 780, 220 360" fill="none" stroke="#f3ba48" stroke-width="4" stroke-dasharray="12 14"/>
+  <circle cx="220" cy="360" r="10" fill="#f3ba48"/>
+  <circle cx="1710" cy="560" r="10" fill="#f3ba48"/>
+  <text x="700" y="860" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="700" fill="#f3ba48">13 · Next Campaign Planning</text>
+  <text x="620" y="920" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" fill="#c0c0c0">Results return to Airtable and improve the next plan</text>
+  <text x="80" y="1080" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#9a9a9a">Conceptual workflow  no fake metrics or private account data</text>
+</svg>

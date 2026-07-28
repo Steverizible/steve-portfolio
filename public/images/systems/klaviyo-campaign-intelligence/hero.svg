@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200" role="img" aria-label="Hero visual for AI campaign intelligence system">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#1b1b1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="2000" height="1200" fill="url(#bg)"/>
+  <text x="100" y="130" font-family="ui-sans-serif, system-ui, sans-serif" font-size="44" font-weight="700" fill="#f5f5f5">From performance data</text>
+  <text x="100" y="190" font-family="ui-sans-serif, system-ui, sans-serif" font-size="44" font-weight="700" fill="#f3ba48">to review-ready campaigns</text>
+
+  <!-- Left column: evidence -->
+  <g transform="translate(100 280)">
+    <rect width="520" height="720" rx="28" fill="#1a1a1a" stroke="#6b4ea8" stroke-width="3"/>
+    <text x="40" y="70" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" fill="#b79cf0">01 · Evidence</text>
+    <rect x="40" y="110" width="440" height="70" rx="14" fill="#222"/>
+    <text x="64" y="154" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#d8d8d8">Klaviyo performance patterns</text>
+    <rect x="40" y="200" width="440" height="70" rx="14" fill="#222"/>
+    <text x="64" y="244" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#d8d8d8">Shopify product validation</text>
+    <rect x="40" y="290" width="440" height="70" rx="14" fill="#222"/>
+    <text x="64" y="334" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#d8d8d8">Audience + phase strategy</text>
+    <rect x="40" y="380" width="440" height="70" rx="14" fill="#222"/>
+    <text x="64" y="424" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#d8d8d8">Airtable campaign record</text>
+    <text x="40" y="540" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#a8a8a8">No fabricated dashboards.</text>
+    <text x="40" y="575" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#a8a8a8">Context before creative.</text>
+  </g>
+
+  <!-- Middle: creative frame -->
+  <g transform="translate(700 280)">
+    <rect width="520" height="720" rx="28" fill="#1a1a1a" stroke="#6a9ad4" stroke-width="3"/>
+    <text x="40" y="70" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" fill="#9ec2f0">02 · Creative</text>
+    <rect x="70" y="120" width="380" height="520" rx="18" fill="#111" stroke="#333" stroke-width="2"/>
+    <rect x="100" y="160" width="160" height="14" rx="7" fill="#3a3a3a"/>
+    <rect x="100" y="200" width="320" height="28" rx="8" fill="#2a2a2a"/>
+    <rect x="100" y="260" width="320" height="140" rx="12" fill="#222"/>
+    <rect x="100" y="430" width="150" height="90" rx="10" fill="#243028" stroke="#4ea87a" stroke-width="2"/>
+    <rect x="270" y="430" width="150" height="90" rx="10" fill="#243028" stroke="#4ea87a" stroke-width="2"/>
+    <rect x="100" y="545" width="200" height="40" rx="12" fill="#f3ba48"/>
+    <text x="200" y="572" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#111">CTA</text>
+  </g>
+
+  <!-- Right: draft + human -->
+  <g transform="translate(1300 280)">
+    <rect width="580" height="720" rx="28" fill="#1a1a1a" stroke="#f3ba48" stroke-width="3"/>
+    <text x="40" y="70" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" fill="#f3ba48">03 · Draft + Human Control</text>
+    <rect x="40" y="120" width="500" height="90" rx="16" fill="#222"/>
+    <text x="64" y="175" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#e8e8e8">Klaviyo draft prepared</text>
+    <rect x="40" y="240" width="500" height="90" rx="16" fill="#222"/>
+    <text x="64" y="295" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#e8e8e8">Designer / brand review</text>
+    <rect x="40" y="360" width="500" height="90" rx="16" fill="#222"/>
+    <text x="64" y="415" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#e8e8e8">Human schedules send</text>
+    <rect x="40" y="500" width="500" height="120" rx="18" fill="#201a10" stroke="#f3ba48" stroke-width="2"/>
+    <text x="70" y="555" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" fill="#f3ba48">Not autonomous</text>
+    <text x="70" y="595" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#d0d0d0">Approval required before launch</text>
+  </g>
+</svg>
