@@ -7,6 +7,7 @@ import TotelyCaseStudy from "@/components/TotelyCaseStudy";
 import VeldskoenCaseStudy from "@/components/VeldskoenCaseStudy";
 import { getProjectBySlug, projects, siteMeta } from "@/lib/site-data";
 import { slydeCaseStudy } from "@/lib/slyde-case-study";
+import { totelyCaseStudy } from "@/lib/totely-case-study";
 import { veldskoenCaseStudy } from "@/lib/veldskoen-case-study";
 
 const siteUrl =
@@ -28,7 +29,7 @@ function metadataForProject(slug: string): Metadata {
   const titles: Record<string, string> = {
     "fishewear-growth-system":
       "FisheWear Growth System | Steve Watts",
-    "totely-ai-storage": "Totely AI Storage System | Steve Watts",
+    "totely-ai-storage": totelyCaseStudy.metadata.title,
     "veldskoen-growth-story": veldskoenCaseStudy.metadata.title,
     "slyde-handboards": slydeCaseStudy.metadata.title,
   };
@@ -36,8 +37,7 @@ function metadataForProject(slug: string): Metadata {
   const descriptions: Record<string, string> = {
     "fishewear-growth-system":
       "Case study: building an AI-enabled DTC growth system across Shopify, Klaviyo, lifecycle marketing, content, creative production, and performance reporting for FisheWear.",
-    "totely-ai-storage":
-      "Case study: Totely by There’s A Spot For That — an AI-assisted physical and digital storage system from problem discovery to working product.",
+    "totely-ai-storage": totelyCaseStudy.metadata.description,
     "veldskoen-growth-story": veldskoenCaseStudy.metadata.description,
     "slyde-handboards": slydeCaseStudy.metadata.description,
   };
@@ -59,12 +59,19 @@ function metadataForProject(slug: string): Metadata {
           height: 630,
           alt: "Slyde Handboards",
         }
-      : {
-          url: "/images/og/og.png",
-          width: 1200,
-          height: 630,
-          alt: siteMeta.name,
-        };
+      : project.slug === "totely-ai-storage"
+        ? {
+            url: "/images/work/totely/hero.webp",
+            width: 1536,
+            height: 1024,
+            alt: "Totely AI product strategy case study",
+          }
+        : {
+            url: "/images/og/og.png",
+            width: 1200,
+            height: 630,
+            alt: siteMeta.name,
+          };
 
   return {
     title,
@@ -124,6 +131,30 @@ function CaseStudyForProject({
 function structuredDataForProject(
   project: NonNullable<ReturnType<typeof getProjectBySlug>>
 ) {
+  if (project.slug === "totely-ai-storage") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: totelyCaseStudy.metadata.title,
+      description: totelyCaseStudy.metadata.description,
+      url: `${siteUrl}/work/${project.slug}`,
+      author: {
+        "@type": "Person",
+        name: siteMeta.name,
+        url: siteUrl,
+        sameAs: [siteMeta.linkedInUrl],
+      },
+      about: [
+        "Totely",
+        "AI product strategy",
+        "Product development",
+        "Market validation",
+        "SEO and content systems",
+        "AI-assisted workflows",
+      ],
+    };
+  }
+
   if (project.slug === "veldskoen-growth-story") {
     return {
       "@context": "https://schema.org",

@@ -252,130 +252,255 @@ export const fishewearEvidenceGallery: EvidenceGallerySection = {
 
 export const totelyEvidenceGallery: EvidenceGallerySection = {
   projectId: "totely-ai-storage",
-  eyebrow: "The Evidence",
-  heading: "From Product Concept to Working System",
+  eyebrow: "THE EVIDENCE",
+  heading: "From Research and Validation to Working Product",
   introduction:
-    "Totely moved beyond positioning and interface concepts into a connected product ecosystem spanning the marketing site, application, storage workflow, physical labels, development process, and launch preparation.",
+    "Evidence spans research framing, product definition, the live marketing and application surfaces, SEO and content systems, and the reusable AI-assisted workflows used to move from problem discovery toward launch.",
   privacyFooter:
     "Private repository URLs, tokens, environment variables, authentication details, and personal account information must never appear in Totely evidence.",
+  methodologyFooter:
+    "Named internal PDFs (market research report, roadmap, SEO playbook) were not found in this repository. Temporary slots mark those gaps. Live marketing and public onboarding surfaces are the primary verified proof.",
   items: withImages([
+    {
+      id: "totely-market-research",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Market Research Synthesis",
+      description:
+        "Temporary slot for redacted market-research synthesis covering customer signal, demand language, and competitive framing used before build.",
+      whatItProves:
+        "Research directions informed product requirements and MVP boundaries before treating Totely as a technology-only project.",
+      status: "temporary",
+      category: "research",
+      toolLabel: "Research",
+      preferredPath:
+        "public/images/evidence/totely/market-research-redacted.svg",
+      imageSrc: "/images/evidence/totely/market-research-redacted.svg",
+      requiredAssetNote:
+        "Replace with a redacted excerpt from durable research artifacts when available. Do not invent interview counts, market size, or search volumes.",
+      replacementPriority: "high",
+      caption:
+        "Temporary placeholder for market-research synthesis pending a verified redacted artifact.",
+    },
+    {
+      id: "totely-pain-point-map",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Storage Trap / Pain-Point Map",
+      description:
+        "Illustrative diagram of the storage trap: identical containers, fading labels, and retrieval failure after filing.",
+      whatItProves:
+        "The product insight starts from retrieval failure, not prettier storage aesthetics.",
+      status: "illustrative",
+      category: "research",
+      toolLabel: "Concept",
+      preferredPath:
+        "public/images/evidence/totely/storage-container-trap.svg",
+      imageSrc: "/images/evidence/totely/storage-container-trap.svg",
+      caption:
+        "Illustrative map of traditional storage failures that Totely’s retrieval loop is designed to address.",
+    },
+    {
+      id: "totely-product-roadmap",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Product Roadmap Framing",
+      description:
+        "Temporary slot for a claim-safe roadmap separating MVP loop work from designed and future capabilities.",
+      whatItProves:
+        "Feature ambition was sequenced so marketed ideas are not confused with verified shipped behavior.",
+      status: "temporary",
+      category: "product",
+      toolLabel: "Product Strategy",
+      preferredPath:
+        "public/images/evidence/totely/product-roadmap-redacted.svg",
+      imageSrc: "/images/evidence/totely/product-roadmap-redacted.svg",
+      requiredAssetNote:
+        "Replace with a redacted roadmap artifact when available. Keep voice, sharing, AR, and smart-home items labeled designed/future.",
+      replacementPriority: "medium",
+      caption:
+        "Temporary placeholder for product-roadmap framing pending a verified redacted artifact.",
+    },
     {
       id: "totely-marketing-site",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Live Totely Marketing Experience",
+      title: "Live Marketing Experience",
       description:
-        "Verified local screenshot required of the public Totely marketing experience—hero, product explanation, and the number / photograph / find workflow.",
+        "Local screenshot of the public There's A Spot For That marketing experience explaining the product promise and Number → Snap → Review → Find workflow.",
       whatItProves:
-        "The product has a functioning public-facing marketing experience.",
-      status: "temporary",
+        "Totely has a functioning public-facing marketing experience that teaches the retrieval habit.",
+      status: "real",
       category: "product",
-      toolLabel: "Totely Marketing",
-      preferredPath: "public/images/evidence/totely/marketing-site.webp",
-      externalUrl: "https://totely.app",
-      requiredAssetNote:
-        "Capture a local screenshot from https://totely.app. Do not hotlink the live page image.",
-      replacementPriority: "high",
+      toolLabel: "Marketing Site",
+      preferredPath:
+        "public/images/evidence/totely/marketing-site-desktop.webp",
+      imageSrc: "/images/evidence/totely/marketing-site-desktop.webp",
+      externalUrl: "https://www.theresaspotforthat.com/",
+      replacementPriority: "low",
       caption:
-        "Temporary slot for a local screenshot of the live Totely marketing site explaining the storage workflow.",
+        "Real local screenshot of the live Totely marketing site at There's A Spot For That.",
+      span: "wide",
     },
     {
-      id: "totely-search",
+      id: "totely-marketing-mobile",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Natural-Language Search Experience",
+      title: "Marketing Site — Mobile",
       description:
-        "Verified screenshot required showing a search question, matching tote, storage location, related contents, and mobile interface.",
+        "Local mobile screenshot of the public marketing experience, including product explanation and free-entry messaging.",
       whatItProves:
-        "The product is designed around retrieval rather than complicated manual inventory management.",
+        "The marketing promise and onboarding message hold on mobile viewports.",
+      status: "real",
+      category: "product",
+      toolLabel: "Marketing Site",
+      preferredPath:
+        "public/images/evidence/totely/marketing-site-mobile.webp",
+      imageSrc: "/images/evidence/totely/marketing-site-mobile.webp",
+      externalUrl: "https://www.theresaspotforthat.com/",
+      replacementPriority: "low",
+      caption:
+        "Real local mobile screenshot of the Totely marketing experience.",
+    },
+    {
+      id: "totely-application",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Application Onboarding",
+      description:
+        "Public application onboarding surface for the core add, review, locate, and find workflow. Captured from the public onboarding experience.",
+      whatItProves:
+        "A working public application path supports the searchable container loop beyond marketing explanation.",
+      status: "real",
+      category: "product",
+      toolLabel: "Totely App",
+      preferredPath:
+        "public/images/evidence/totely/application-onboarding.webp",
+      imageSrc: "/images/evidence/totely/application-onboarding.webp",
+      methodologyNote:
+        "Screenshot reflects the public onboarding experience. Private authenticated inventory contents are not shown.",
+      replacementPriority: "low",
+      caption:
+        "Real public onboarding capture of the Totely application entry experience.",
+      span: "wide",
+    },
+    {
+      id: "totely-photo-capture",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Photo Cataloging Workflow",
+      description:
+        "Temporary slot for a verified capture of photo-based item documentation and AI-assisted first item list review.",
+      whatItProves:
+        "Capture is designed around photography and editable review rather than exhaustive manual typing alone.",
       status: "temporary",
       category: "product",
       toolLabel: "Totely App",
-      preferredPath: "public/images/evidence/totely/search-experience.webp",
+      preferredPath: "public/images/evidence/totely/photo-cataloging.svg",
+      imageSrc: "/images/evidence/totely/photo-cataloging.svg",
       requiredAssetNote:
-        "If the capture is not current production UI, set status to prototype before publishing.",
+        "Replace with a redacted in-app photo-capture and review screenshot. Blur personal contents if present.",
       replacementPriority: "high",
       caption:
-        "Temporary slot for a Totely search experience showing tote match and location context.",
+        "Temporary placeholder for photo-cataloging evidence pending a verified app capture.",
     },
     {
-      id: "totely-add-container",
+      id: "totely-seo-playbook",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Add a Container Workflow",
+      title: "SEO and Content Playbook",
       description:
-        "Verified screenshot required covering tote number, photos, location, optional details, and completion state.",
+        "Temporary slot for SEO topic structure and educational content planning aligned to storage and retrieval language.",
       whatItProves:
-        "The system provides a practical path from physical storage to searchable digital information.",
+        "Marketing education infrastructure was planned as a system (resources, use cases, FAQ), not only homepage copy.",
       status: "temporary",
-      category: "product",
-      toolLabel: "Totely App",
-      preferredPath: "public/images/evidence/totely/add-container-workflow.webp",
+      category: "workflow",
+      toolLabel: "SEO / Content",
+      preferredPath:
+        "public/images/evidence/totely/seo-playbook-redacted.svg",
+      imageSrc: "/images/evidence/totely/seo-playbook-redacted.svg",
       requiredAssetNote:
-        "Blur personal contents or private locations if present. Label prototype if not production.",
-      replacementPriority: "high",
+        "Named SEO playbook PDFs were not found in-repo. Replace with a redacted content map when available.",
+      replacementPriority: "medium",
       caption:
-        "Temporary slot for the add-a-container workflow from physical tote identity to digital record.",
+        "Temporary placeholder for SEO playbook evidence pending a verified redacted artifact.",
     },
     {
-      id: "totely-numbered-labels",
+      id: "totely-site-architecture",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Physical Numbered Label System",
+      title: "Site Architecture",
       description:
-        "Verified photography required of numbered tote labels in a realistic storage environment with consistent tote identity.",
+        "Illustrative information-architecture view of marketing explanation, resources, use cases, FAQ support, and path into the app.",
       whatItProves:
-        "The digital system is connected to a simple physical identity system.",
-      status: "temporary",
-      category: "product",
-      toolLabel: "Physical Product",
-      preferredPath: "public/images/evidence/totely/numbered-label-system.webp",
-      requiredAssetNote:
-        "Do not label AI-generated imagery as real. If only concept imagery exists, use status illustrative.",
-      replacementPriority: "high",
+        "Search-first product thinking shaped content structure and acquisition paths, not only in-app screens.",
+      status: "illustrative",
+      category: "creative",
+      toolLabel: "IA",
+      preferredPath: "public/images/evidence/totely/site-architecture.svg",
+      imageSrc: "/images/evidence/totely/site-architecture.svg",
       caption:
-        "Temporary slot for real numbered-label photography connecting physical containers to digital retrieval.",
+        "Illustrative site-architecture diagram for Totely marketing and education surfaces.",
     },
     {
-      id: "totely-development",
+      id: "totely-development-workflow",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Development and Repository Evidence",
+      title: "Development Workflow",
       description:
-        "Verified redacted development evidence required—repository activity, product components, or Cursor/GitHub workflow without secrets.",
+        "Temporary slot for redacted development collaboration evidence—repository activity or Cursor/GitHub workflow without secrets.",
       whatItProves:
-        "The project moved beyond concept design into application and website development.",
+        "The project moved beyond concept design into coordinated application and website development.",
       status: "temporary",
       category: "technical",
       toolLabel: "GitHub / Cursor",
       preferredPath:
-        "public/images/evidence/totely/development-evidence-redacted.webp",
+        "public/images/evidence/totely/development-workflow-redacted.svg",
+      imageSrc: "/images/evidence/totely/development-workflow-redacted.svg",
       requiredAssetNote:
         "Remove private repo URLs, tokens, emails, env vars, and authentication details before commit.",
       replacementPriority: "medium",
       privacyNote:
         "Private repository information, tokens, and credentials must be removed.",
       caption:
-        "Temporary slot for redacted development evidence showing real implementation work.",
+        "Temporary placeholder for redacted development-workflow evidence.",
+    },
+    {
+      id: "totely-ai-workflows",
+      projectId: "totely-ai-storage",
+      sectionId: "evidence",
+      title: "Reusable AI Workflow Library",
+      description:
+        "Illustrative library of reusable research-to-launch workflows keeping AI in an acceleration role and humans in a decision role.",
+      whatItProves:
+        "Totely doubled as a proving ground for transferable startup operating patterns, not only a single consumer product.",
+      status: "illustrative",
+      category: "workflow",
+      toolLabel: "AI Operating Model",
+      preferredPath: "public/images/evidence/totely/ai-workflow-library.svg",
+      imageSrc: "/images/evidence/totely/ai-workflow-library.svg",
+      caption:
+        "Illustrative view of reusable AI-assisted workflows packaged from the Totely build.",
     },
     {
       id: "totely-launch-preparation",
       projectId: "totely-ai-storage",
       sectionId: "evidence",
-      title: "Launch and App Store Preparation",
+      title: "Launch Preparation",
       description:
-        "Verified screenshot required of app icon, mobile screenshots, listing copy, privacy/support preparation, or device layouts.",
+        "Temporary slot for launch readiness materials—onboarding copy, support paths, pricing-message framing—without implying App Store approval.",
       whatItProves:
-        "The product was prepared as a real launchable digital experience.",
+        "Public launch surfaces were prepared with free-entry messaging and One-Tote Test onboarding logic.",
       status: "temporary",
       category: "implementation",
       toolLabel: "Launch Prep",
-      preferredPath: "public/images/evidence/totely/launch-preparation.webp",
+      preferredPath: "public/images/evidence/totely/launch-preparation.svg",
+      imageSrc: "/images/evidence/totely/launch-preparation.svg",
       requiredAssetNote:
-        "Do not claim App Store approval or public iOS release unless verified. Use prototype status for prep-only materials.",
+        "Do not claim App Store approval or public iOS release unless verified.",
       replacementPriority: "medium",
       caption:
-        "Temporary slot for launch-preparation materials without implying App Store approval.",
+        "Temporary placeholder for launch-preparation materials without implying App Store approval.",
     },
   ]),
 };
